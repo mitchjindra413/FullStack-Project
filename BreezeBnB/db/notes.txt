@@ -1,0 +1,1 @@
+rails g model name -> create migrate file and model
