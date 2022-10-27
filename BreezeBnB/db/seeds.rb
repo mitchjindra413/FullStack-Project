@@ -23,5 +23,14 @@ ApplicationRecord.transaction do
     bio: 'test 123'
   )
 
+  User.create!(
+    first_name: 'Mitchell',
+    last_name: 'Jindra',
+    email: 'jindra.mitch@gmail.com',
+    birthdate: '1998-04-13',
+    password: 'password',
+    bio: 'test test'
+  )
+
   puts "Done!"
 end
