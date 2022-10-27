@@ -1,15 +1,18 @@
 {
-  "name": "breeze",
+  "name": "frontend",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
+    "@testing-library/react": "^11.2.7",
+    "@testing-library/user-event": "^12.8.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-redux": "^8.0.4",
+    "react-router-dom": "^5.3.4",
     "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+    "redux": "^4.2.0",
+    "redux-thunk": "^2.4.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,10 +21,7 @@
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
-    "extends": [
-      "react-app",
-      "react-app/jest"
-    ]
+    "extends": "react-app"
   },
   "browserslist": {
     "production": [
@@ -34,5 +34,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "redux-logger": "^3.0.6"
   }
 }

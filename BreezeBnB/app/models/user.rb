@@ -29,7 +29,7 @@ class User < ApplicationRecord
     #     source: :listings
 
     def self.find_by_credentials(email, password)
-        user = User.find_by(email: eamil)
+        user = User.find_by(email: email)
         if user&.authenticate(password)
             user
         else
@@ -38,7 +38,7 @@ class User < ApplicationRecord
     end
 
     def reset_session_token! 
-        self.session_token = generate_unqique_session_token
+        self.session_token = generate_session_token
         self.save!
         self.session_token
     end

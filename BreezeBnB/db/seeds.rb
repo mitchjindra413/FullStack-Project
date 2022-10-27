@@ -18,8 +18,9 @@ ApplicationRecord.transaction do
     first_name: 'Demo',
     last_name: 'Demoington',
     email: 'demo@user.io',
-    birthdate: DateTime.parse("2000-01-01"),
-    password: 'password'
+    birthdate: "2000-01-01",
+    password: 'password',
+    bio: 'test 123'
   )
 
   puts "Done!"
