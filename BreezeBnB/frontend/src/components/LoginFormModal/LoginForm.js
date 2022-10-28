@@ -29,15 +29,26 @@ export const LoginForm = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
+        <form id='login' onSubmit={handleSubmit}>
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
             <label>Email
-                <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}>Email</input>
+                <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                />
             </label>
             <label>
-                <ul type="password" value={password} onChange={(e) => setPassword(e.target.value)}>Password</ul>
+                Password
+                <input
+                    type="password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                    required
+                />
             </label>
             <button type="submit">Log in</button>
         </form>

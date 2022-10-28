@@ -1,0 +1,17 @@
+nav {
+    display: flex;
+    justify-content:space-around;
+}
+
+
+
+#nav-button-pics {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.profile-dropdown {
+    
+}
+
