@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
 import { logout } from "../../store/session"
-import { LoginFormModal } from "../LoginFormModal"
+import { showModal, showSignupModal } from "../../store/ui"
+
 
 export const NavButton = () => {
     const dispatch = useDispatch()
@@ -25,13 +26,39 @@ export const NavButton = () => {
         return () => document.removeEventListener('click', closeMenu)
     }, [showMenu])
 
+    const handleSignupButton = (e) => {
+        e.preventDefault();
+        dispatch(showSignupModal());
+    };
 
+    const handleLoginButton = () => {
+        dispatch(showModal())
+    }
+
+    const whichButtons = () => {
+        if(showMenu && !user) {
+            return (
+                <ul className = "profile-dropdown" >
+                    <li><button onClick={handleLoginButton}>Log in</button></li>
+                    <li><button onClick={handleSignupButton}>Sign up</button></li>
+                </ul >
+            )
+        } else if (showMenu && user) {
+            return (
+            <ul className="profile-dropdown">
+                <li>
+                    <button onClick={logout}>Log Out</button>
+                </li>
+            </ul>
+            )
+        }
+    }
 
     return (
         <>
-            <div>
-                <button id="nav-button" onClick={openMenu}>
-                    <div id="nav-button-pics">
+            <div id='button-dropdown'>
+                <button id="nav-button" onClick={openMenu} style={showMenu ? { boxShadow: '0 0 10px 2px #dddddd' } : {} }>
+                    <div id="nav-button-pics" >
                         <div id='three-bars'>
                             <i className="fa-sharp fa-solid fa-bars"></i>
                         </div>
@@ -40,20 +67,9 @@ export const NavButton = () => {
                         </div>
                     </div>
                 </button>
+                {whichButtons()}
             </div>
-            <div id='dropdown-menu'>
-                {!user &&(
-                    <div id='not-logged-in'>
-                        <LoginFormModal></LoginFormModal>
-                        <button>Sign up</button>
-                    </div>
-                    
-                )}
-                {user && (
-                    <div id=''>
-                    </div>
-                )}
-            </div> 
         </>
+
     )
 }

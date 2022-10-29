@@ -1,0 +1,91 @@
+#login-form{
+    min-height: 568px;
+    min-width: 522px;
+    margin: 20px;
+}
+
+#login-form header {
+    display: flex;
+    justify-content: center;
+}
+
+#login-form header div {
+    min-width: 42%;
+}
+
+#login-form header h3 {
+    min-width: 50%;
+    font-weight: bold;
+}
+
+#login-title {
+    font-size: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+#login-form div {
+    padding-bottom: 10px;
+}
+
+#login-form input {
+    display: block;
+    width: 100%;
+    border: 1px black solid;
+    height: 50px;
+    border-radius: 10px;
+    font-size: 25px;
+    padding-left: 10px;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#submit-div {
+    padding-top: 20px;
+}
+
+#login-submit {
+    width: 100%;
+    height: 50px;
+    /* background-color: #FF5A5F; */
+    color: white;
+    background-image: radial-gradient(circle at center center, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%);
+    border-radius: 10px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+        box-sizing: border-box;
+}
+
+#line-div {
+    padding-top: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#or {
+    display: inline-block;
+    padding-left: 2.5%;
+    padding-right: 2.5%;
+    font-weight: 100;
+}
+
+.line {
+    width: 45%;
+    
+    display: inline-block;
+}
+
+.other-buttons-login {
+    width: 100%;
+    height: 50px;
+    text-align: center;
+    border: 1px black solid;
+    border-radius: 10px;
+}
+
+.other-buttons-login:hover {
+    background-color: #F1F1F1;
+}

@@ -1,21 +1,24 @@
 import { useState } from "react"
 import { useDispatch } from "react-redux"
-import { login } from "../../store/session"
-import './LoginForm.css'
+import { signup } from "../../store/session"
+import './SignupForm.css'
 import { hideModal } from "../../store/ui"
 
-export const LoginForm = () => {
+export const SignupForm = () => {
     const dispatch = useDispatch()
-    
+
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
+    const [birthdate, setBirthdate] = useState('')
+    const [first_name, setFirstName] = useState('')
+    const [last_name, setLastName] = useState('')
     const [errors, setErrors] = useState([])
 
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors([])
 
-        return dispatch(login({ email, password }))
+        return dispatch(signup({ email, password, birthdate, first_name, last_name }))
             .catch(async (res) => {
                 let data;
                 try {
@@ -30,18 +33,45 @@ export const LoginForm = () => {
     }
 
     return (
-        <form id='login-form' onSubmit={handleSubmit}>
+        <form id='signup-form' onSubmit={handleSubmit}>
             <header>
                 <div>
                     <button onClick={() => dispatch(hideModal())}>X</button>
                 </div>
-                <h3>Log in</h3>
+                <h3>Sign up</h3>
             </header>
-                <hr></hr>
+            <hr></hr>
             <h1 id="login-title">Welcome to Breezebnb</h1>
             <ul>
                 {errors.map(error => <li key={error}>{error}</li>)}
             </ul>
+            <div>
+                <input
+                    type="text"
+                    value={first_name}
+                    onChange={(e) => setFirstName(e.target.value)}
+                    required
+                    placeholder="First Name"
+                />
+            </div>
+            <div>
+                <input
+                    type="text"
+                    value={last_name}
+                    onChange={(e) => setLastName(e.target.value)}
+                    required
+                    placeholder="Last Name"
+                />
+            </div>
+            <div>
+                <input
+                    type="date"
+                    value={birthdate}
+                    onChange={(e) => setBirthdate(e.target.value)}
+                    required
+                    placeholder="Birthdate: YYYY-MM-DD"
+                />
+            </div>
             <div>
                 <input
                     type="email"
@@ -59,18 +89,6 @@ export const LoginForm = () => {
                     required
                     placeholder="Password"
                 />
-            </div>
-            <div id='submit-div'>
-                <button id='login-submit' type="submit">Log in</button>
-            </div>
-            <div id='line-div'>
-                <div className="line"><hr></hr></div>
-                    <div id='or'>or</div>
-                <div className="line"><hr></hr></div>
-            </div>
-            <div id='other-buttons-div'>
-                <button className='other-buttons-login'>Log in with demo</button>
-                <button className='other-buttons-login'>Creator's github</button>
             </div>
         </form>
     )

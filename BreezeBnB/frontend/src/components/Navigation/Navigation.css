@@ -1,17 +1,64 @@
 nav {
     display: flex;
     justify-content:space-around;
+    padding-top: 17px;
 }
 
+#button-dropdown {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
 
+#nav-button {
+    width: 70px;
+    border: 1px solid #dddddd;
+    border-radius: 21px;
+    padding: 5px;
+    
+}
 
 #nav-button-pics {
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-left: 4px;
+}
+
+
+#nav-button:hover {
+    box-shadow: 0 0 5px 0.5px #dddddd;
+    padding: 5;
+    transition: box-shadow 0.2s ease;
+        transition-property: box-shadow;
+        transition-duration: 0.2s;
+        transition-timing-function: ease;
+        transition-delay: 0s;
 }
 
 .profile-dropdown {
+    position: absolute;
+    top: 70px;
+    right: 14vw;
+    z-index: 10;
+    box-shadow: 0 0 10px 0.5px #dddddd;
+    border-radius: 10px;
+    min-width: 200px;
+    min-height: 90px;
     
 }
 
+.profile-dropdown li {
+    margin: 10px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: 200;
+    border-radius: 10px;
+}
+
+
+.profile-dropdown li:hover {
+    background-color: #F1F1F1;
+}
