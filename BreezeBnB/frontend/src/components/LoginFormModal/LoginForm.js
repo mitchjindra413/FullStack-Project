@@ -15,6 +15,7 @@ export const LoginForm = () => {
         e.preventDefault()
         setErrors([])
 
+
         return dispatch(login({ email, password }))
             .catch(async (res) => {
                 let data;
@@ -27,10 +28,12 @@ export const LoginForm = () => {
                 else if (data) setErrors([data])
                 else setErrors([res.statusText])
             })
+            
+
     }
 
     return (
-        <form id='login-form' onSubmit={handleSubmit}>
+        <form className='modal-form' onSubmit={handleSubmit}>
             <header>
                 <div>
                     <button onClick={() => dispatch(hideModal())}>X</button>
@@ -60,8 +63,8 @@ export const LoginForm = () => {
                     placeholder="Password"
                 />
             </div>
-            <div id='submit-div'>
-                <button id='login-submit' type="submit">Log in</button>
+            <div className='submit-div'>
+                <button type="submit">Log in</button>
             </div>
             <div id='line-div'>
                 <div className="line"><hr></hr></div>

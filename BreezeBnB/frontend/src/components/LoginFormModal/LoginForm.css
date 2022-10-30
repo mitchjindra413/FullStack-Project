@@ -1,19 +1,15 @@
-#login-form{
-    min-height: 568px;
-    min-width: 522px;
-    margin: 20px;
-}
 
-#login-form header {
+
+.modal-form header {
     display: flex;
     justify-content: center;
 }
 
-#login-form header div {
+.modal-form header div {
     min-width: 42%;
 }
 
-#login-form header h3 {
+.modal-form header h3 {
     min-width: 50%;
     font-weight: bold;
 }
@@ -24,11 +20,11 @@
     padding-bottom: 20px;
 }
 
-#login-form div {
+.modal-form div {
     padding-bottom: 10px;
 }
 
-#login-form input {
+.modal-form input {
     display: block;
     width: 100%;
     border: 1px black solid;
@@ -42,11 +38,11 @@
     box-sizing: border-box;
 }
 
-#submit-div {
+.submit-div {
     padding-top: 20px;
 }
 
-#login-submit {
+.submit-div button {
     width: 100%;
     height: 50px;
     /* background-color: #FF5A5F; */

@@ -47,7 +47,7 @@ export const NavButton = () => {
             return (
             <ul className="profile-dropdown">
                 <li>
-                    <button onClick={logout}>Log Out</button>
+                    <button onClick={() => dispatch(logout())}>Log Out</button>
                 </li>
             </ul>
             )
@@ -57,7 +57,7 @@ export const NavButton = () => {
     return (
         <>
             <div id='button-dropdown'>
-                <button id="nav-button" onClick={openMenu} style={showMenu ? { boxShadow: '0 0 10px 2px #dddddd' } : {} }>
+                <button id="nav-button" onClick={openMenu} style={showMenu ? { boxShadow: '0 0 5px 0.5px #dddddd' } : {} }>
                     <div id="nav-button-pics" >
                         <div id='three-bars'>
                             <i className="fa-sharp fa-solid fa-bars"></i>

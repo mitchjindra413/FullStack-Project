@@ -9,3 +9,9 @@
 body {
     background-color: white;
 }
+
+.modal-form {
+    min-height: 568px;
+    min-width: 522px;
+    margin: 20px;
+}

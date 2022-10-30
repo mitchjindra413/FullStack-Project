@@ -1,4 +1,5 @@
 import csrfFetch, { storeCSRFToken } from "./csrf"
+import { hideModal } from "./ui"
 
 const SET_CURRENT_USER = 'session/setCurrentUser'
 const REMOVE_CURRENT_USER = 'session/removeCurrentUser'
@@ -28,6 +29,9 @@ export const login = (user) => async dispatch => {
     
     const data = await res.json()
     dispatch(setCurrentUser(data.user))
+    if(res.ok){
+        dispatch(hideModal())
+    }
     return res
 }
 
@@ -67,6 +71,7 @@ export const signup = (user) => async dispatch => {
         const data = await res.json()
         storeCurrentUser(data.user)
         dispatch(setCurrentUser(data.user))
+        dispatch(hideModal())
     }
     return res
 }

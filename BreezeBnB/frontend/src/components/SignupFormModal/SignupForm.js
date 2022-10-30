@@ -33,7 +33,7 @@ export const SignupForm = () => {
     }
 
     return (
-        <form id='signup-form' onSubmit={handleSubmit}>
+        <form className='modal-form' onSubmit={handleSubmit}>
             <header>
                 <div>
                     <button onClick={() => dispatch(hideModal())}>X</button>
@@ -69,7 +69,7 @@ export const SignupForm = () => {
                     value={birthdate}
                     onChange={(e) => setBirthdate(e.target.value)}
                     required
-                    placeholder="Birthdate: YYYY-MM-DD"
+                    placeholder="Birthdate"
                 />
             </div>
             <div>
@@ -89,6 +89,12 @@ export const SignupForm = () => {
                     required
                     placeholder="Password"
                 />
+            </div>
+            <div id='terms'>
+                <p >By selecting Agree and continue, I agree to Breezebnb's Terms of service and to checkout the creator's socials.</p>
+            </div>
+            <div className='submit-div'>
+                <button type="submit">Agree and continue</button>
             </div>
         </form>
     )
