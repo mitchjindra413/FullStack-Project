@@ -1,0 +1,23 @@
+json.listing do
+  json.extract! @listing,
+    :owner_id,
+    :street_address,
+    :apt,
+    :city,
+    :zip_code,
+    :state,
+    :country,
+    :lat,
+    :long,
+    :tags,
+    :property_type,
+    :max_guests,
+    :night_price,
+    :cleaning_fee,
+    :description,
+    :num_bedrooms,
+    :num_beds,
+    :num_baths,
+    :amenities,
+    :tag_line
+end

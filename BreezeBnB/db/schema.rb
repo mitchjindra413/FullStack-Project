@@ -34,6 +34,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_042037) do
     t.integer "num_beds", null: false
     t.integer "num_baths", null: false
     t.string "amenities", default: ""
+    t.string "tag_line", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["city"], name: "index_listings_on_city"

@@ -9,7 +9,9 @@ export const Navigation = () => {
     const modal = useSelector(state => state.ui.modal)
     return (
         <nav>
-            <div>Logo</div>
+            <div>
+                <img src='../../assets/airbnb_logo_icon_170605.png'></img>
+            </div>
             <div>Search Bar</div>
             <NavButton />
             {modal === 'login' && (<LoginFormModal />)}  

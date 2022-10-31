@@ -20,6 +20,7 @@ class CreateListings < ActiveRecord::Migration[7.0]
       t.integer :num_beds, null: false
       t.integer :num_baths, null: false
       t.string :amenities, default: ''
+      t.string :tag_line, null: false
       t.timestamps
     end
   end

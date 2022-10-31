@@ -27,7 +27,8 @@
 .modal-form input {
     display: block;
     width: 100%;
-    border: 1px black solid;
+    border: 1px #dcdcdc solid;
+    font-weight: 200;
     height: 50px;
     border-radius: 10px;
     font-size: 25px;

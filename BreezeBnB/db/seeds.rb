@@ -53,7 +53,8 @@ ApplicationRecord.transaction do
   num_bedrooms: 0,
   num_beds: 1,
   num_baths: 1,
-  amenities: 'Wifi Kitchen Washer'
+  amenities: 'Wifi Kitchen Washer',
+  tag_line: 'Heart of Oakland'
   )
 
   puts "Done!"
