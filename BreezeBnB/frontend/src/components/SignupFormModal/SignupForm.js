@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { useDispatch } from "react-redux"
 import { signup } from "../../store/session"
 import './SignupForm.css'
@@ -6,7 +6,7 @@ import { hideModal } from "../../store/ui"
 
 export const SignupForm = () => {
     const dispatch = useDispatch()
-
+    
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
     const [birthdate, setBirthdate] = useState('')
@@ -66,12 +66,13 @@ export const SignupForm = () => {
                 />
             </div>
             <div>
-                <input
-                    type="date"
-                    value={birthdate}
-                    onChange={(e) => setBirthdate(e.target.value)}
-                    required
-                    placeholder="Birthdate"
+                <input 
+                placeholder="Birthdate" 
+                type="text" 
+                onFocus={(e) => (e.target.type = 'date')}
+                onBlur={(e) => (e.target.type = 'text')}
+                value={birthdate}
+                onChange={(e) => setBirthdate(e.target.value)}
                 />
             </div>
             <div>

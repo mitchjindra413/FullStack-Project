@@ -9,9 +9,11 @@
 ApplicationRecord.transaction do 
   puts "Destroying tables..."
   User.destroy_all
+  Listing.destroy_all
 
   puts "Resetting primary keys..."
   ApplicationRecord.connection.reset_pk_sequence!('users')
+  ApplicationRecord.connection.reset_pk_sequence!('listings')
 
   puts "Creating users..."
   User.create!(
@@ -30,6 +32,28 @@ ApplicationRecord.transaction do
     birthdate: '1998-04-13',
     password: 'password',
     bio: 'test test'
+  )
+
+  Listing.create!(
+  owner_id: 2,
+  street_address: '1515 Webster St',
+  apt: 'Apt 421',
+  city: 'Oakland',
+  zip_code: '94612',
+  state: 'CA',
+  country: 'United States of America',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'Mitch OMG',
+  property_type: 'Apartment',
+  max_guests: 3,
+  night_price: 70,
+  cleaning_fee: 10,
+  description: 'Lovely studio in the heart of downtown Oakland. Close to bart station making it easy to get anywhere in the Bay.',
+  num_bedrooms: 0,
+  num_beds: 1,
+  num_baths: 1,
+  amenities: 'Wifi Kitchen Washer'
   )
 
   puts "Done!"

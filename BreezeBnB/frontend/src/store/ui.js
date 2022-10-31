@@ -2,7 +2,7 @@ const SHOW_MODAL = 'ui/SHOW_LOGIN_MODAL'
 const HIDE_MODAL = 'ui/HIDE_LOGIN_MODAL'
 
 const SHOW_SIGNUP_MODAL = 'ui/SHOW_SIGNUP_MODAL'
-const HIDE_SIGNUP_MODAL = 'ui/HIDE_SIGNUP_MODAL'
+
 
 export const showModal = () => ({
     type: SHOW_MODAL

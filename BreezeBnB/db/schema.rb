@@ -16,28 +16,30 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_30_042037) do
 
   create_table "listings", force: :cascade do |t|
     t.bigint "owner_id", null: false
-    t.string "address", null: false
     t.string "street_address", null: false
+    t.string "apt"
     t.string "city", null: false
     t.string "zip_code", null: false
     t.string "state", null: false
     t.string "country", null: false
-    t.string "tags", default: [], array: true
+    t.float "lat", null: false
+    t.float "long", null: false
+    t.string "tags", default: ""
     t.string "property_type", null: false
     t.integer "max_guests", null: false
     t.integer "night_price", null: false
     t.integer "cleaning_fee", null: false
     t.text "description", null: false
     t.integer "num_bedrooms", null: false
+    t.integer "num_beds", null: false
     t.integer "num_baths", null: false
-    t.string "amenities", default: [], array: true
-    t.string "image_urls", default: [], array: true
+    t.string "amenities", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["address"], name: "index_listings_on_address", unique: true
     t.index ["city"], name: "index_listings_on_city"
     t.index ["country"], name: "index_listings_on_country"
     t.index ["owner_id"], name: "index_listings_on_owner_id"
+    t.index ["state"], name: "index_listings_on_state"
   end
 
   create_table "users", force: :cascade do |t|

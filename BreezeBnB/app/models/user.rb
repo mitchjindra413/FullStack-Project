@@ -19,7 +19,7 @@ class User < ApplicationRecord
 
     has_many :listings,
         foreign_key: :owner_id,
-        class_name: :Listings,
+        class_name: :Listing,
         dependent: :destroy
 
 
