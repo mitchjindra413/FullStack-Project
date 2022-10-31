@@ -67,10 +67,11 @@ export const signup = (user) => async dispatch => {
         })
     })
 
+    const data = await res.json()
+    storeCurrentUser(data.user)
+    dispatch(setCurrentUser(data.user))
+    
     if(res.ok){
-        const data = await res.json()
-        storeCurrentUser(data.user)
-        dispatch(setCurrentUser(data.user))
         dispatch(hideModal())
     }
     return res

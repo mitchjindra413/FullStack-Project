@@ -10,9 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_190035) do
+ActiveRecord::Schema[7.0].define(version: 2022_10_30_042037) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "listings", force: :cascade do |t|
+    t.bigint "owner_id", null: false
+    t.string "address", null: false
+    t.string "street_address", null: false
+    t.string "city", null: false
+    t.string "zip_code", null: false
+    t.string "state", null: false
+    t.string "country", null: false
+    t.string "tags", default: [], array: true
+    t.string "property_type", null: false
+    t.integer "max_guests", null: false
+    t.integer "night_price", null: false
+    t.integer "cleaning_fee", null: false
+    t.text "description", null: false
+    t.integer "num_bedrooms", null: false
+    t.integer "num_baths", null: false
+    t.string "amenities", default: [], array: true
+    t.string "image_urls", default: [], array: true
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["address"], name: "index_listings_on_address", unique: true
+    t.index ["city"], name: "index_listings_on_city"
+    t.index ["country"], name: "index_listings_on_country"
+    t.index ["owner_id"], name: "index_listings_on_owner_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "first_name", null: false
@@ -28,4 +54,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_190035) do
     t.index ["session_token"], name: "index_users_on_session_token", unique: true
   end
 
+  add_foreign_key "listings", "users", column: "owner_id"
 end

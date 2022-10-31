@@ -13,9 +13,15 @@ class User < ApplicationRecord
 
     def validate_age
         if birthdate.present? && birthdate > (DateTime.now - (18 * 365))
-            errors.add(:birthdate, 'You must be at least 18 years to sign-up.')
+            errors.add(:birthdate, 'must be at least 18 years to sign-up')
         end
     end
+
+    has_many :listings,
+        foreign_key: :owner_id,
+        class_name: :Listings,
+        dependent: :destroy
+
 
     # TODO uncomment
     # has_many :reviews,

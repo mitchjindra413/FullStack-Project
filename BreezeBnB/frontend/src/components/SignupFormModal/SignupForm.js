@@ -18,7 +18,7 @@ export const SignupForm = () => {
         e.preventDefault()
         setErrors([])
 
-        return dispatch(signup({ email, password, birthdate, first_name, last_name }))
+        return ( dispatch(signup({ email, password, birthdate, first_name, last_name }))
             .catch(async (res) => {
                 let data;
                 try {
@@ -29,10 +29,15 @@ export const SignupForm = () => {
                 if (data?.errors) setErrors(data.errors)
                 else if (data) setErrors([data])
                 else setErrors([res.statusText])
+                console.log(res)
+                console.log(errors)
+                console.log(data)
             })
+        )
     }
-
+    
     return (
+        
         <form className='modal-form' onSubmit={handleSubmit}>
             <header>
                 <div>
@@ -42,9 +47,6 @@ export const SignupForm = () => {
             </header>
             <hr></hr>
             <h1 id="login-title">Welcome to Breezebnb</h1>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
             <div>
                 <input
                     type="text"
@@ -90,6 +92,9 @@ export const SignupForm = () => {
                     placeholder="Password"
                 />
             </div>
+            <ul className="error-list">
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
             <div id='terms'>
                 <p >By selecting Agree and continue, I agree to Breezebnb's Terms of service and to checkout the creator's socials.</p>
             </div>

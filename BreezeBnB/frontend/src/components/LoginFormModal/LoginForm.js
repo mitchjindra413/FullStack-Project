@@ -4,6 +4,7 @@ import { login } from "../../store/session"
 import './LoginForm.css'
 import { hideModal } from "../../store/ui"
 
+
 export const LoginForm = () => {
     const dispatch = useDispatch()
     
@@ -27,6 +28,9 @@ export const LoginForm = () => {
                 if (data?.errors) setErrors(data.errors)
                 else if (data) setErrors([data])
                 else setErrors([res.statusText])
+                console.log(res)
+                console.log(errors)
+                console.log(data)
             })
             
 
@@ -42,9 +46,6 @@ export const LoginForm = () => {
             </header>
                 <hr></hr>
             <h1 id="login-title">Welcome to Breezebnb</h1>
-            <ul>
-                {errors.map(error => <li key={error}>{error}</li>)}
-            </ul>
             <div>
                 <input
                     type="email"
@@ -63,6 +64,9 @@ export const LoginForm = () => {
                     placeholder="Password"
                 />
             </div>
+            <ul className="error-list">
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
             <div className='submit-div'>
                 <button type="submit">Log in</button>
             </div>
@@ -72,8 +76,8 @@ export const LoginForm = () => {
                 <div className="line"><hr></hr></div>
             </div>
             <div id='other-buttons-div'>
-                <button className='other-buttons-login'>Log in with demo</button>
-                <button className='other-buttons-login'>Creator's github</button>
+                <button className='other-buttons-login'><img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></img>Log in with demo</button>
+                <button className='other-buttons-login'><img  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></img>Creator's github</button>
             </div>
         </form>
     )
