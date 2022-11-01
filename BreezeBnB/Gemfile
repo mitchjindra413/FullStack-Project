@@ -54,3 +54,5 @@ group :development do
   gem 'annotate'
 end
 
+gem 'aws-sdk-s3'
+

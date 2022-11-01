@@ -15,6 +15,7 @@ class Api::ListingsController < ApplicationController
             render :show
         else
             render json: {errors: 'Lisitng not found'}, status: 422
+        end
     end
 
     private

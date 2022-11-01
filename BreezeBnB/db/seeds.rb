@@ -40,7 +40,7 @@ ApplicationRecord.transaction do
   apt: 'Apt 421',
   city: 'Oakland',
   zip_code: '94612',
-  state: 'CA',
+  state: 'California',
   country: 'United States of America',
   lat: 37.804720,
   long: -122.268390,

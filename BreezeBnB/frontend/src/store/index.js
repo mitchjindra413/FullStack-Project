@@ -1,11 +1,13 @@
 import {createStore, combineReducers, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
+import entitiesReducer from './entities';
 import { sessionReducer } from './session';
 import { uiReducer } from './ui';
 
 export const rootReducer = combineReducers({
     session: sessionReducer,
-    ui: uiReducer
+    ui: uiReducer,
+    entities: entitiesReducer
 })
 
 let enhancer;

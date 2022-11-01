@@ -10,7 +10,7 @@ export const Navigation = () => {
     return (
         <nav>
             <div>
-                <img src='../../assets/airbnb_logo_icon_170605.png'></img>
+                Breezebnb
             </div>
             <div>Search Bar</div>
             <NavButton />
