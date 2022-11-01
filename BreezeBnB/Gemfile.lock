@@ -101,6 +101,8 @@ GEM
     crass (1.0.6)
     debug_inspector (1.1.0)
     erubi (1.11.0)
+    faker (2.23.0)
+      i18n (>= 1.8.11, < 2)
     globalid (1.0.0)
       activesupport (>= 5.0)
     i18n (1.12.0)
@@ -189,6 +191,7 @@ DEPENDENCIES
   binding_of_caller
   bootsnap
   byebug
+  faker
   jbuilder
   pg (~> 1.1)
   pry-rails

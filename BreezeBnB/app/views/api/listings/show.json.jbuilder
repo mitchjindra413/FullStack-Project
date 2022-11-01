@@ -1,8 +1,6 @@
-json.listing do
-  json.extract! @listing,
+json.extract! @listing,
+    :id,
     :owner_id,
-    :street_address,
-    :apt,
     :city,
     :zip_code,
     :state,
@@ -20,4 +18,3 @@ json.listing do
     :num_baths,
     :amenities,
     :tag_line
-end

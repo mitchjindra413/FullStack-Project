@@ -1,7 +1,11 @@
 nav {
     display: flex;
-    justify-content:space-around;
-    padding-top: 17px;
+    justify-content:space-between;
+    align-items: center;
+    padding-left: 40px;
+    padding-right: 40px;
+    border-bottom: 1px #F1F1F1 solid;
+    min-height: 80px;
 }
 
 #button-dropdown {
@@ -38,8 +42,9 @@ nav {
 
 .profile-dropdown {
     position: absolute;
+    background-color: white;
     top: 70px;
-    right: 14vw;
+    right: 40px;
     z-index: 10;
     box-shadow: 0 0 10px 0.5px #dddddd;
     border-radius: 10px;
