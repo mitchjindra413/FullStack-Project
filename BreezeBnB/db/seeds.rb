@@ -116,7 +116,7 @@ ApplicationRecord.transaction do
   tags: 'OMG Luxe',
   property_type: 'Apartment',
   max_guests: 2,
-  night_price: 260,
+  night_price: 294,
   cleaning_fee: 75,
   description: 'Open the lanai doors and refresh yourself in this private cabana and patio. Radiant with light, warmth, and reclaimed coastal redwood, the cozy cabana opens into a lush garden with a hot tub and chaise lounges for a soothing staycation or work reprieve.',
   num_bedrooms: 1,
