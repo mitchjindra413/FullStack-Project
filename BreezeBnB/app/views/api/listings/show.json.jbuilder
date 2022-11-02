@@ -18,3 +18,7 @@ json.extract! @listing,
     :num_baths,
     :amenities,
     :tag_line
+json.extract! @user,
+    :first_name,
+    :bio,
+    :created_at

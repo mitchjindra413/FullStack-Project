@@ -41,8 +41,6 @@ nav {
 .profile-dropdown {
     position: absolute;
     background-color: white;
-    top: 70px;
-    right: 40px;
     z-index: 10;
     box-shadow: 0 0 10px 0.5px #dddddd;
     border-radius: 10px;
@@ -64,4 +62,18 @@ nav {
 
 .profile-dropdown li:hover {
     background-color: #F1F1F1;
+}
+
+#logo-name {
+    height: 40px;
+    width: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#logo-name h2 {
+    padding-left: 7px;
+    font-size: large;
+    color: #FF5A5F;
+    font-weight: 600;
 }

@@ -11,8 +11,8 @@ export const Navigation = () => {
     return (
         <nav>
             <Link to="/">
-                <div>
-                    <img src='https://breezebnb-prod.s3.us-west-2.amazonaws.com/assets/GitHub-Mark-64px.png' alt='logo'></img>
+                <div id='logo-name'>
+                    <img id='logo-pic' src='https://breezebnb-seed.s3.us-west-2.amazonaws.com/assets/airbnb_logo_icon_170605.png' alt='logo'></img>
                     <h2>breezebnb</h2>
                 </div>
             </Link>
