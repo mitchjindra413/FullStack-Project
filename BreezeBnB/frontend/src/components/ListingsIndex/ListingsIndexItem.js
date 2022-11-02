@@ -11,7 +11,7 @@ export const ListingsIndexItem = ({listing}) => {
 
     return (
         <Link to={`listings/${listing.id}`}>
-            <div className="index-container" onClick={handleClick}>
+            <div className="info-container" onClick={handleClick}>
                 <div >
                     <img className="index-pics" src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg"></img> 
                 </div>

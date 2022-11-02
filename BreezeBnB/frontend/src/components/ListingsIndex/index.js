@@ -19,11 +19,11 @@ export const ListingsIndex = () => {
     if(!listings) return null
 
     return (
-        <div id='index-page'>
+        <div >
             <div>
                 Filter div
             </div>
-            <div>
+            <div id='index-page'>
                 {listings.map(listing => <ListingsIndexItem key={listing.id} listing={listing} ></ListingsIndexItem>)}
             </div>
         </div>

@@ -2,6 +2,7 @@
     json.set! listing.id do
         json.extract! listing, 
             :id,
+            :owner_id,
             :city,
             :state,
             :country,

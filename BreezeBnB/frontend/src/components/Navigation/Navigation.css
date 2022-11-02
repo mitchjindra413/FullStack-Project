@@ -2,8 +2,6 @@ nav {
     display: flex;
     justify-content:space-between;
     align-items: center;
-    padding-left: 40px;
-    padding-right: 40px;
     border-bottom: 1px #F1F1F1 solid;
     min-height: 80px;
 }

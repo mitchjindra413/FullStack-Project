@@ -30,7 +30,7 @@ export const fetchListings = () => async dispatch => {
 export const listingsReducer = (state = {}, action) => {
     Object.freeze(state)
     const newState = { ...state }
-    // debugger
+    
     switch(action.type){
         case RECIEVE_LISTINGS:
             const listings = action.listings

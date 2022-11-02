@@ -1,13 +1,16 @@
+
 #index-page {
-    margin-left: 40px;
-    margin-right: 40px;
-    margin-top: 20px;
+    padding-top: 20px;
+    display: grid;
+    gap: 40px;
 }
 
-.index-container {
-    min-width: 200px;
-    max-width: 280px;
+
+.info-container {
+    min-width: 220px;
+    max-width: 100%;
     cursor: pointer;
+    
 }
 
 .index-pics {
@@ -15,10 +18,11 @@
     object-position: 50% 50%;
     width: 100%;
     border-radius: 10px;
-    aspect-ratio: 1/0.9;
+    aspect-ratio: 1/1;
 }
 
 .index-details-top {
     display: flex;
     justify-content: space-between;
 }
+

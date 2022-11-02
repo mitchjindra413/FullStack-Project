@@ -1,4 +1,43 @@
 /* TODO Add site wide styles */
+@media (min-width: 0px) {
+    #index-page {
+        padding: 40px;
+        grid-template-columns: 1fr;
+        
+    }
+}
+
+@media (min-width: 549px) {
+    #index-page {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+@media (min-width: 810px) {
+    #index-page {
+        padding: 40px;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+
+        nav {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+}
+
+@media (min-width: 1128px) {
+    #index-page {
+        padding: 80px;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        
+    }
+
+    nav {
+        padding-left: 80px;
+        padding-right: 80px;
+    }
+        
+}
 
 .profile-pic {
     border-radius: 50%;

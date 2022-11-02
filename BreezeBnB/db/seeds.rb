@@ -41,7 +41,7 @@ ApplicationRecord.transaction do
   city: 'Oakland',
   zip_code: '94612',
   state: 'California',
-  country: 'United States of America',
+  country: 'United States',
   lat: 37.804720,
   long: -122.268390,
   tags: 'Mitch OMG',
@@ -64,7 +64,7 @@ ApplicationRecord.transaction do
   city: 'San Francisco',
   zip_code: '94103',
   state: 'California',
-  country: 'United States of America',
+  country: 'United States',
   lat: 37.804720,
   long: -122.268390,
   tags: 'OMG',
@@ -87,7 +87,7 @@ ApplicationRecord.transaction do
   city: 'San Francisco',
   zip_code: '94559',
   state: 'California',
-  country: 'United States of America',
+  country: 'United States',
   lat: 37.804720,
   long: -122.268390,
   tags: 'OMG Luxe',
@@ -110,7 +110,7 @@ ApplicationRecord.transaction do
   city: 'San Francisco',
   zip_code: '94559',
   state: 'California',
-  country: 'United States of America',
+  country: 'United States',
   lat: 37.804720,
   long: -122.268390,
   tags: 'OMG Luxe',
@@ -126,5 +126,9 @@ ApplicationRecord.transaction do
   tag_line: 'Private Guest Cabana ⌯ Hot Tub ⌯ Dolores Park ⌯ The Mission'
   )
 
+  l2_1 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/l2/1.png')
+
+  l2.photo.attach(io: l2_1, filename: '1.png')
+  
   puts "Done!"
 end
