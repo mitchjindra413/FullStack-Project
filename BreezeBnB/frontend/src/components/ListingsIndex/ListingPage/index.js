@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchListing } from "../../../store/listings"
+import './ListingPage.css'
 
 export const ListingPage = () => {
     const { listingId } = useParams()
@@ -26,14 +27,14 @@ export const ListingPage = () => {
 
     return (
         <div>
-            <div>
+            <header>
                 <h2 className="listing-page-tag-line">{listing.tagLine}</h2>
                 <ul>
                     <li>{listing.city},</li>
                     <li>{listing.state},</li>
                     <li>{listing.country}</li>
                 </ul>
-            </div>
+            </header>
             <figure>
                 pictures
             </figure>
@@ -47,8 +48,10 @@ export const ListingPage = () => {
                         <p>{listing.description}</p>
                     </div>
                 </div>
-                <div className="reservation-container">
-
+                <div>
+                    <div className="reservation-container">
+                        <p><span>{listing.nightPrice}</span> night</p>
+                    </div>
                 </div>
             </div>
             <div>

@@ -1,0 +1,31 @@
+header h2{
+    padding-top: 20px;
+    font-weight: 400;
+    font-size: 30px;
+}
+
+header ul {
+    padding-top: 10px;
+    display: flex;
+}
+
+header li {
+    padding-right: 3px;
+}
+
+header figure {
+    padding-top: 20px;
+}
+
+.listing-general-info {
+    border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.info-reservation {
+    display: flex;
+
+}
+
+.reservation-container {
+    height: ;
+}
