@@ -36,20 +36,20 @@ export const ListingPage = () => {
                 </ul>
             </header>
             <figure>
-                pictures
+                {listing.imgUrls.map(url => <img src={url}></img>)}
             </figure>
             <div className="info-reservation">
                 <div>
                     <div className="listing-general-info">
-                        <h3>{`${listing.propertyType} hosted by `}</h3>
+                        <h3>{`${listing.propertyType} hosted by ${listing.firstName}`}</h3>
                         <p>{detailsFormating()} </p>
                     </div>
                     <div>
                         <p>{listing.description}</p>
                     </div>
                 </div>
-                <div>
-                    <div className="reservation-container">
+                <div className="reservation-container">
+                    <div className="reservation-container-info">
                         <p><span>{listing.nightPrice}</span> night</p>
                     </div>
                 </div>
@@ -67,7 +67,8 @@ export const ListingPage = () => {
                 <p>{listing.city}, {listing.state}, {listing.country}</p>
             </div>
             <div>
-                owner details
+                <h4>Hosted by {listing.firstName}</h4>
+                <p>{listing.bio ? listing.bio : ''}</p>
             </div>
         </div>
     )

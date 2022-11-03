@@ -79,9 +79,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_171515) do
     t.date "end_date", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["end_date"], name: "index_reservations_on_end_date", unique: true
+    t.index ["end_date"], name: "index_reservations_on_end_date"
     t.index ["listing_id"], name: "index_reservations_on_listing_id"
-    t.index ["start_date"], name: "index_reservations_on_start_date", unique: true
+    t.index ["start_date"], name: "index_reservations_on_start_date"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 

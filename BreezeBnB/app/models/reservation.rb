@@ -2,7 +2,7 @@ class Reservation < ApplicationRecord
     require 'date'
 
     validates :user_id, :listing_id, :num_guests, presence: true
-    validates :start_date, :end_date, presence: true, uniqueness: true
+    validates :start_date, :end_date, presence: true
     validate :valid_date
     validate :no_overlap
 
@@ -17,12 +17,12 @@ class Reservation < ApplicationRecord
     end
 
     def no_overlap
-        today = Date.today
         reservations = Reservation.where(listing_id: listing_id)
             .where('start_date <= ?', end_date)
             .where('end_date >= ?', start_date)
-            
-        if !reservations.empty?
+            .where('id != ?', id)
+        
+        if reservations.length != 0
             return errors.add(:start_date, message: 'timeframe already taken')
         end
     end

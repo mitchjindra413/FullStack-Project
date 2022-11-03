@@ -28,16 +28,14 @@ export const LoginForm = () => {
                 if (data?.errors) setErrors(data.errors)
                 else if (data) setErrors([data])
                 else setErrors([res.statusText])
-                console.log(res)
-                console.log(errors)
-                console.log(data)
-            })
-            
+                
+            })        
 
     }
 
     return (
-        <form className='modal-form' onSubmit={handleSubmit}>
+        <div className='modal-form'>
+        <form  onSubmit={handleSubmit}>
             <header>
                 <div>
                     <button onClick={() => dispatch(hideModal())}>X</button>
@@ -75,10 +73,11 @@ export const LoginForm = () => {
                     <div id='or'>or</div>
                 <div className="line"><hr></hr></div>
             </div>
+        </form>
             <div id='other-buttons-div'>
                 <button className='other-buttons-login'><img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></img>Log in with demo</button>
-                <button className='other-buttons-login'><img  src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png"></img>Creator's github</button>
+                <a href="https://github.com/mitchjindra413" target="_blank"><button className='other-buttons-login'><img src="https://breezebnb-seed.s3.us-west-2.amazonaws.com/assets/GitHub-Mark-64px.png"></img>Creator's github</button></a>
             </div>
-        </form>
+        </div>
     )
 }

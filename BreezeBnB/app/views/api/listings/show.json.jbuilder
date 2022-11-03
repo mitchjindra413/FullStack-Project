@@ -17,8 +17,10 @@ json.extract! @listing,
     :num_beds,
     :num_baths,
     :amenities,
-    :tag_line
-# json.extract! @user,
-#     :first_name,
-#     :bio,
-#     :created_at
+    :tag_line,
+    :max_guests
+json.img_urls @listing.photos.map { |photo| url_for(photo) }
+json.extract! @owner,
+    :first_name,
+    :bio,
+    :created_at

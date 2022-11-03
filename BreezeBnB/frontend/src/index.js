@@ -9,7 +9,8 @@ import {configureStore} from './store';
 import csrfFetch from './store/csrf';
 import * as sessionActions from './store/session';
 import { ModalProvider } from './context/Modal';
-import * as entitiesActions from './store/listings';
+import * as listingsActions from './store/listings';
+import * as reservationsActions from './store/reservations'
 
 const store = configureStore();
 
@@ -18,7 +19,8 @@ if (process.env.NODE_ENV !== 'production') {
   console.log(store)
   window.csrfFetch = csrfFetch
   window.sessionActions = sessionActions;
-  window.entitiesActions = entitiesActions;
+  window.listingsActions = listingsActions;
+  window.reservationsActions = reservationsActions
 }
 
 function Root() {

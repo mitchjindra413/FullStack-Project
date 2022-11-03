@@ -1,19 +1,23 @@
 class Api::ReservationsController < ApplicationController
     before_action :require_logged_in
+    def index
+        @reservations = Reservation.where(listing_id: params[:listing_id])
+        render :index
+    end
 
     def show
         @reservation = Reservation.find_by(id: params[:id])
         if @reservation.user_id == current_user.id
             render :show
         else
-            render json: {errors: @reservation.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: ['Must be logged in as creator of reservation']}, status: :unprocessable_entity
         end
     end
 
     def create
         @reservation = Reservation.new(reservation_params)
         if @reservation.save
-            render :create
+            render :show
         else
             render json: {errors: @reservation.errors.full_messages}, status: :unprocessable_entity
         end
@@ -21,10 +25,15 @@ class Api::ReservationsController < ApplicationController
 
     def update
         @reservation = Reservation.find_by(id: params[:id])
-        if @reservation.update
-            render :update
+        
+        if @reservation.user_id == current_user.id
+            if @reservation.update(reservation_params)
+                render :show
+            else
+                render json: {errors: @reservation.errors.full_messages}, status: :unprocessable_entity
+            end
         else
-            render json: {errors: @reservation.errors.full_messages}, status: :unprocessable_entity
+            render json: {errors: ['Not reservation owner']}
         end
     end
 
@@ -32,6 +41,7 @@ class Api::ReservationsController < ApplicationController
         @reservation = Reservation.find_by(id: params[:id])
         if current_user.id == @reservation.user_id
             @reservation.delete
+            render json: {message: ['sucess']}
         else
             render json: {errors: ['Must be the creator of reservation to delete']}
         end
@@ -40,7 +50,7 @@ class Api::ReservationsController < ApplicationController
 
     private
     def reservation_params
-        require(:reservation).permit(
+        params.require(:reservation).permit(
             :id,
             :user_id,
             :listing_id,

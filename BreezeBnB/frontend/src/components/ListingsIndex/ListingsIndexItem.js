@@ -9,6 +9,7 @@ export const ListingsIndexItem = ({listing}) => {
         dispatch(fetchListing(listing.id))
     }
 
+
     return (
         <Link to={`listings/${listing.id}`}>
             <div className="info-container" onClick={handleClick}>
@@ -17,14 +18,14 @@ export const ListingsIndexItem = ({listing}) => {
                 </div>
                 <div>
                     <div className="index-details-top">
-                        <h3 className="index-location">{listing.country === 'United States of America' ? `${listing.city}, ${listing.state}` : `${listing.city}, ${listing.country}`}</h3>
-                        <p className="index-rating">Rating</p>
+                        <h3 className="index-location">{listing.country === 'United States' ? `${listing.city}, ${listing.state}` : `${listing.city}, ${listing.country}`}</h3>
+                        <p className="index-rating">★ Rating</p>
                     </div>
                     <ul>
-                        <li className="index-details">{listing.tagLine}</li>
+                        <li className="index-details">{listing.tagLine.length < 35 ? listing.tagLine : `${listing.tagLine.slice(0, 30)}...`}</li>
                         <li className="index-details">{`${listing.numBeds} beds`}</li>
-                        <li className="index-price"><span className="price-span-index">{`$${listing.nightPrice}`}</span> night</li>
                     </ul>
+                    <p className="index-price"><span className="price-span-index">{`$${listing.nightPrice}`}</span> night</p>
                 </div>
             </div>
         </Link>

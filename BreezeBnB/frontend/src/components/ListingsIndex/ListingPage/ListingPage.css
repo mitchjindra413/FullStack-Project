@@ -23,9 +23,15 @@ header figure {
 
 .info-reservation {
     display: flex;
-
+    width: 50%;
 }
 
 .reservation-container {
-    height: ;
+    border-radius: 10px;
+    border: 1px solid rgb(221, 221, 221);
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+}
+
+.reservation-container-info {
+    padding: 24px;
 }

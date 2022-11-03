@@ -1,15 +1,15 @@
 import csrfFetch from "./csrf"
 
-const RECIEVE_LISTING = "entities/RECIEVE_LISTING"
-const RECIEVE_LISTINGS = "entities/RECIEVE_LISTINGS"
+const RECEIVE_LISTING = "entities/RECEIVE_LISTING"
+const RECEIVE_LISTINGS = "entities/RECEIVE_LISTINGS"
 
-const recieveListing = (listing) => ({
-    type: RECIEVE_LISTING,
+const receiveListing = (listing) => ({
+    type: RECEIVE_LISTING,
     listing
 })
 
-const recieveListings = (listings) => ({
-    type: RECIEVE_LISTINGS,
+const receiveListings = (listings) => ({
+    type: RECEIVE_LISTINGS,
     listings
 })
 
@@ -17,14 +17,14 @@ export const fetchListing = (listingId) => async dispatch => {
     const res = await csrfFetch(`/api/listings/${listingId}`)
 
     let data = await res.json()
-    dispatch(recieveListing(data))
+    dispatch(receiveListing(data))
 }
 
 export const fetchListings = () => async dispatch => {
     const res = await csrfFetch(`/api/listings`)
 
     let data = await res.json()
-    dispatch(recieveListings(data))
+    dispatch(receiveListings(data))
 }
 
 export const listingsReducer = (state = {}, action) => {
@@ -32,10 +32,10 @@ export const listingsReducer = (state = {}, action) => {
     const newState = { ...state }
     
     switch(action.type){
-        case RECIEVE_LISTINGS:
+        case RECEIVE_LISTINGS:
             const listings = action.listings
             return { ...newState, ...listings }
-        case RECIEVE_LISTING:
+        case RECEIVE_LISTING:
             const newListing = action.listing
             return {...state, [newListing.id]: newListing}
         default:
