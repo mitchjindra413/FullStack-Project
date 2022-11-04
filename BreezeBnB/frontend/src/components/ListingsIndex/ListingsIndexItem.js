@@ -1,11 +1,7 @@
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { fetchListing } from "../../store/listings"
-import { Swiper, SwiperSlide } from "swiper/react"
-import "swiper/css"
-import "swiper/css/pagination"
-import "swiper/css/navigation"
-import { Pagination, Navigation } from "swiper"
+
 
 export const ListingsIndexItem = ({listing}) => {
     const dispatch = useDispatch()
@@ -14,7 +10,7 @@ export const ListingsIndexItem = ({listing}) => {
         dispatch(fetchListing(listing.id))
     }
 
-
+    console.log('listing:', listing)
     return (
         <Link to={`listings/${listing.id}`}>
             <div className="info-container" onClick={handleClick}>

@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react"
 import { useSelector, useDispatch } from "react-redux"
+import { Link } from "react-router-dom"
 import { logout } from "../../store/session"
 import { showModal, showSignupModal } from "../../store/ui"
 
@@ -46,6 +47,16 @@ export const NavButton = () => {
         } else if (showMenu && user) {
             return (
             <ul className="profile-dropdown">
+                <li>
+                    <Link>
+                        <button>Profile</button>
+                    </Link>
+                </li>
+                <li>
+                    <Link to='/trips'>
+                        <button>Trips</button>
+                    </Link>
+                </li>
                 <li>
                     <button onClick={() => dispatch(logout())}>Log Out</button>
                 </li>

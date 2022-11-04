@@ -1,7 +1,13 @@
 class Api::ListingsController < ApplicationController
     def index
-        @listings = Listing.all
-        render :index
+        
+        if params[:user_id]
+            @listings = User.find_by(id: params[:user_id]).trips
+            render :index
+        else
+            @listings = Listing.all
+            render :index
+        end
     end
 
     def location_index
@@ -42,7 +48,8 @@ class Api::ListingsController < ApplicationController
             :num_beds,
             :num_baths,
             :amenities,
-            :tag_line
+            :tag_line,
+            :user_id
         )
     end
 end

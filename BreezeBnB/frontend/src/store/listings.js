@@ -27,6 +27,13 @@ export const fetchListings = () => async dispatch => {
     dispatch(receiveListings(data))
 }
 
+export const fetchTripsListings = (userId) => async dispatch => {
+    const res = await csrfFetch(`/api/users/${userId}/listings`)
+
+    let data = await res.json()
+    dispatch(receiveListings(data))
+}
+
 export const listingsReducer = (state = {}, action) => {
     Object.freeze(state)
     const newState = { ...state }
@@ -34,7 +41,8 @@ export const listingsReducer = (state = {}, action) => {
     switch(action.type){
         case RECEIVE_LISTINGS:
             const listings = action.listings
-            return { ...newState, ...listings }
+            return { ...listings }
+            // return { ...action.reservations }
         case RECEIVE_LISTING:
             const newListing = action.listing
             return {...state, [newListing.id]: newListing}

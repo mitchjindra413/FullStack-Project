@@ -25,17 +25,6 @@ export const ReservationForm = () => {
     const [children, setChildren] = useState(0)
     const [errors, setErrors] = useState([])
 
-    // useEffect(() => {
-    //     if (!showMenu) return
-
-    //     const closeMenu = () => {
-    //         setShowMenu(false)
-    //     }
-
-    //     document.addEventListener('click', closeMenu);
-
-    //     return () => document.removeEventListener('click', closeMenu)
-    // }, [showMenu])
 
     const openMenu = () => {
         if (showMenu) return;
@@ -46,11 +35,14 @@ export const ReservationForm = () => {
         setNumGuests(adults + children)
     }, [adults, children])
 
+
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors([])
 
-        return dispatch(createReservation({ listingId, userId, numGuests, startDate, endDate }))
+        const reservation = { listingId, userId, numGuests, startDate, endDate }
+
+        return dispatch(createReservation(reservation))
             .catch(async (res) => {
                 let data;
                 try {
@@ -92,7 +84,7 @@ export const ReservationForm = () => {
                 </div>
                 
             </div>
-            <button disabled={userId === null}>Reserve</button>
+            <button type="submit" disabled={userId === null}>Reserve</button>
             {showMenu && (
                 <div className="dropdown-reservation" style={{ zIndex: 1 }}>
                     <div className="age">

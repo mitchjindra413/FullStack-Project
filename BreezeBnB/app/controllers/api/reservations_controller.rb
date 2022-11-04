@@ -7,7 +7,7 @@ class Api::ReservationsController < ApplicationController
         end
 
         if params[:user_id]
-            @reservations = Reservation.where(user_id: params[:user_id])
+            @reservations = Reservation.where(user_id: params[:user_id]).order(start_date: :desc)
         end
     end
 
@@ -21,6 +21,8 @@ class Api::ReservationsController < ApplicationController
     end
 
     def create
+        debugger
+        pa = reservation_params
         @reservation = Reservation.new(reservation_params)
         if @reservation.save
             render :show
@@ -57,7 +59,6 @@ class Api::ReservationsController < ApplicationController
     private
     def reservation_params
         params.require(:reservation).permit(
-            :id,
             :user_id,
             :listing_id,
             :start_date,
