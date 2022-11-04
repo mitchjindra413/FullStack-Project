@@ -1,18 +1,20 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchListing } from "../../../store/listings"
+import { fetchListing, fetchListings } from "../../../store/listings"
 import { ReservationForm } from "../../Reservation/ReservationForm"
+import { fetchListingsReservations } from "../../../store/reservations"
 import './ListingPage.css'
 
 export const ListingPage = () => {
     const { listingId } = useParams()
     const dispatch = useDispatch()
     const listing = useSelector(state => state.entities.listings[listingId])
-
+    
 
     useEffect(() => {
         dispatch(fetchListing(listingId))
+        dispatch(fetchListingsReservations(listingId))
     }, [listingId])
 
     function detailsFormating() {
@@ -25,6 +27,7 @@ export const ListingPage = () => {
     }
 
     if(!listing) return null
+    const listingAmens = listing.amenities.split(' ')
 
     return (
         <div className="listing-page">
@@ -64,6 +67,10 @@ export const ListingPage = () => {
                     </div>
                     <div className="description">
                         <p>{listing.description}</p>
+                    </div>
+                    <div >
+                        <h3 id="amenities-title">What this place offers</h3>
+                        <ul className="amenities-container">{listingAmens.map(amen => <li key={amen}>{amen}</li>)}</ul>
                     </div>
                 </div>
                 

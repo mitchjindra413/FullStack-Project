@@ -13,7 +13,8 @@
             :night_price,
             :num_beds,
             :tag_line,
-            :max_guests
+            :max_guests,
+            :amenities
         json.imgUrls listing.photos.map { |photo| photo.url }
     end
 end

@@ -32,3 +32,4 @@
 .DS_Store
 
 /frontend/env.development.local
+/public

@@ -16,7 +16,6 @@ const store = configureStore();
 
 if (process.env.NODE_ENV !== 'production') {
   window.store = store;
-  console.log(store)
   window.csrfFetch = csrfFetch
   window.sessionActions = sessionActions;
   window.listingsActions = listingsActions;

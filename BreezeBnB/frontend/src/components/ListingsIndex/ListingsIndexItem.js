@@ -10,7 +10,6 @@ export const ListingsIndexItem = ({listing}) => {
         dispatch(fetchListing(listing.id))
     }
 
-    console.log('listing:', listing)
     return (
         <Link to={`listings/${listing.id}`}>
             <div className="info-container" onClick={handleClick}>

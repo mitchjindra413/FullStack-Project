@@ -29,9 +29,7 @@ export const SignupForm = () => {
                 if (data?.errors) setErrors(data.errors)
                 else if (data) setErrors([data])
                 else setErrors([res.statusText])
-                console.log(res)
-                console.log(errors)
-                console.log(data)
+                
             })
         )
     }

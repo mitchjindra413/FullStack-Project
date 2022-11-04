@@ -1,4 +1,5 @@
 import csrfFetch from "./csrf"
+import { fetchListings } from "./listings"
 
 const RECEIVE_RESERVATIONS = 'entities/RECEIVE_RESERVATIONS'
 const RECEIVE_RESERVATION = 'entities/RECEIVE_RESERVATION'
@@ -34,6 +35,13 @@ export const fetchReservations = (listingId) => async dispatch => {
 
 export const fetchUsersReservations = (userId) => async dispatch => {
     const res = await csrfFetch(`/api/users/${userId}/reservations`)
+
+    let data = await res.json()
+    dispatch(receiveReservations(data))
+}
+
+export const fetchListingsReservations = (listingId) => async dispatch => {
+    const res = await csrfFetch(`/api/listings/${listingId}/reservations`)
 
     let data = await res.json()
     dispatch(receiveReservations(data))
