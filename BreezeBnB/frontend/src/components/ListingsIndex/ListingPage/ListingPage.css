@@ -87,3 +87,37 @@ header figure {
 .listing-general-info {
     width: 60%;
 }
+
+#figure-container {
+    padding-bottom: 10px;
+    max-height: 400px;
+}
+
+.listing-page figure {
+    
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 200px 200px;
+    border-radius: 10px;
+    gap: 8px;
+    overflow: hidden;
+    
+}
+
+
+
+.listing-page figure img {
+    object-fit: cover;
+    object-position: 50% 50%;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1/1;
+}
+
+.image-grid-col-2 {
+    grid-column: span 2;
+}
+
+.image-grid-row-2 {
+    grid-row: span 2;
+}

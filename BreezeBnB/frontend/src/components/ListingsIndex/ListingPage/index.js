@@ -36,9 +36,26 @@ export const ListingPage = () => {
                     <li>{listing.country}</li>
                 </ul>
             </header>
-            <figure>
-                <img src={listing.imgUrls[0]} />
-            </figure>
+            <div id="figure-container">
+                <figure>
+                    <div className="image-grid-col-2 image-grid-row-2" id="photo-1" >
+                        <img src={listing.imgUrls[0]} />
+                    </div>
+                    <div>
+                        <img id="photo-2" src={listing.imgUrls[1]} />
+                    </div>
+                    <div>
+                        <img id="photo-3" src={listing.imgUrls[2]} />
+                    </div>
+                    <div>
+                        <img id="photo-4" src={listing.imgUrls[3]} />
+                    </div>
+                    <div>
+                        <img id="photo-5" src={listing.imgUrls[4]} />
+                    </div>
+                </figure>
+            </div>
+            
             <div className="info-reservation">
                 <div className="listing-general-info">
                     <div className="listing-general-title">

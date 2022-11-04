@@ -1,6 +1,11 @@
 import { useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { fetchListing } from "../../store/listings"
+import { Swiper, SwiperSlide } from "swiper/react"
+import "swiper/css"
+import "swiper/css/pagination"
+import "swiper/css/navigation"
+import { Pagination, Navigation } from "swiper"
 
 export const ListingsIndexItem = ({listing}) => {
     const dispatch = useDispatch()
@@ -14,7 +19,7 @@ export const ListingsIndexItem = ({listing}) => {
         <Link to={`listings/${listing.id}`}>
             <div className="info-container" onClick={handleClick}>
                 <div >
-                    <img className="index-pics" src="https://www.rocketmortgage.com/resources-cmsassets/RocketMortgage.com/Article_Images/Large_Images/TypesOfHomes/types-of-homes-hero.jpg"></img> 
+                    <img className="index-pics" src={listing.imgUrls[0]}></img>
                 </div>
                 <div>
                     <div className="index-details-top">

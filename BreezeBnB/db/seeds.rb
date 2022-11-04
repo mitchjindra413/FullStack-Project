@@ -84,23 +84,61 @@ ApplicationRecord.transaction do
   tag_line: 'The Pottery Studio Apt - Newly Renovated in SOMA'
   )
 
-  l2_1 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/1.png')
-  l2.photos.attach(io: l2_1, filename: '1.png')
+  l2.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/1.png'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/2.png'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/3.png'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/4.png'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/5.png'), filename: '5.png'}
+  ])
 
-  # l2_2 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/2.png')
+  # l2_1 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/1.png')
+  # l2.photos.attach(io: l2_1, filename: '1.png')
+
+  # l2_2 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/2.png')
   # l2.photos.attach(io: l2_2, filename: '2.png')
 
-  # l2_3 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/3.png')
+  # l2_3 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/3.png')
   # l2.photos.attach(io:l2_3, filename: '3.png')
 
-  # l2_4 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/4.png')
+  # l2_4 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/4.png')
   # l2.photos.attach(io:l2_4, filename: '4.png')
 
-  # l2_5 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/5.png')
+  # l2_5 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/5.png')
   # l2.photos.attach(io:l2_5, filename: '5.png')
 
-
   l3 = Listing.create!(
+  owner_id: 2,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'San Francisco',
+  zip_code: '94559',
+  state: 'California',
+  country: 'United States',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'OMG Luxe',
+  property_type: 'Apartment',
+  max_guests: 2,
+  night_price: 294,
+  cleaning_fee: 75,
+  description: 'Open the lanai doors and refresh yourself in this private cabana and patio. Radiant with light, warmth, and reclaimed coastal redwood, the cozy cabana opens into a lush garden with a hot tub and chaise lounges for a soothing staycation or work reprieve.',
+  num_bedrooms: 1,
+  num_beds: 2,
+  num_baths: 1,
+  amenities: 'Wifi Kitchen Washer',
+  tag_line: 'Private Guest Cabana ⌯ Hot Tub ⌯ Dolores Park ⌯ The Mission'
+  )
+
+  l3.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_1.png'), filename: 'l3_1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_2.png'), filename: 'l3_2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_3.png'), filename: 'l3_3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_4.png'), filename: 'l3_3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_5.png'), filename: 'l3_4.png'}
+  ])
+
+  l4 = Listing.create!(
   owner_id: 2,
   street_address: Faker::Address.street_address,
   apt: '',
@@ -123,43 +161,13 @@ ApplicationRecord.transaction do
   tag_line: 'Stylish NOPA Pad'
   )
 
-  # l3_1 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_1.png')
-  # l3.photos.attach(io:l3_1, filename: 'l3_1.png')
-
-  # # l3_2 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_2.png')
-  # # l3.photos.attach(io:l3_2, filename: 'l3_2.png')
-
-  # # l3_3 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_3.png')
-  # # l3.photos.attach(io:l3_3, filename: 'l3_3.png')
-
-  # # l3_4 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_4.png')
-  # # l3.photos.attach(io:l3_4, filename: 'l3_4.png')
-
-  # # l3_5 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_5.png')
-  # # l3.photos.attach(io:l3_5, filename: 'l3_5.png')
-
-  l4 = Listing.create!(
-  owner_id: 2,
-  street_address: Faker::Address.street_address,
-  apt: '',
-  city: 'San Francisco',
-  zip_code: '94559',
-  state: 'California',
-  country: 'United States',
-  lat: 37.804720,
-  long: -122.268390,
-  tags: 'OMG Luxe',
-  property_type: 'Apartment',
-  max_guests: 2,
-  night_price: 294,
-  cleaning_fee: 75,
-  description: 'Open the lanai doors and refresh yourself in this private cabana and patio. Radiant with light, warmth, and reclaimed coastal redwood, the cozy cabana opens into a lush garden with a hot tub and chaise lounges for a soothing staycation or work reprieve.',
-  num_bedrooms: 1,
-  num_beds: 2,
-  num_baths: 1,
-  amenities: 'Wifi Kitchen Washer',
-  tag_line: 'Private Guest Cabana ⌯ Hot Tub ⌯ Dolores Park ⌯ The Mission'
-  )
+  l4.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/4.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/5.webp'), filename: '4.png'}
+  ])
 
   puts "Creating reservations..."
   Reservation.create!(

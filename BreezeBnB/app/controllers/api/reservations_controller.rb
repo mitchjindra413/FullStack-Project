@@ -1,8 +1,14 @@
 class Api::ReservationsController < ApplicationController
     before_action :require_logged_in
     def index
-        @reservations = Reservation.where(listing_id: params[:listing_id])
-        render :index
+        if params[:listing_id]
+            @reservations = Reservation.where(listing_id: params[:listing_id])
+            render :index
+        end
+
+        if params[:user_id]
+            @reservations = Reservation.where(user_id: params[:user_id])
+        end
     end
 
     def show
