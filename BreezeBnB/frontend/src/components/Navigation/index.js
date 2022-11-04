@@ -12,7 +12,7 @@ export const Navigation = () => {
         <nav>
             <Link to="/">
                 <div id='logo-name'>
-                    <img id='logo-pic' src='https://breezebnb-seed.s3.us-west-2.amazonaws.com/assets/airbnb_logo_icon_170605.png' alt='logo'></img>
+                    <img id='logo-pic' src='https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/airbnb_logo_icon_170605.png' alt='logo'></img>
                     <h2>breezebnb</h2>
                 </div>
             </Link>

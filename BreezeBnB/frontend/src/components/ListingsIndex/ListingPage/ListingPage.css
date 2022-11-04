@@ -1,12 +1,40 @@
+@media (min-width: 0px) {
+    .listing-page {
+        padding-left: 40px;
+        padding-right: 40px;
+    }
+
+}
+
+@media (min-width: 549px) {
+    .listing-page {
+            padding-left: 80px;
+            padding-right: 80px;
+        }
+    
+}
+
+@media (min-width: 1250px) {
+    
+}
+
+@media (min-width: 1251px) {
+    .listing-page {
+            padding-left: 200px;
+            padding-right: 200px;
+        }
+}
+
 header h2{
     padding-top: 20px;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 26px;
 }
 
 header ul {
     padding-top: 10px;
     display: flex;
+    font-size: 14px;
 }
 
 header li {
@@ -18,20 +46,44 @@ header figure {
 }
 
 .listing-general-info {
+    font-weight: 300;
+}
+
+.listing-general-title {
+    padding-top: 48px;
+        padding-bottom: 20px;
+        border-bottom: 1px solid rgb(221, 221, 221);
+}
+
+.listing-general-title h3 {
+    font-size: 26px;
+}
+
+.description {
+    padding-top: 32px;
+    padding-bottom: 48px;
     border-bottom: 1px solid rgb(221, 221, 221);
+    line-height: 25px;
+    color: #222222;
+    font-weight: 200;
 }
 
 .info-reservation {
     display: flex;
-    width: 50%;
+    justify-content: space-between;
 }
 
 .reservation-container {
     border-radius: 10px;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    
 }
 
 .reservation-container-info {
     padding: 24px;
+}
+
+.listing-general-info {
+    width: 60%;
 }

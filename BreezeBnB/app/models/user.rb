@@ -22,7 +22,8 @@ class User < ApplicationRecord
         class_name: :Listing,
         dependent: :destroy
 
-    has_one_attached :photo
+    has_one_attached :photo,
+        dependent: :destroy
 
     # TODO uncomment
     # has_many :reviews,

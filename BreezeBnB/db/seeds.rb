@@ -84,20 +84,20 @@ ApplicationRecord.transaction do
   tag_line: 'The Pottery Studio Apt - Newly Renovated in SOMA'
   )
 
-  l2_1 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/1.png')
+  l2_1 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/1.png')
   l2.photos.attach(io: l2_1, filename: '1.png')
 
-  l2_2 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/2.png')
-  l2.photos.attach(io: l2_2, filename: '2.png')
+  # l2_2 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/2.png')
+  # l2.photos.attach(io: l2_2, filename: '2.png')
 
-  l2_3 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/3.png')
-  l2.photos.attach(io:l2_3, filename: '3.png')
+  # l2_3 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/3.png')
+  # l2.photos.attach(io:l2_3, filename: '3.png')
 
-  l2_4 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/4.png')
-  l2.photos.attach(io:l2_4, filename: '4.png')
+  # l2_4 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/4.png')
+  # l2.photos.attach(io:l2_4, filename: '4.png')
 
-  l2_5 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/5.png')
-  l2.photos.attach(io:l2_5, filename: '5.png')
+  # l2_5 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l2/5.png')
+  # l2.photos.attach(io:l2_5, filename: '5.png')
 
 
   l3 = Listing.create!(
@@ -123,20 +123,20 @@ ApplicationRecord.transaction do
   tag_line: 'Stylish NOPA Pad'
   )
 
-  l3_1 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_1.png')
-  l3.photos.attach(io:l3_1, filename: 'l3_1.png')
+  # l3_1 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_1.png')
+  # l3.photos.attach(io:l3_1, filename: 'l3_1.png')
 
-  l3_2 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_2.png')
-  l3.photos.attach(io:l3_2, filename: 'l3_2.png')
+  # # l3_2 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_2.png')
+  # # l3.photos.attach(io:l3_2, filename: 'l3_2.png')
 
-  l3_3 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_3.png')
-  l3.photos.attach(io:l3_3, filename: 'l3_3.png')
+  # # l3_3 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_3.png')
+  # # l3.photos.attach(io:l3_3, filename: 'l3_3.png')
 
-  l3_4 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_4.png')
-  l3.photos.attach(io:l3_4, filename: 'l3_4.png')
+  # # l3_4 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_4.png')
+  # # l3.photos.attach(io:l3_4, filename: 'l3_4.png')
 
-  l3_5 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_5.png')
-  l3.photos.attach(io:l3_5, filename: 'l3_5.png')
+  # # l3_5 = URI.open('https://breezebnb-seed.s3.us-west-2.amazonaws.com/listings/l3/l3_5.png')
+  # # l3.photos.attach(io:l3_5, filename: 'l3_5.png')
 
   l4 = Listing.create!(
   owner_id: 2,

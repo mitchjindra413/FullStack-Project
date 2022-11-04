@@ -2,6 +2,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { fetchListing } from "../../../store/listings"
+import { ReservationForm } from "../../Reservation/ReservationForm"
 import './ListingPage.css'
 
 export const ListingPage = () => {
@@ -26,7 +27,7 @@ export const ListingPage = () => {
     if(!listing) return null
 
     return (
-        <div>
+        <div className="listing-page">
             <header>
                 <h2 className="listing-page-tag-line">{listing.tagLine}</h2>
                 <ul>
@@ -36,22 +37,24 @@ export const ListingPage = () => {
                 </ul>
             </header>
             <figure>
-                {listing.imgUrls.map(url => <img src={url}></img>)}
+                <img src={listing.imgUrls[0]} />
             </figure>
             <div className="info-reservation">
-                <div>
-                    <div className="listing-general-info">
+                <div className="listing-general-info">
+                    <div className="listing-general-title">
                         <h3>{`${listing.propertyType} hosted by ${listing.firstName}`}</h3>
                         <p>{detailsFormating()} </p>
                     </div>
-                    <div>
+                    <div className="description">
                         <p>{listing.description}</p>
                     </div>
                 </div>
+                
                 <div className="reservation-container">
                     <div className="reservation-container-info">
                         <p><span>{listing.nightPrice}</span> night</p>
                     </div>
+                    <ReservationForm />
                 </div>
             </div>
             <div>

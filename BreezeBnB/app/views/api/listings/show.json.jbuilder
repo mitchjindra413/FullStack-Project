@@ -19,7 +19,7 @@ json.extract! @listing,
     :amenities,
     :tag_line,
     :max_guests
-json.img_urls @listing.photos.map { |photo| url_for(photo) }
+json.imgUrls @listing.photos.map { |photo| photo.url }
 json.extract! @owner,
     :first_name,
     :bio,

@@ -10,24 +10,32 @@ export const ReservationForm = () => {
     const listing = useSelector(state => state.entities.listings[listingId])
     const user = useSelector(state => state.session.user)
 
+    let userId
+    if(user){
+        userId = user.id
+    } else {
+        userId = null
+    }
+
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
     const [numGuests, setNumGuests] = useState()
     const [showMenu, setShowMenu] = useState(false)
     const [adults, setAdults] = useState(1)
     const [children, setChildren] = useState(0)
+    const [errors, setErrors] = useState([])
 
-    useEffect(() => {
-        if (!showMenu) return
+    // useEffect(() => {
+    //     if (!showMenu) return
 
-        const closeMenu = () => {
-            setShowMenu(false)
-        }
+    //     const closeMenu = () => {
+    //         setShowMenu(false)
+    //     }
 
-        document.addEventListener('click', closeMenu);
+    //     document.addEventListener('click', closeMenu);
 
-        return () => document.removeEventListener('click', closeMenu)
-    }, [showMenu])
+    //     return () => document.removeEventListener('click', closeMenu)
+    // }, [showMenu])
 
     const openMenu = () => {
         if (showMenu) return;
@@ -56,10 +64,6 @@ export const ReservationForm = () => {
             })
     }
 
-    const dropdownMenu = () => {
-
-    }
-
     return (
         <form className="reservation-form" onSubmit={handleSubmit}>
             <div>
@@ -84,29 +88,36 @@ export const ReservationForm = () => {
                 <div onClick={openMenu}>
                     <p>Guests</p>
                     <p>{numGuests === 1 ? '1 guest' : `${numGuests} guests`}</p>
+                    
                 </div>
-                {showMenu &&(
-                    <div className="dropdown-reservation" style={{ zIndex: 1 }}>
-                        <div className="age">
-                            <div>
-                                <h3>Adults</h3>
-                                <p>Age 13+</p>
-                            </div>
-                            <div>
-                                <button disabled={adults === 1} onClick={setAdults(adults - 1)}>-</button>
-                                <h4>{adults}</h4>
-                                <button disabled={numGuests === listing.maxGuests} onClick={setAdults(adults + 1)}>+</button>
-                            </div>
-                            <div>
-                                <button disabled={children === 0} onClick={setChildren(children - 1)}>-</button>
-                                <h4>{children}</h4>
-                                <button disabled={numGuests === listing.maxGuests} onClick={setChildren(children + 1)}>+</button>
-                            </div>
+                
+            </div>
+            <button disabled={userId === null}>Reserve</button>
+            {showMenu && (
+                <div className="dropdown-reservation" style={{ zIndex: 1 }}>
+                    <div className="age">
+                        <div>
+                            <h3>Adults</h3>
+                            <p>Age 13+</p>
+                        </div>
+                        <div>
+                            <button type="button" disabled={adults === 1} onClick={() => setAdults(adults - 1)}>-</button>
+                            <h4>{adults}</h4>
+                            <button type="button" disabled={numGuests === listing.maxGuests} onClick={() => setAdults(adults + 1)}>+</button>
+                        </div>
+                        <div>
+                            <h3>Children</h3>
+                            <p>Ages 2-12</p>
+                        </div>
+                        <div>
+                            <button type="button" disabled={children === 0} onClick={() => setChildren(children - 1)}>-</button>
+                            <h4>{children}</h4>
+                            <button type="button" disabled={numGuests === listing.maxGuests} onClick={() => setChildren(children + 1)}>+</button>
                         </div>
                     </div>
-                )}
-                <button disabled={!user}>Reserve</button>
-            </div>
+                    <button type="button" onClick={() => setShowMenu(false)}>X</button>
+                </div>
+            )}
         </form>
     )
 }
