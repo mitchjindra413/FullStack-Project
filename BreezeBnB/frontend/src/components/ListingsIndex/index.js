@@ -14,6 +14,7 @@ export const ListingsIndex = () => {
 
     useEffect(() => {
         dispatch(fetchListings(listings))
+        console.log('hi')
     }, [])
 
     if(!listings) return null

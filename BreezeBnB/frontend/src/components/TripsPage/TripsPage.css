@@ -1,0 +1,17 @@
+#trips-page{
+    padding-left: 80px;
+    padding-right: 80px;
+    
+}
+.no-trips {
+    display: flex;
+    height: 350px;
+}
+
+#no-trips-left img {
+    height: 48px;
+    width: 48px;
+}
+#no-trips-right {
+    height: 350px;
+}

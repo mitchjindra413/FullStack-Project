@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link, useParams } from "react-router-dom"
 import { fetchUsersReservations } from "../../store/reservations"
 import { fetchTripsListings } from "../../store/listings"
+import './TripsPage.css'
 
 export const TripsPage = () => {
     const user = useSelector(state => state.session.user)
@@ -14,12 +15,12 @@ export const TripsPage = () => {
 
     let reservations = useSelector(getReservations)
 
-    const getListings = (state) => {
-        return state.entities.listings ? Object.values(state.entities.listings) : []
-    } 
-    const listings = useSelector(getListings)
-    const past = []
-    const future = []
+    // const getListings = (state) => {
+    //     return state.entities.listings ? Object.values(state.entities.listings) : []
+    // } 
+    const listings = useSelector(state => state.entities.listings)
+    let past = []
+    let future = []
 
     if(reservations === null){
         reservations = []
@@ -27,18 +28,25 @@ export const TripsPage = () => {
 
 
     const sort = () => {
+
         reservations.forEach(reservation => {
-            reservation.start_date > new Date() ? future.push(reservation) : past.push(reservation)
+            if(new Date(reservation.startDate) > new Date()){
+                future.push(reservation)  
+            } else {
+                past.push(reservation)
+            }
         });
-        console.log(past)
         console.log(future)
     }
 
     useEffect(() => {
         dispatch(fetchUsersReservations(user.id))
         dispatch(fetchTripsListings(user.id))
-        sort()
     }, [])
+
+    // useEffect(() => {
+    //     sort()
+    // }, [reservations])
 
     const blank = () => {
         return (
@@ -51,22 +59,29 @@ export const TripsPage = () => {
                         <button>Start searching</button>
                     </Link>
                 </div>
-                <img src="https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/d727f355-3f10-44b5-9750-d1efca2438fc.webp" alt="family fun"></img>
+                <img id="no-trips-right" src="https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/d727f355-3f10-44b5-9750-d1efca2438fc.webp" alt="family fun"></img>
             </div>
         )
     }
 
-    
-
-    const anyPast = () => {
-
+    const futureInfo = (reservation) => {
+        let listingId = reservation.listingId
+        console.log(listings)
+        return (
+            <div className="upcoming-container">
+                <div>
+                    {/* <h4>{listings[listingId].city}</h4>
+                    <p>{listings[listingId].propertyType} hosted by </p> */}
+                </div>
+            </div>
+        )
     }
 
+
     return (
-        
         <div id="trips-page">
             <h2>Trips</h2>
-            
+            {future.length === 0 ? blank() : <div><h3>Upcoming Trips</h3> {future.map(reservation => futureInfo(reservation))}</div> }
         </div>
     )
 }

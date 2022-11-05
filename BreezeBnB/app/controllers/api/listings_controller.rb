@@ -3,7 +3,11 @@ class Api::ListingsController < ApplicationController
         
         if params[:user_id]
             @listings = User.find_by(id: params[:user_id]).trips
-            render :index
+            @owners = {}
+            @listings.each do |listing|
+                @owners[listing.owner_id] = User.find_by(id: listing.owner_id)
+            end
+            render :trips_index
         else
             @listings = Listing.all
             render :index
