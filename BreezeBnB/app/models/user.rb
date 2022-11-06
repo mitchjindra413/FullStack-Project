@@ -25,9 +25,8 @@ class User < ApplicationRecord
     has_one_attached :photo,
         dependent: :destroy
 
-    # TODO uncomment
-    # has_many :reviews,
-    #     dependent: :destroy
+    has_many :reviews,
+        dependent: :destroy
 
     has_many :reservations,
         dependent: :destroy

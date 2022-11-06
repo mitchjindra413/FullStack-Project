@@ -48,7 +48,7 @@ export const NavButton = () => {
             return (
             <ul className="profile-dropdown">
                 <li>
-                    <Link>
+                    <Link to='/profile'>
                         <button>Profile</button>
                     </Link>
                 </li>

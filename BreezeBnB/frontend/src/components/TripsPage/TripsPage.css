@@ -3,15 +3,61 @@
     padding-right: 80px;
     
 }
-.no-trips {
+
+#trips-page h2 {
+    font-size: 32px;
+    padding-top: 36px;
+    padding-bottom: 24px;
+}
+#no-trips {
     display: flex;
-    height: 350px;
+    justify-content: space-between;
+    height: 325px;
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+}
+
+#no-trips-left {
+    width: 50%;
+    padding: 32px;
+}
+
+#no-trips-left h4 {
+    font-size: 22px;
+    padding-top: 20px;
+}
+
+#no-trips-left p {
+    color: #717171;
+    font-weight: 200;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 #no-trips-left img {
-    height: 48px;
-    width: 48px;
+    height: 60px;
+    width: 60px;
+    
 }
+
+#no-trips-left button {
+    width: 50%;
+    height: 50px;
+    color: white;
+    background-image: radial-gradient(circle at center center, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%);
+    border-radius: 10px;
+    text-align: center;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
 #no-trips-right {
-    height: 350px;
+    object-fit: cover;
+        object-position: 50% 50%;
+        width: 100%;
+        height: 100%;
+        aspect-ratio: 1/1;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
 }

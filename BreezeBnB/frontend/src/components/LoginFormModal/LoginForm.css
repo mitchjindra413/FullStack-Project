@@ -1,5 +1,4 @@
 
-
 .modal-form header {
     display: flex;
     justify-content: center;
@@ -12,6 +11,7 @@
 .modal-form header h3 {
     min-width: 50%;
     font-weight: bold;
+    transform: translate(-10px);
 }
 
 #login-title {

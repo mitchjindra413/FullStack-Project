@@ -17,4 +17,7 @@ class Listing < ApplicationRecord
     
     has_many_attached :photos,
         dependent: :destroy
+
+    has_many :reviews,
+        dependent: :destroy
 end

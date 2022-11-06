@@ -59,7 +59,9 @@ export const TripsPage = () => {
                         <button>Start searching</button>
                     </Link>
                 </div>
+                
                 <img id="no-trips-right" src="https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/d727f355-3f10-44b5-9750-d1efca2438fc.webp" alt="family fun"></img>
+                
             </div>
         )
     }

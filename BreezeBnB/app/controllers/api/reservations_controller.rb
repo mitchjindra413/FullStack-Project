@@ -8,6 +8,7 @@ class Api::ReservationsController < ApplicationController
 
         if params[:user_id]
             @reservations = Reservation.where(user_id: params[:user_id]).order(start_date: :desc)
+            render :index
         end
     end
 
@@ -21,8 +22,6 @@ class Api::ReservationsController < ApplicationController
     end
 
     def create
-        debugger
-        pa = reservation_params
         @reservation = Reservation.new(reservation_params)
         if @reservation.save
             render :show

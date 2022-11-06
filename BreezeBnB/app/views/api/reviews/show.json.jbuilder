@@ -1,0 +1,11 @@
+json.extract! @reservation,
+    :id,
+    :user_id, 
+    :listing_id,
+    :description, 
+    :cleanliness, 
+    :accuracy, 
+    :location, 
+    :value, 
+    :communication, 
+    :check_in

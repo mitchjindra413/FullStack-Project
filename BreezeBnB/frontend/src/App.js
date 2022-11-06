@@ -5,15 +5,19 @@ import { ListingsIndex } from "./components/ListingsIndex/index.js";
 import { ListingPage } from "./components/ListingsIndex/ListingPage/index.js";
 import { Navigation } from "./components/Navigation/index.js";
 import { TripsPage } from "./components/TripsPage/index.js";
+import {ProfilePage} from "./components/ProfilePage/index.js"
 
 
 function App() {
   const user = useSelector(state => state.session.user)
-  
+
   return (
     <>
       <Navigation />
       <Switch>
+        <Route path={'/profile'}>
+          {!user ? <Redirect to='/'></Redirect> : <ProfilePage></ProfilePage>}
+        </Route>
         <Route path={'/trips'}>
           {!user ? <Redirect to="/"></Redirect> : <TripsPage></TripsPage>}
         </Route>
