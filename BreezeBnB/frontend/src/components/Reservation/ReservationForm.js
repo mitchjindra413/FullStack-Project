@@ -3,6 +3,7 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
+import { addDays, differenceInCalendarDays, parseISO } from 'date-fns'
 
 export const ReservationForm = () => {
     const dispatch = useDispatch()
@@ -17,14 +18,13 @@ export const ReservationForm = () => {
         userId = null
     }
 
-    const [startDate, setStartDate] = useState()
-    const [endDate, setEndDate] = useState()
+    const [startDate, setStartDate] = useState('2022-11-06')
+    const [endDate, setEndDate] = useState('2022-11-07')
     const [numGuests, setNumGuests] = useState()
     const [showMenu, setShowMenu] = useState(false)
     const [adults, setAdults] = useState(1)
     const [children, setChildren] = useState(0)
     const [errors, setErrors] = useState([])
-
 
     const openMenu = () => {
         if (showMenu) return;
@@ -34,7 +34,6 @@ export const ReservationForm = () => {
     useEffect(() => {
         setNumGuests(adults + children)
     }, [adults, children])
-
 
     const handleSubmit = (e) => {
         e.preventDefault()
@@ -58,6 +57,10 @@ export const ReservationForm = () => {
 
     return (
         <form className="reservation-form" onSubmit={handleSubmit}>
+            {console.log(endDate)}
+            <div>
+                <p><span id='price'>${listing.nightPrice}</span> night</p>
+            </div>
             <div>
                 <div>
                     CHECK-IN
@@ -85,6 +88,19 @@ export const ReservationForm = () => {
                 
             </div>
             <button type="submit" disabled={userId === null}>Reserve</button>
+            <p>You wont be charged yet</p>
+            <div>
+                <p>${listing.nightPrice} x {differenceInCalendarDays(parseISO(endDate), parseISO(startDate))}</p>
+                <p>{listing.nightPrice * differenceInCalendarDays(parseISO(endDate), parseISO(startDate)) }</p>
+            </div>
+            <div>
+                <p>Cleaning Fee</p>
+                <p>{listing.cleaningFee}</p>
+            </div>
+            <div>
+                <p>Total before taxes</p>
+                <p></p>
+            </div>
             {showMenu && (
                 <div className="dropdown-reservation" style={{ zIndex: 1 }}>
                     <div className="age">

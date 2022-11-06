@@ -1,6 +1,5 @@
 class Api::ListingsController < ApplicationController
     def index
-        
         if params[:user_id]
             @listings = User.find_by(id: params[:user_id]).trips
             @owners = {}

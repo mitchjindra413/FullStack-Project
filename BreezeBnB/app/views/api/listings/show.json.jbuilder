@@ -24,3 +24,4 @@ json.extract! @owner,
     :first_name,
     :bio,
     :created_at
+json.ownerPic @owner.photo.url

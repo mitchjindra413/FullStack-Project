@@ -14,7 +14,7 @@ class Api::UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       login!(@user)
-      render 'api/users/create'
+      render 'api/users/show'
     else
       render json: {errors: @user.errors.full_messages}, status: :unprocessable_entity
     end

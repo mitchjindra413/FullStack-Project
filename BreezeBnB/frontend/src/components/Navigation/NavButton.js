@@ -65,6 +65,15 @@ export const NavButton = () => {
         }
     }
 
+    const profilePicLink = () => {
+        if (!user || !user.profilePic){
+            return "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
+        } else{
+            console.log(user.profilePic)
+            return user.profilePic
+        }
+    }
+
     return (
         <>
             <div id='button-dropdown'>
@@ -74,7 +83,7 @@ export const NavButton = () => {
                             <i className="fa-sharp fa-solid fa-bars"></i>
                         </div>
                         <div id='profile-pic-nav'>
-                            <img className="profile-pic" src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></img>
+                            <img className="profile-pic" src={profilePicLink()} alt=""></img>
                         </div>
                     </div>
                 </button>

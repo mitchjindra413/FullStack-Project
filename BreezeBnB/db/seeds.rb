@@ -27,14 +27,86 @@ ApplicationRecord.transaction do
     bio: 'test 123'
   )
 
-  User.create!(
+  u2 = User.create!(
     first_name: 'Mitchell',
     last_name: 'Jindra',
     email: 'jindra.mitch@gmail.com',
     birthdate: '1998-04-13',
     password: 'password',
-    bio: 'test test'
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
   )
+  u2.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/mitch.jpeg'), filename: 'mitch.jpeg')
+
+  u3 = User.create!(
+    first_name: 'Abigail',
+    last_name: 'Hernandez',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u3.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/abigail.jpeg'), filename: 'abigail.jpeg')
+
+  u4 = User.create!(
+    first_name: 'Chris',
+    last_name: 'Cheasty',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u4.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/chris.jpeg'), filename: 'chris.jpeg')
+
+  u5 = User.create!(
+    first_name: 'Paulo',
+    last_name: 'Bocanegra',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u5.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/paulo.png'), filename: 'paulo.png')
+
+  u6 = User.create!(
+    first_name: 'Mike',
+    last_name: 'Madsen',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u6.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/mike.jpeg'), filename: 'mike.jpeg')
+
+  u7 = User.create!(
+    first_name: 'Shuhei',
+    last_name: 'Shibahara',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u7.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/shuhei.png'), filename: 'shuhei.png')
+
+  u8 = User.create!(
+    first_name: 'Dan',
+    last_name: 'Culbertson',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u8.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/dan.jpeg'), filename: 'dan.jpeg')
+
+
+  u9 = User.create!(
+    first_name: 'Brendan',
+    last_name: 'Tsuda',
+    email: Faker::Internet.unique.email,
+    birthdate: '1990-01-01',
+    password: 'password',
+    bio: 'I hope you are enjoying your time looking through this website! Feel free to reach out to Mitchell through any of the linked means on the website.'
+  )
+  u9.photo.attach(io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/profilepics/brendan.png'), filename: 'brendan.png')
 
 
   puts "Creating listings..."
@@ -48,7 +120,7 @@ ApplicationRecord.transaction do
   country: 'United States',
   lat: 37.804720,
   long: -122.268390,
-  tags: 'Mitch OMG',
+  tags: 'iconic',
   property_type: 'Apartment',
   max_guests: 3,
   night_price: 70,
@@ -60,6 +132,14 @@ ApplicationRecord.transaction do
   amenities: 'Wifi Kitchen Washer',
   tag_line: 'Heart of Oakland'
   )
+
+  l1.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l1/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l1/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l1/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l1/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l1/5.webp'), filename: '5.png'}
+  ])
 
   l2 = Listing.create!(
   owner_id: 1,
@@ -92,20 +172,6 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/5.png'), filename: '5.png'}
   ])
 
-  # l2_1 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/1.png')
-  # l2.photos.attach(io: l2_1, filename: '1.png')
-
-  # l2_2 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/2.png')
-  # l2.photos.attach(io: l2_2, filename: '2.png')
-
-  # l2_3 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/3.png')
-  # l2.photos.attach(io:l2_3, filename: '3.png')
-
-  # l2_4 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/4.png')
-  # l2.photos.attach(io:l2_4, filename: '4.png')
-
-  # l2_5 = URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l2/5.png')
-  # l2.photos.attach(io:l2_5, filename: '5.png')
 
   l3 = Listing.create!(
   owner_id: 2,
@@ -169,6 +235,135 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/5.webp'), filename: '4.png'}
   ])
 
+  l5 = Listing.create!(
+  owner_id: 6,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'London',
+  zip_code: Faker::Address.postcode,
+  state: 'City of London',
+  country: 'United Kingdom',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'OMG Luxe',
+  property_type: 'Apartment',
+  max_guests: 2,
+  night_price: 260,
+  cleaning_fee: 75,
+  description: 'Exceptional apartment in Kensington and Chelsea borough. Prime location: close to Holland Park, central line tube or overground trains, Westfield shopping centre, and High Street Kensington. Lots of nearby restaurants, bars, cafes, shops. Easy access to London underground for visiting all of central London tourist sights.',
+  num_bedrooms: 1,
+  num_beds: 1,
+  num_baths: 1,
+  amenities: 'Wifi Kitchen Washer',
+  tag_line: 'Entire apartment in Kensington - 1 bedroom'
+  )
+
+  # l5.photos.attach([
+  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/1.webp'), filename: '1.png'},
+  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/2.webp'), filename: '2.png'},
+  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/3.webp'), filename: '3.png'},
+  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/4.webp'), filename: '3.png'},
+  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/5.webp'), filename: '4.png'}
+  # ])
+
+  l6 = Listing.create!(
+  owner_id: 9,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'London',
+  zip_code: Faker::Address.postcode,
+  state: 'City of London',
+  country: 'United Kingdom',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'OMG Luxe',
+  property_type: 'Flat',
+  max_guests: 6,
+  night_price: 365,
+  cleaning_fee: 75,
+  description: 'Exceptional apartment in Kensington and Chelsea borough. Prime location: close to Holland Park, central line tube or overground trains, Westfield shopping centre, and High Street Kensington. Lots of nearby restaurants, bars, cafes, shops. Easy access to London underground for visiting all of central London tourist sights.',
+  num_bedrooms: 3,
+  num_beds: 3,
+  num_baths: 2,
+  amenities: 'Wifi Kitchen Washer',
+  tag_line: 'Entire apartment in Kensington - 1 bedroom'
+  )
+
+  l7 = Listing.create!(
+  owner_id: 6,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'London',
+  zip_code: Faker::Address.postcode,
+  state: 'City of London',
+  country: 'United Kingdom',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'OMG Luxe',
+  property_type: 'Apartment',
+  max_guests: 2,
+  night_price: 260,
+  cleaning_fee: 75,
+  description: 'A stunning duplex, period conversion arranged over the top two floors of this impressive building in Little Venice, Central London. The accommodation comprises entrance hall off which master bedroom with en-suite bathroom, reception room with modern fireplace and open plan to a contemporary kitchen/breakfast room. A lovely modern spiral staircase leads up to the floor above with two good sized bedrooms and a modern shower room. The property also benefits from a private roof terrace.
+',
+  num_bedrooms: 1,
+  num_beds: 1,
+  num_baths: 1,
+  amenities: 'Wifi Kitchen Washer',
+  tag_line: 'Little Venice Luxury'
+  )
+
+  l8 = Listing.create!(
+  owner_id: 3,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'London',
+  zip_code: Faker::Address.postcode,
+  state: 'City of London',
+  country: 'United Kingdom',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'OMG Luxe',
+  property_type: 'Flat',
+  max_guests: 8,
+  night_price: 521,
+  cleaning_fee: 102,
+  description: 'A very bright and spacious contemporary garden flat. Three double bedrooms, two bathrooms, huge open plan living area.
+
+Stylish with very modern upto date fittings including under floor heating, Home Cinema, multi room audio.
+
+Little Venice in Central London is a hidden gem famed for its canals and attractive, stucco-fronted houses. Just a 6 minute walk to Paddington Station , 12 minute walk to Hyde Park, 25 minute walk to Marble Arch. With three metro stations all within a 5 minute walk.
+',
+  num_bedrooms: 3,
+  num_beds: 3,
+  num_baths: 2,
+  amenities: 'Wifi Kitchen Washer Pets TV Dryer Washer Workspace',
+  tag_line: 'Paddington Garden Flat'
+  )
+
+l9 = Listing.create!(
+  owner_id: 4,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'London',
+  zip_code: Faker::Address.postcode,
+  state: 'City of London',
+  country: 'United Kingdom',
+  lat: 37.804720,
+  long: -122.268390,
+  tags: 'OMG Luxe',
+  property_type: 'Flat',
+  max_guests: 6,
+  night_price: 452,
+  cleaning_fee: 131,
+  description: 'Light drenched 2 bed 2 bath apartment perfectly equipped as a place to work or relax. We are surrounded by Mayfair, Soho, Camden and Marylebone areas. Situated in a secure block with intercom access, a lift to the front door it is fully self-contained. Large open plan living / working spaces with work-desk and abundance of fresh air & natural light. An ideal office, showroom or meeting space.',
+  num_bedrooms: 2,
+  num_beds: 3,
+  num_baths: 2,
+  amenities: 'Wifi Kitchen Washer TV Washer',
+  tag_line: 'CLEAN OXFORD CIRCUS APARTMENT - MAYFAIR'
+  )
+
   puts "Creating reservations..."
   Reservation.create!(
     listing_id: 1,
@@ -185,6 +380,43 @@ ApplicationRecord.transaction do
     start_date: '2023-01-02',
     end_date: '2023-01-11'
   )
+
+  puts "Creating reviews..."
+    Review.create!(
+      user_id: 5,
+      listing_id: 3,
+      review: 'Amazing stay!',
+      cleanliness: 5,
+      accuracy: 5,
+      location: 5,
+      value: 5,
+      communication: 4,
+      check_in: 4
+    )
+
+    Review.create!(
+      user_id: 5,
+      listing_id: 9,
+      review: 'Great location with so many amenities to enjoy! We really appreciated the space including the fantastic kitchen and living room.',
+      cleanliness: 5,
+      accuracy: 5,
+      location: 5,
+      value: 5,
+      communication: 5,
+      check_in: 5
+    )
+
+    # Review.create!(
+    #   user_id: ,
+    #   listing_id: ,
+    #   review: ,
+    #   cleanliness: ,
+    #   accuracy: ,
+    #   location: ,
+    #   value: ,
+    #   communication: ,
+    #   check_in:
+    # )
 
   puts "Done!"
 end

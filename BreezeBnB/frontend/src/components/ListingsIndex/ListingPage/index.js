@@ -5,6 +5,7 @@ import { fetchListing, fetchListings } from "../../../store/listings"
 import { ReservationForm } from "../../Reservation/ReservationForm"
 import { fetchListingsReservations } from "../../../store/reservations"
 import './ListingPage.css'
+import { fetchListingReviews } from "../../../store/reviews"
 
 export const ListingPage = () => {
     const { listingId } = useParams()
@@ -15,7 +16,8 @@ export const ListingPage = () => {
     useEffect(() => {
         dispatch(fetchListing(listingId))
         dispatch(fetchListingsReservations(listingId))
-    }, [listingId])
+        // dispatch(fetchListingReviews(listingId))
+    }, [])
 
     function detailsFormating() {
         let string = ''
@@ -75,9 +77,6 @@ export const ListingPage = () => {
                 </div>
                 
                 <div className="reservation-container">
-                    <div className="reservation-container-info">
-                        <p><span>{listing.nightPrice}</span> night</p>
-                    </div>
                     <ReservationForm />
                 </div>
             </div>

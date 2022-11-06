@@ -1,5 +1,5 @@
 class Api::ReservationsController < ApplicationController
-    before_action :require_logged_in
+    before_action :require_logged_in, only: [:create, :update, :destroy]
     def index
         if params[:listing_id]
             @reservations = Reservation.where(listing_id: params[:listing_id])

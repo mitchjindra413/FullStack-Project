@@ -4,7 +4,7 @@
             :id,
             :user_id, 
             :listing_id,
-            :description, 
+            :review, 
             :cleanliness, 
             :accuracy, 
             :location, 

@@ -1,5 +1,5 @@
 import csrfFetch from "./csrf"
-import { fetchListings } from "./listings"
+
 
 const RECEIVE_RESERVATIONS = 'entities/RECEIVE_RESERVATIONS'
 const RECEIVE_RESERVATION = 'entities/RECEIVE_RESERVATION'
@@ -75,8 +75,10 @@ export const deleteReservation = (reservationId) => async dispatch => {
     const res = await csrfFetch(`/api/reservations/${reservationId}`, {
         method: 'DELETE'
     })
-
-    dispatch(removeReservation(reservationId))
+    
+    if(res.ok){
+        dispatch(removeReservation(reservationId))
+    }
 }
 
 export const reservationsReducer = (state = {}, action) => {
