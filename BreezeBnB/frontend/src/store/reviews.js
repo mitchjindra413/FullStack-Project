@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf";
 
+
 const RECEIVE_REVIEWS = 'entities/RECEIVE_REVIEWS'
 const RECEIVE_REVIEW = 'entities/RECEIVE_REVIEW'
 const REMOVE_REVIEW = 'entities/REMOVE_REVIEW'
@@ -17,6 +18,7 @@ const receiveReview = (review) => ({
 const removeReview = (reviewId) => ({
     type: REMOVE_REVIEW
 })
+
 
 export const fetchListingReviews = (listingId) => async dispatch => {
     const res = await csrfFetch(`/api/listings/${listingId}/reviews`)

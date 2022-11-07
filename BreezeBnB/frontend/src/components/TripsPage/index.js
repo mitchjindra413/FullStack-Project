@@ -19,34 +19,33 @@ export const TripsPage = () => {
     //     return state.entities.listings ? Object.values(state.entities.listings) : []
     // } 
     const listings = useSelector(state => state.entities.listings)
-    let past = []
-    let future = []
 
     if(reservations === null){
         reservations = []
     }
 
+    const future = []
+    const past = []
 
     const sort = () => {
-
         reservations.forEach(reservation => {
             if(new Date(reservation.startDate) > new Date()){
-                future.push(reservation)  
+                future.push(futureInfo(reservation))  
             } else {
                 past.push(reservation)
             }
         });
-        console.log(future)
+
+        
     }
 
     useEffect(() => {
         dispatch(fetchUsersReservations(user.id))
-        dispatch(fetchTripsListings(user.id))
     }, [])
 
     // useEffect(() => {
     //     sort()
-    // }, [reservations])
+    // }, [reservations, listings])
 
     const blank = () => {
         return (
@@ -68,22 +67,41 @@ export const TripsPage = () => {
 
     const futureInfo = (reservation) => {
         let listingId = reservation.listingId
-        console.log(listings)
+        if(listingId === null){
+            return null
+        }
         return (
             <div className="upcoming-container">
+                <Link to={`/listings/${listingId}`}>
                 <div>
-                    {/* <h4>{listings[listingId].city}</h4>
-                    <p>{listings[listingId].propertyType} hosted by </p> */}
+                    <div>
+                        <div>
+                            <h4>{listings[listingId].city}</h4>
+                            <p>{listings[listingId].propertyType} hosted by {listings.firstName}</p>
+                        </div>
+                        <div>
+                            {/* <p>{reservation.startDate}</p> */}
+                        </div>
+                    </div>
+                    <div>
+                        {/* <img src={listingId.imgUrls[0]}></img> */}
+                    </div>
+                </div>
+                </Link>
+                <div>
+                    <button>Edit Reservation</button>
+                    <button>Cancel reservation</button>
                 </div>
             </div>
         )
     }
 
-
+    
     return (
         <div id="trips-page">
             <h2>Trips</h2>
-            {future.length === 0 ? blank() : <div><h3>Upcoming Trips</h3> {future.map(reservation => futureInfo(reservation))}</div> }
+            {blank()}
+            {/* {future.length === 0 ? blank() : <div><h3>Upcoming Trips</h3> {future.map(reservation => futureInfo(reservation))}</div> } */}
         </div>
     )
 }

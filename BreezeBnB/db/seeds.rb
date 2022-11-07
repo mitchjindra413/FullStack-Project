@@ -247,24 +247,24 @@ ApplicationRecord.transaction do
   long: -122.268390,
   tags: 'OMG Luxe',
   property_type: 'Apartment',
-  max_guests: 2,
-  night_price: 260,
-  cleaning_fee: 75,
-  description: 'Exceptional apartment in Kensington and Chelsea borough. Prime location: close to Holland Park, central line tube or overground trains, Westfield shopping centre, and High Street Kensington. Lots of nearby restaurants, bars, cafes, shops. Easy access to London underground for visiting all of central London tourist sights.',
+  max_guests: 5,
+  night_price: 284,
+  cleaning_fee: 63,
+  description: "This stunning, sophisticated and luxurious apartment is situated in one of the most enviable spots in the exclusive neighborhood of Mayfair in London and within seconds of both of London's best - Berkeley Square and Old Bond Street! YOU WILL HAVE THE ENTIRE APARTMENT.",
   num_bedrooms: 1,
-  num_beds: 1,
+  num_beds: 2,
   num_baths: 1,
-  amenities: 'Wifi Kitchen Washer',
-  tag_line: 'Entire apartment in Kensington - 1 bedroom'
+  amenities: 'Wifi Kitchen Washer Dryer Workspace TV',
+  tag_line: 'Luxurious Mayfair Loft'
   )
 
-  # l5.photos.attach([
-  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/1.webp'), filename: '1.png'},
-  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/2.webp'), filename: '2.png'},
-  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/3.webp'), filename: '3.png'},
-  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/4.webp'), filename: '3.png'},
-  #   {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/5.webp'), filename: '4.png'}
-  # ])
+  l5.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/4.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/5.webp'), filename: '4.png'}
+  ])
 
   l6 = Listing.create!(
   owner_id: 9,
@@ -289,6 +289,14 @@ ApplicationRecord.transaction do
   tag_line: 'Entire apartment in Kensington - 1 bedroom'
   )
 
+  l6.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/4.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/5.webp'), filename: '4.png'}
+  ])
+
   l7 = Listing.create!(
   owner_id: 6,
   street_address: Faker::Address.street_address,
@@ -312,6 +320,14 @@ ApplicationRecord.transaction do
   amenities: 'Wifi Kitchen Washer',
   tag_line: 'Little Venice Luxury'
   )
+
+  l7.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/4.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/5.webp'), filename: '4.png'}
+  ])
 
   l8 = Listing.create!(
   owner_id: 3,
@@ -341,6 +357,14 @@ Little Venice in Central London is a hidden gem famed for its canals and attract
   tag_line: 'Paddington Garden Flat'
   )
 
+  l8.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/4.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/5.webp'), filename: '4.png'}
+  ])
+
 l9 = Listing.create!(
   owner_id: 4,
   street_address: Faker::Address.street_address,
@@ -364,6 +388,14 @@ l9 = Listing.create!(
   tag_line: 'CLEAN OXFORD CIRCUS APARTMENT - MAYFAIR'
   )
 
+  l9.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/4.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/5.webp'), filename: '4.png'}
+  ])
+
   puts "Creating reservations..."
   Reservation.create!(
     listing_id: 1,
@@ -385,7 +417,7 @@ l9 = Listing.create!(
     Review.create!(
       user_id: 5,
       listing_id: 3,
-      review: 'Amazing stay!',
+      description: 'Amazing stay!',
       cleanliness: 5,
       accuracy: 5,
       location: 5,
@@ -397,7 +429,7 @@ l9 = Listing.create!(
     Review.create!(
       user_id: 5,
       listing_id: 9,
-      review: 'Great location with so many amenities to enjoy! We really appreciated the space including the fantastic kitchen and living room.',
+      description: 'Great location with so many amenities to enjoy! We really appreciated the space including the fantastic kitchen and living room.',
       cleanliness: 5,
       accuracy: 5,
       location: 5,

@@ -69,7 +69,6 @@ export const NavButton = () => {
         if (!user || !user.profilePic){
             return "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
         } else{
-            console.log(user.profilePic)
             return user.profilePic
         }
     }

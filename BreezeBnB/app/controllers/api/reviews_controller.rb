@@ -2,18 +2,11 @@ class Api::ReviewsController < ApplicationController
     def index
         if params[:listing_id]
             @reviews = Review.where(listing_id: params[:listing_id])
-            @users = {}
-            @reviews.each do |review|
-                debugger
-                x = review.id
-                @users[review.id] = User.find_by[id: review.user_id]
-            end
             render :index
         end
 
         if params[:user_id]
             @reviews = Review.where(user_id: params[:user_id]).order(start_date: :desc)
-            @user = User.find_by(id: params[:user_id])
             render :user_index
         end
     end

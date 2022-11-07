@@ -1,11 +1,11 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchListing, fetchListings } from "../../../store/listings"
-import { ReservationForm } from "../../Reservation/ReservationForm"
-import { fetchListingsReservations } from "../../../store/reservations"
+import { fetchListing, fetchListings } from "../../store/listings"
+import { ReservationForm } from "../Reservation/ReservationForm"
+import { fetchListingsReservations } from "../../store/reservations"
 import './ListingPage.css'
-import { fetchListingReviews } from "../../../store/reviews"
+import { fetchListingReviews } from "../../store/reviews"
 
 export const ListingPage = () => {
     const { listingId } = useParams()
@@ -16,7 +16,7 @@ export const ListingPage = () => {
     useEffect(() => {
         dispatch(fetchListing(listingId))
         dispatch(fetchListingsReservations(listingId))
-        // dispatch(fetchListingReviews(listingId))
+        dispatch(fetchListingReviews(listingId))
     }, [])
 
     function detailsFormating() {

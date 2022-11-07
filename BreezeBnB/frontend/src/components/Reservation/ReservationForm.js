@@ -4,6 +4,9 @@ import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
 import { addDays, differenceInCalendarDays, parseISO } from 'date-fns'
+import 'react-dates/initialize';
+import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
+import 'react-dates/lib/css/_datepicker.css';
 
 export const ReservationForm = () => {
     const dispatch = useDispatch()
@@ -18,13 +21,14 @@ export const ReservationForm = () => {
         userId = null
     }
 
-    const [startDate, setStartDate] = useState('2022-11-06')
-    const [endDate, setEndDate] = useState('2022-11-07')
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
     const [numGuests, setNumGuests] = useState()
     const [showMenu, setShowMenu] = useState(false)
     const [adults, setAdults] = useState(1)
     const [children, setChildren] = useState(0)
     const [errors, setErrors] = useState([])
+    const [focusedInput, setFocusedInput] = useState()
 
     const openMenu = () => {
         if (showMenu) return;
@@ -57,29 +61,23 @@ export const ReservationForm = () => {
 
     return (
         <form className="reservation-form" onSubmit={handleSubmit}>
-            {console.log(endDate)}
             <div>
                 <p><span id='price'>${listing.nightPrice}</span> night</p>
             </div>
             <div>
-                <div>
-                    CHECK-IN
-                    <input 
-                        type="date"
-                        value={startDate}
-                        onChange={(e) => setStartDate(e.target.value)}
-                        required 
-                    ></input>
-                </div>
-                <div>
-                    CHECKOUT
-                    <input
-                        type="date"
-                        value={endDate}
-                        onChange={(e) => setEndDate(e.target.value)}
-                        required
-                    ></input>
-                </div>
+                <DateRangePicker
+                    startDate={startDate} // momentPropTypes.momentObj or null,
+                    startDateId="start-date" // PropTypes.string.isRequired,
+                    startDatePlaceholderText="CHECK-IN"
+                    endDate={endDate} // momentPropTypes.momentObj or null,
+                    endDateId="end-date" // PropTypes.string.isRequired,
+                    endDatePlaceholderText='CHECKOUT'
+                    onDatesChange={({startDate, endDate}) => {
+                        setStartDate(startDate); 
+                        setEndDate(endDate)}} // PropTypes.func.isRequired,
+                    focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
+                    onFocusChange={(focusedInput) =>  setFocusedInput(focusedInput) } // PropTypes.func.isRequired,
+                />
                 <div onClick={openMenu}>
                     <p>Guests</p>
                     <p>{numGuests === 1 ? '1 guest' : `${numGuests} guests`}</p>
@@ -90,7 +88,7 @@ export const ReservationForm = () => {
             <button type="submit" disabled={userId === null}>Reserve</button>
             <p>You wont be charged yet</p>
             <div>
-                <p>${listing.nightPrice} x {differenceInCalendarDays(parseISO(endDate), parseISO(startDate))}</p>
+                <p>${listing.nightPrice} x {differenceInCalendarDays(endDate, startDate)}</p>
                 <p>{listing.nightPrice * differenceInCalendarDays(parseISO(endDate), parseISO(startDate)) }</p>
             </div>
             <div>

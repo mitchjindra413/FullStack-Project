@@ -4,13 +4,13 @@
             :id,
             :user_id, 
             :listing_id,
-            :review, 
+            :description, 
             :cleanliness, 
             :accuracy, 
             :location, 
             :value, 
             :communication, 
             :check_in
-        json.profilePics @users[review.id].photo.map { |photo| photo.url }
+        json.reviewerPic review.user.photo.url
     end
 end
