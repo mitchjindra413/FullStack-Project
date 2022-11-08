@@ -1,7 +1,9 @@
+
 const SHOW_MODAL = 'ui/SHOW_LOGIN_MODAL'
 const HIDE_MODAL = 'ui/HIDE_LOGIN_MODAL'
 
 const SHOW_SIGNUP_MODAL = 'ui/SHOW_SIGNUP_MODAL'
+const SHOW_SUCCESSFUL_RESERVATION ='ui/SHOW_SUCCESSFUL_RESERVATION'
 
 
 export const showModal = () => ({
@@ -16,6 +18,10 @@ export const showSignupModal = () => ({
     type: SHOW_SIGNUP_MODAL
 })
 
+export const showSuccessfulReservation = () => ({
+    type: SHOW_SUCCESSFUL_RESERVATION
+})
+
 
 export const uiReducer = (state = {}, action) => {
     switch(action.type){
@@ -25,6 +31,8 @@ export const uiReducer = (state = {}, action) => {
             return {modal: null}
         case SHOW_SIGNUP_MODAL:
             return {modal: 'signup'}
+        case SHOW_SUCCESSFUL_RESERVATION:
+            return {modal: 'successfulReservation'}
         default:
             return state
     }

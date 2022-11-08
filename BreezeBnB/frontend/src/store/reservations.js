@@ -1,5 +1,6 @@
 import csrfFetch from "./csrf"
-
+import { showSuccessfulReservation } from "./ui"
+import { RECEIVE_LISTING_DETAILS } from "./listings"
 
 const RECEIVE_RESERVATIONS = 'entities/RECEIVE_RESERVATIONS'
 const RECEIVE_RESERVATION = 'entities/RECEIVE_RESERVATION'
@@ -57,7 +58,10 @@ export const createReservation = (reservation) => async dispatch => {
     if(res.ok){
         const data = await res.json()
         dispatch(receiveReservation(data))
+        dispatch(showSuccessfulReservation())
     }
+
+    return res
 }
 
 export const updateReservation = (reservation) => async dispatch => {
@@ -70,6 +74,8 @@ export const updateReservation = (reservation) => async dispatch => {
         let data = await res.json()
         dispatch(receiveReservation(data))
     }
+
+    return res
 }
 
 export const deleteReservation = (reservationId) => async dispatch => {
@@ -80,6 +86,8 @@ export const deleteReservation = (reservationId) => async dispatch => {
     if(res.ok){
         dispatch(removeReservation(reservationId))
     }
+
+    return res
 }
 
 export const reservationsReducer = (state = {}, action) => {
@@ -94,6 +102,8 @@ export const reservationsReducer = (state = {}, action) => {
         case DELETE_RESERVATION:
             delete newState[action.reservationId]
             return newState
+        case RECEIVE_LISTING_DETAILS:
+            return {...action.payload.reservations}
         default:
             return state
     }

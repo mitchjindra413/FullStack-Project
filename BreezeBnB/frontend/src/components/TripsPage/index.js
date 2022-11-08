@@ -19,9 +19,6 @@ export const TripsPage = () => {
         dispatch(fetchUsersReservations(user.id))
     }, [])
     
-    if(reservations === null){
-        return null
-    }
 
     const sort = () => {
         const future = []

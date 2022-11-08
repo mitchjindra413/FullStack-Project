@@ -2,22 +2,24 @@ import csrfFetch from "./csrf"
 
 const RECEIVE_LISTING = "entities/RECEIVE_LISTING"
 const RECEIVE_LISTINGS = "entities/RECEIVE_LISTINGS"
+export const RECEIVE_LISTING_DETAILS = 'entities/RECEIVE_LISTING_DETAILS'
 
-const receiveListing = (listing) => ({
-    type: RECEIVE_LISTING,
-    listing
-})
 
 const receiveListings = (listings) => ({
     type: RECEIVE_LISTINGS,
     listings
 })
 
+const receiveListingDetails = (payload) => ({
+    type: RECEIVE_LISTING_DETAILS,
+    payload
+})
+
 export const fetchListing = (listingId) => async dispatch => {
     const res = await csrfFetch(`/api/listings/${listingId}`)
 
     let data = await res.json()
-    dispatch(receiveListing(data))
+    dispatch(receiveListingDetails(data))
 }
 
 export const fetchListings = () => async dispatch => {
@@ -46,6 +48,9 @@ export const listingsReducer = (state = {}, action) => {
         case RECEIVE_LISTING:
             const newListing = action.listing
             return {...state, [newListing.id]: newListing}
+        case RECEIVE_LISTING_DETAILS:
+            const newListingStuff = action.payload.listing
+            return { ...state, [newListingStuff.id]: newListingStuff }
         default:
             return state
     }

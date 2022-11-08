@@ -32,7 +32,6 @@ class Api::ReservationsController < ApplicationController
 
     def update
         @reservation = Reservation.find_by(id: params[:id])
-        
         if @reservation.user_id == current_user.id
             if @reservation.update(reservation_params)
                 render :show
@@ -53,7 +52,6 @@ class Api::ReservationsController < ApplicationController
             render json: {errors: ['Must be the creator of reservation to delete']}
         end
     end
-
 
     private
     def reservation_params

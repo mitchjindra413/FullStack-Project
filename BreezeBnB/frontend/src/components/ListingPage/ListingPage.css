@@ -73,7 +73,7 @@ header figure {
     justify-content: space-between;
 }
 
-.reservation-container {
+/* .reservation-container {
     border-radius: 10px;
     border: 1px solid rgb(221, 221, 221);
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
@@ -82,7 +82,7 @@ header figure {
 
 .reservation-container-info {
     padding: 24px;
-}
+} */
 
 .listing-general-info {
     width: 60%;

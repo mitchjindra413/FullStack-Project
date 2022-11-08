@@ -17,11 +17,13 @@ class Reservation < ApplicationRecord
     end
 
     def no_overlap
+        temp_id = id ? id : -1
         reservations = Reservation.where(listing_id: listing_id)
             .where('start_date <= ?', end_date)
             .where('end_date >= ?', start_date)
-            .where('id != ?', id)
+            .where('id != ?', temp_id)
         
+        # debugger
         if reservations.length != 0
             return errors.add(:start_date, message: 'timeframe already taken')
         end

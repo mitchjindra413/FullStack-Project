@@ -1,0 +1,52 @@
+.reservation-form {
+    border-radius: 10px;
+    border: 1px solid #EBEBEB;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    padding: 30px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    max-height: fit-content;
+    min-width: fit-content;
+}
+
+.reservation-form p {
+    font-weight: 200;
+}
+
+.date-container {
+    border: 1px solid #727272;
+    border-radius: 10px 10px 0 0;
+    padding: 10px 20px 10px 20px;
+}
+
+.date-picker-title {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.guests-container {
+    display: flex;
+    justify-content: space-between;
+    border: 1px solid #727272;
+    border-radius: 0 0 10px 10px;
+    padding: 10px 20px 10px 20px;
+    align-items: center; 
+}
+
+.reserve{
+    margin-top: 12px;
+    height: 50px;
+    color: white;
+    background-image: radial-gradient(circle at center center, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%);
+    border-radius: 10px;
+    text-align: center;
+    width: 300px;
+}
+
+.no-charge {
+    font-size: 14px;
+    text-align: center;
+}

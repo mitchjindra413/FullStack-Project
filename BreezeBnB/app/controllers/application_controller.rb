@@ -39,6 +39,10 @@ class ApplicationController < ActionController::API
         end
     end
 
+    def invalid_dates(reservation)
+        (reservation.start_date..reservation.end_date).to_a
+    end
+
     private
     def snake_case_params
         params.deep_transform_keys!(&:underscore)

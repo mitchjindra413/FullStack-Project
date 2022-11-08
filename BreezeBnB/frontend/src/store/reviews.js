@@ -1,5 +1,5 @@
 import csrfFetch from "./csrf";
-
+import { RECEIVE_LISTING_DETAILS } from "./listings";
 
 const RECEIVE_REVIEWS = 'entities/RECEIVE_REVIEWS'
 const RECEIVE_REVIEW = 'entities/RECEIVE_REVIEW'
@@ -93,6 +93,8 @@ export const reviewsReducer = (state = {}, action) => {
             const reviewId = action.review.id
             delete newState[reviewId]
             return newState
+        case RECEIVE_LISTING_DETAILS:
+            return {...action.payload.reviews}
         default:
             return state
     }

@@ -24,9 +24,8 @@ class Api::ListingsController < ApplicationController
 
     def show
         @listing = Listing.find_by(id: params[:id])
-        @owner = User.find_by(id: @listing.owner_id)
-        
         if @listing 
+            @owner = User.find_by(id: @listing.owner_id)
             render :show
         else
             render json: {errors: 'Lisitng not found'}, status: 422

@@ -15,8 +15,6 @@ export const ListingPage = () => {
 
     useEffect(() => {
         dispatch(fetchListing(listingId))
-        dispatch(fetchListingsReservations(listingId))
-        dispatch(fetchListingReviews(listingId))
     }, [])
 
     function detailsFormating() {
@@ -75,18 +73,10 @@ export const ListingPage = () => {
                         <ul className="amenities-container">{listingAmens.map(amen => <li key={amen}>{amen}</li>)}</ul>
                     </div>
                 </div>
-                
-                <div className="reservation-container">
-                    <ReservationForm />
-                </div>
+                <ReservationForm />
             </div>
             <div>
-                <div>
-                    review grahics
-                </div>
-                <div>
-                    reviews
-                </div>
+                Reviews component
             </div>
             <div>
                 <h3>Where you'll be</h3>

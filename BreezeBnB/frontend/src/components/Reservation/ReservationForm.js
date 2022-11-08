@@ -3,16 +3,23 @@ import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useState } from "react"
 import { useParams } from "react-router-dom"
-import { addDays, differenceInCalendarDays, parseISO } from 'date-fns'
-import 'react-dates/initialize';
-import { DateRangePicker, SingleDatePicker, DayPickerRangeController } from 'react-dates';
-import 'react-dates/lib/css/_datepicker.css';
+import 'react-dates/initialize'
+import { DateRangePicker} from 'react-dates'
+import { SuccessfulReservationModal } from "./ReservationModal"
+import moment from 'moment'
+import 'react-dates/lib/css/_datepicker.css'
+import './ReservationForm.css'
 
 export const ReservationForm = () => {
     const dispatch = useDispatch()
     const {listingId} = useParams()
     const listing = useSelector(state => state.entities.listings[listingId])
     const user = useSelector(state => state.session.user)
+    
+    const getReservations = (state) => {
+        return state.entities.reservations ? Object.values(state.entities.reservations) : []
+    }
+    let reservations = useSelector(getReservations)
 
     let userId
     if(user){
@@ -21,25 +28,39 @@ export const ReservationForm = () => {
         userId = null
     }
 
-    const [startDate, setStartDate] = useState()
-    const [endDate, setEndDate] = useState()
+    const [startDate, setStartDate] = useState(moment())
+    const [endDate, setEndDate] = useState(moment().add(1, 'days'))
     const [numGuests, setNumGuests] = useState()
     const [showMenu, setShowMenu] = useState(false)
     const [adults, setAdults] = useState(1)
     const [children, setChildren] = useState(0)
     const [errors, setErrors] = useState([])
     const [focusedInput, setFocusedInput] = useState()
+    const modal = useSelector(state => state.ui.modal)
 
     const openMenu = () => {
-        if (showMenu) return;
-        setShowMenu(true);
-    };
+        if (showMenu) return
+        setShowMenu(true)
+    }
 
     useEffect(() => {
         setNumGuests(adults + children)
     }, [adults, children])
 
-    const handleSubmit = (e) => {
+
+    const taken = () => {
+        const takenDates = []
+        reservations.forEach(reservation => {
+            if(reservation.listingId === listingId) {
+                takenDates.concat(reservation.invalidDates)
+            }
+        })
+        console.log(reservations)
+        console.log(takenDates, 'td')
+        return ['2022-11-09']
+    }
+
+    const handleSubmit = async (e) => {
         e.preventDefault()
         setErrors([])
 
@@ -61,35 +82,48 @@ export const ReservationForm = () => {
 
     return (
         <form className="reservation-form" onSubmit={handleSubmit}>
+            {modal === 'successfulReservation' &&(<SuccessfulReservationModal></SuccessfulReservationModal>)}
+            
             <div>
                 <p><span id='price'>${listing.nightPrice}</span> night</p>
             </div>
             <div>
-                <DateRangePicker
-                    startDate={startDate} // momentPropTypes.momentObj or null,
-                    startDateId="start-date" // PropTypes.string.isRequired,
-                    startDatePlaceholderText="CHECK-IN"
-                    endDate={endDate} // momentPropTypes.momentObj or null,
-                    endDateId="end-date" // PropTypes.string.isRequired,
-                    endDatePlaceholderText='CHECKOUT'
-                    onDatesChange={({startDate, endDate}) => {
-                        setStartDate(startDate); 
-                        setEndDate(endDate)}} // PropTypes.func.isRequired,
-                    focusedInput={focusedInput} // PropTypes.oneOf([START_DATE, END_DATE]) or null,
-                    onFocusChange={(focusedInput) =>  setFocusedInput(focusedInput) } // PropTypes.func.isRequired,
-                />
-                <div onClick={openMenu}>
-                    <p>Guests</p>
-                    <p>{numGuests === 1 ? '1 guest' : `${numGuests} guests`}</p>
-                    
+                <div className="date-container">
+                    <div className="date-picker-title">
+                        <h3>CHECK-IN</h3>
+                        <h3>CHECKOUT</h3>
+                    </div>
+                    <DateRangePicker
+                        startDate={startDate} 
+                        startDateId="start-date" 
+                        startDatePlaceholderText="CHECK-IN"
+                        endDate={endDate} 
+                        endDateId="end-date" 
+                        endDatePlaceholderText='CHECKOUT'
+                        onDatesChange={({startDate, endDate}) => {
+                            setStartDate(startDate); 
+                            setEndDate(endDate)}} 
+                        focusedInput={focusedInput} 
+                        onFocusChange={(focusedInput) =>  setFocusedInput(focusedInput) }
+                        small={true}
+                        noBorder={true}
+                    />
+                </div>
+                <div className="guests-container" onClick={openMenu}>
+                    <div>
+                        <p>Guests</p>
+                        <p>{numGuests === 1 ? '1 guest' : `${numGuests} guests`}</p>
+                    </div>
+                    <i class="fa-sharp fa-solid fa-chevron-down"></i>
                 </div>
                 
             </div>
-            <button type="submit" disabled={userId === null}>Reserve</button>
-            <p>You wont be charged yet</p>
+            <button className='reserve'type="submit" disabled={userId === null}>Reserve</button>
+            <p className="no-charge">You wont be charged yet</p>
             <div>
-                <p>${listing.nightPrice} x {differenceInCalendarDays(endDate, startDate)}</p>
-                <p>{listing.nightPrice * differenceInCalendarDays(parseISO(endDate), parseISO(startDate)) }</p>
+                <p>${listing.nightPrice} x {startDate & endDate ? endDate.diff(startDate, 'days'): '1'} nights</p>
+                {startDate & endDate ? <p>${listing.nightPrice * endDate.diff(startDate, 'days')}</p> : <p>${listing.nightPrice}</p>}
+    
             </div>
             <div>
                 <p>Cleaning Fee</p>

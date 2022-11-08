@@ -26,9 +26,6 @@ export const ReviewForm = () => {
 
         const totalReview = { listing_id: intListingId, user_id: userId, description, cleanliness, accuracy, location, value, communication, check_in: checkIn }
         return dispatch(createReview(totalReview))
-            .then(
-                history.push(`/listings/${listingId}`)
-            )
             .catch(async (res) => {
                 let data;
                 try {
