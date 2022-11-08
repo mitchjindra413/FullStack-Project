@@ -26,11 +26,10 @@ export const ReviewForm = () => {
 
         const totalReview = { listing_id: intListingId, user_id: userId, description, cleanliness, accuracy, location, value, communication, check_in: checkIn }
         return dispatch(createReview(totalReview))
+            .then(
+                history.push(`/listings/${listingId}`)
+            )
             .catch(async (res) => {
-                debugger
-                if(res.ok){
-                    history.push(`/listings/${listingId}`)
-                }
                 let data;
                 try {
                     data = await res.clone().json()

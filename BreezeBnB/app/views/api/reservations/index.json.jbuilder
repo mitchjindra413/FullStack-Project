@@ -11,5 +11,6 @@
         json.listingCity reservation.listing.city
         json.listingCountry reservation.listing.country
         json.listingOwner reservation.listing.owner.first_name
+        json.imgUrls reservation.listing.photos.map { |photo| photo.url }
     end
 end
