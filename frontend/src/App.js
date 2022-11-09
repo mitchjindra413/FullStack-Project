@@ -7,12 +7,14 @@ import { Navigation } from "./components/Navigation/index.js";
 import { TripsPage } from "./components/TripsPage/index.js";
 import {ProfilePage} from "./components/ProfilePage/index.js"
 import { ReviewForm } from "./components/Review/ReviewForm.js";
+import { SuccessfulReservationModal } from "./components/Reservation/ReservationModal/index.js";
 
 function App() {
   const user = useSelector(state => state.session.user)
 
   return (
     <>
+      {/* <SuccessfulReservationModal></SuccessfulReservationModal> */}
       <Navigation />
       <Switch>
         <Route path={'/profile'}>

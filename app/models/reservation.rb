@@ -23,7 +23,6 @@ class Reservation < ApplicationRecord
             .where('end_date >= ?', start_date)
             .where('id != ?', temp_id)
         
-        # debugger
         if reservations.length != 0
             return errors.add(:start_date, message: 'timeframe already taken')
         end

@@ -13,5 +13,6 @@
         json.listingOwner reservation.listing.owner.first_name
         json.imgUrls reservation.listing.photos.map { |photo| photo.url }
         json.invalidDates (reservation.start_date..reservation.end_date).to_a
+        json.listingMaxGuests reservation.listing.max_guests
     end
 end

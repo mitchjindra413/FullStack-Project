@@ -85,7 +85,7 @@ export const ReservationForm = () => {
 
     return (
         <form className="reservation-form" onSubmit={handleSubmit}>
-            {modal === 'successfulReservation' &&(<SuccessfulReservationModal></SuccessfulReservationModal>)}
+            {modal === 'successfulReservation' &&(<SuccessfulReservationModal ></SuccessfulReservationModal>)}
             
             <div className="top-info">
                 <p><span id='price'>${listing.nightPrice}</span> night</p>
@@ -120,10 +120,13 @@ export const ReservationForm = () => {
                         <p>Guests</p>
                         <p>{numGuests === 1 ? '1 guest' : `${numGuests} guests`}</p>
                     </div>
-                    <i class="fa-sharp fa-solid fa-chevron-down"></i>
+                    {!showMenu ? <i className="fa-sharp fa-solid fa-chevron-down"></i> : <i className="fa-solid fa-chevron-up"></i>}
                 </div>
                 
             </div>
+            <ul className="error-list">
+                {errors.map(error => <li key={error}>{error}</li>)}
+            </ul>
             <button className='reserve'type="submit" disabled={userId === null}>Reserve</button>
             <p className="no-charge">You wont be charged yet</p>
             <div className="general-info">

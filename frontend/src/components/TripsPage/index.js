@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
 import { fetchUsersReservations } from "../../store/reservations"
 import './TripsPage.css'
-import { isAfter } from "date-fns"
+import moment from 'moment'
 import { FutureInfo } from "./FutureInfo"
 
 export const TripsPage = () => {
@@ -24,11 +24,11 @@ export const TripsPage = () => {
         const future = []
         const past = []
         reservations.forEach(reservation => {
-            let startDateSplit = reservation.startDate.split('-')
-            
-            if(isAfter(new Date(startDateSplit[0], startDateSplit[1], startDateSplit[2]), new Date())){
-                future.push(<FutureInfo key={reservation.id} reservation={reservation}></FutureInfo>)  
+
+            if (moment(reservation.startDate).isAfter(moment(), 'days')) {
+                future.push(<FutureInfo key={reservation.id} reservation={reservation}></FutureInfo>)
             } 
+            
         })
 
         return (

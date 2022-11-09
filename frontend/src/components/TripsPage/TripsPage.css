@@ -85,6 +85,7 @@
     border: 1px solid #EBEBEB;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     margin-bottom: 25px;
+    min-width: 405px;
 }
 
 .future-trips-left {
@@ -149,3 +150,31 @@
     color: #717171;
 }
 
+.dropdown-edit {
+    transform: translateY(-274px);
+    height: 325px;
+    width: 300px;
+}
+
+.dropdown-title {
+    padding-top: 20px;
+    padding-left: 25px;
+    font-size: 18px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #EBEBEB;
+}
+
+.close-edit {
+    padding-bottom: 5px;
+    font-size: 15px;
+}
+
+.update-submit {
+    height: 50px;
+    color: white;
+    background-image: radial-gradient(circle at center center, rgb(230, 30, 77) 27.5%, rgb(227, 28, 95) 40%);
+    border-radius: 10px;
+    text-align: center;
+    width: 200px;
+    margin-left: 45px;
+}
