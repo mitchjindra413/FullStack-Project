@@ -405,14 +405,6 @@ l9 = Listing.create!(
     end_date: '2023-01-10'
   )
 
-  Reservation.create!(
-    listing_id: 1,
-    user_id: 2,
-    num_guests: 1,
-    start_date: '2023-01-02',
-    end_date: '2023-01-11'
-  )
-
   puts "Creating reviews..."
     Review.create!(
       user_id: 5,

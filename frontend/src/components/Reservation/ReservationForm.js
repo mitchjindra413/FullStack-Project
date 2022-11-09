@@ -126,16 +126,16 @@ export const ReservationForm = () => {
             </div>
             <button className='reserve'type="submit" disabled={userId === null}>Reserve</button>
             <p className="no-charge">You wont be charged yet</p>
-            <div>
+            <div className="general-info">
                 <p>${listing.nightPrice} x {startDate & endDate ? endDate.diff(startDate, 'days'): '1'} nights</p>
                 {startDate & endDate ? <p>${listing.nightPrice * endDate.diff(startDate, 'days')}</p> : <p>${listing.nightPrice}</p>}
     
             </div>
             <div className="general-info">
                 <p>Cleaning Fee</p>
-                <p>{listing.cleaningFee}</p>
+                <p>${listing.cleaningFee}</p>
             </div>
-            <div>
+            <div className="general-info">
                 <p>Total before taxes</p>
                 <p></p>
             </div>

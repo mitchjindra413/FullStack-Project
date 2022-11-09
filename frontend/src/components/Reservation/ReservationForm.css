@@ -65,3 +65,9 @@
     font-size: 14px;
     text-align: center;
 }
+
+.general-info {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 20px;
+}
