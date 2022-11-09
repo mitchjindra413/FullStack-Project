@@ -3,10 +3,11 @@
     border: 1px solid #EBEBEB;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
     padding: 30px;
+    padding-bottom: 10px;
     margin-top: 30px;
-    margin-bottom: 30px;
-    max-height: fit-content;
-    min-width: fit-content;
+    margin-bottom: 10px;
+    height: 480px;
+    width: 300px;
 }
 
 .reservation-form p {
@@ -59,6 +60,14 @@
     width: 300px;
 }
 
+.reserve:disabled {
+    background-image: radial-gradient(circle,
+        rgba(184, 184, 184, 1) 0%,
+        rgba(191, 191, 191, 1) 35%,
+        rgba(170, 170, 170, 1) 100%) ;
+    
+}
+
 .no-charge {
     padding-top: 10px;
     padding-bottom: 20px;
@@ -70,4 +79,63 @@
     display: flex;
     justify-content: space-between;
     padding-bottom: 20px;
+    font-size: 16px;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.before-taxes {
+    border-top: 1px solid #EBEBEB;
+    padding-top: 20px;
+    font-weight: 500;
+}
+
+.dropdown-reservation {
+    position: absolute;
+    background-color: white;
+    transform: translateY(-291px);
+    width: 300px;
+    z-index: 2;
+    border: 1px solid #EBEBEB;
+    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
+    border-radius:10px;
+    height: 200px;
+}
+
+.age {
+    display: flex;
+    justify-content: space-between;
+    margin: 25px;
+}
+
+.age h3 {
+    padding-bottom: 5px;
+}
+
+.age-button {
+    display: flex;
+    align-items: center;
+    width: 40%;
+    justify-content: space-around;
+    font-size: 18px;
+}
+
+.age-button button {
+    border: 1px solid #727272;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+}
+
+.age-button button:disabled {
+    color:#dddddd;
+    border: 1px solid #dddddd;
+}
+
+.close-button {
+    text-decoration: underline;
+    
 }

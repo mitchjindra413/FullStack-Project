@@ -127,41 +127,47 @@ export const ReservationForm = () => {
             <button className='reserve'type="submit" disabled={userId === null}>Reserve</button>
             <p className="no-charge">You wont be charged yet</p>
             <div className="general-info">
-                <p>${listing.nightPrice} x {startDate & endDate ? endDate.diff(startDate, 'days'): '1'} nights</p>
+                <p className="underline">${listing.nightPrice} x {startDate & endDate ? endDate.diff(startDate, 'days'): '1'} nights</p>
                 {startDate & endDate ? <p>${listing.nightPrice * endDate.diff(startDate, 'days')}</p> : <p>${listing.nightPrice}</p>}
     
             </div>
             <div className="general-info">
-                <p>Cleaning Fee</p>
+                <p className="underline">Cleaning Fee</p>
                 <p>${listing.cleaningFee}</p>
             </div>
             <div className="general-info">
-                <p>Total before taxes</p>
-                <p></p>
+                <p className="underline">Service Fee</p>
+                <p>${Math.floor((listing.cleaningFee + (startDate & endDate ? listing.nightPrice * endDate.diff(startDate, 'days') : listing.nightPrice)) * 0.14)}</p>
+            </div>
+            <div className={"general-info before-taxes"} >
+                <h4>Total before taxes</h4>
+                <h4>${Math.floor((listing.cleaningFee + (startDate & endDate ? listing.nightPrice * endDate.diff(startDate, 'days') : listing.nightPrice)) * 0.14) + (listing.cleaningFee + (startDate & endDate ? listing.nightPrice * endDate.diff(startDate, 'days') : listing.nightPrice))}</h4>
             </div>
             {showMenu && (
                 <div className="dropdown-reservation" style={{ zIndex: 1 }}>
                     <div className="age">
-                        <div>
+                        <div >
                             <h3>Adults</h3>
                             <p>Age 13+</p>
                         </div>
-                        <div>
+                        <div className="age-button">
                             <button type="button" disabled={adults === 1} onClick={() => setAdults(adults - 1)}>-</button>
                             <h4>{adults}</h4>
                             <button type="button" disabled={numGuests === listing.maxGuests} onClick={() => setAdults(adults + 1)}>+</button>
                         </div>
+                    </div>
+                    <div className="age">
                         <div>
                             <h3>Children</h3>
                             <p>Ages 2-12</p>
                         </div>
-                        <div>
+                        <div className="age-button">
                             <button type="button" disabled={children === 0} onClick={() => setChildren(children - 1)}>-</button>
                             <h4>{children}</h4>
                             <button type="button" disabled={numGuests === listing.maxGuests} onClick={() => setChildren(children + 1)}>+</button>
                         </div>
                     </div>
-                    <button type="button" onClick={() => setShowMenu(false)}>X</button>
+                    <button className="age close-button" type="button" onClick={() => setShowMenu(false)}>Close</button>
                 </div>
             )}
         </form>

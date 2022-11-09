@@ -14,8 +14,11 @@
     
 }
 
-@media (min-width: 1250px) {
-    
+@media (min-width: 900px) {
+    .info-reservation {
+            display: flex;
+            justify-content: space-between;
+        }
 }
 
 @media (min-width: 1251px) {
@@ -67,25 +70,8 @@ header figure {
     color: #222222;
     font-weight: 200;
 }
-
-.info-reservation {
-    display: flex;
-    justify-content: space-between;
-}
-
-/* .reservation-container {
-    border-radius: 10px;
-    border: 1px solid rgb(221, 221, 221);
-    box-shadow: rgba(0, 0, 0, 0.12) 0px 6px 16px;
-    
-}
-
-.reservation-container-info {
-    padding: 24px;
-} */
-
 .listing-general-info {
-    width: 60%;
+    padding-right: 60px;
 }
 
 #figure-container {
@@ -95,7 +81,6 @@ header figure {
 }
 
 .listing-page figure {
-    
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     grid-template-rows: 200px 200px;
@@ -104,7 +89,6 @@ header figure {
     overflow: hidden;
     
 }
-
 
 
 .listing-page figure img {
