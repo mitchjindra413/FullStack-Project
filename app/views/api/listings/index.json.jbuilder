@@ -16,5 +16,9 @@
             :max_guests,
             :amenities
         json.imgUrls listing.photos.map { |photo| photo.url }
+        json.firstName listing.owner.first_name
+        json.ownerPic listing.owner.photo ? listing.owner.photo.url : ''
+        json.totalReviews listing.avg_total_review
     end
 end
+

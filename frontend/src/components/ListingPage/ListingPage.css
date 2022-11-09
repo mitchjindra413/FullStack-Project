@@ -54,8 +54,10 @@ header figure {
 
 .listing-general-title {
     padding-top: 48px;
-        padding-bottom: 20px;
-        border-bottom: 1px solid rgb(221, 221, 221);
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    display: flex;
+    justify-content: space-between;
 }
 
 .listing-general-title h3 {
@@ -114,9 +116,14 @@ header figure {
 }
 .amenities-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 1fr;
     align-content: center;
     gap: 20px;
     border-bottom: 1px solid rgb(221, 221, 221);
     padding-bottom: 40px;
+}
+
+.pic-bigger {
+    width: 60px;
+    height: 60px;
 }

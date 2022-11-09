@@ -6,6 +6,7 @@ import { ReservationForm } from "../Reservation/ReservationForm"
 import { fetchListingsReservations } from "../../store/reservations"
 import './ListingPage.css'
 import { fetchListingReviews } from "../../store/reviews"
+import { ListingsReviews } from "../ListingsReviews"
 
 export const ListingPage = () => {
     const { listingId } = useParams()
@@ -38,6 +39,7 @@ export const ListingPage = () => {
                     <li>{listing.state},</li>
                     <li>{listing.country}</li>
                 </ul>
+                
             </header>
             <div id="figure-container">
                 <figure>
@@ -62,8 +64,11 @@ export const ListingPage = () => {
             <div className="info-reservation">
                 <div className="listing-general-info">
                     <div className="listing-general-title">
-                        <h3>{`${listing.propertyType} hosted by ${listing.firstName}`}</h3>
-                        <p>{detailsFormating()} </p>
+                        <div>
+                            <h3>{`${listing.propertyType} hosted by ${listing.firstName}`}</h3>
+                            <p>{detailsFormating()} </p>
+                        </div>
+                        <img className="profile-pic pic-bigger" src={listing.ownerPic}></img>
                     </div>
                     <div className="description">
                         <p>{listing.description}</p>
@@ -75,9 +80,7 @@ export const ListingPage = () => {
                 </div>
                 <ReservationForm />
             </div>
-            <div>
-                Reviews component
-            </div>
+            <ListingsReviews></ListingsReviews>
             <div>
                 <h3>Where you'll be</h3>
                 <p>{listing.city}, {listing.state}, {listing.country}</p>

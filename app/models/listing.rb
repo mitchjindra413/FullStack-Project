@@ -20,4 +20,22 @@ class Listing < ApplicationRecord
 
     has_many :reviews,
         dependent: :destroy
+
+    def avg_total_review
+        return 'NA' if self.reviews.length == 0
+
+        total_sum = 0
+
+        self.reviews.each do |review|
+            clean = review.cleanliness
+            com = review.communication
+            check = review.check_in
+            acc = review.accuracy
+            loc = review.location
+            val = review.value
+            total_sum += ((clean+com+check+acc+loc+val)/6.0)
+        end
+
+        return (total_sum/self.reviews.length).round(1).to_s
+    end
 end

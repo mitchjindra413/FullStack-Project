@@ -26,6 +26,7 @@ json.listing do
         :bio,
         :created_at
     json.ownerPic @owner.photo.url
+    json.totalReviews @listing.avg_total_review
 end
 
 listing_reservations = @listing.reservations
@@ -65,6 +66,8 @@ json.reviews do
                 :communication, 
                 :check_in
             json.reviewerPic review.user.photo.url
+            json.reviewerName review.user.first_name
+            json.reviewerJoined review.user.created_at
         end
     end
 end

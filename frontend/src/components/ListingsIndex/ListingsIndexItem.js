@@ -21,7 +21,7 @@ export const ListingsIndexItem = ({listing}) => {
                 <div>
                     <div className="index-details-top">
                         <h3 className="index-location">{listing.country === 'United States' ? `${listing.city}, ${listing.state}` : `${listing.city}, ${listing.country}`}</h3>
-                        <p className="index-rating">★ Rating</p>
+                        <p className="index-rating">★ {listing.totalReviews}</p>
                     </div>
                     <ul>
                         <li className="index-details">{listing.tagLine.length < 35 ? listing.tagLine : `${listing.tagLine.slice(0, 30)}...`}</li>

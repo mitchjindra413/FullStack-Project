@@ -58,9 +58,12 @@ export const ReservationForm = () => {
                 takenDates.concat(reservation.invalidDates)
             }
         })
-        console.log(reservations)
-        console.log(takenDates, 'td')
-        return ['2022-11-09']
+        return takenDates
+    }
+
+    const blockedDays = (day) => {
+        let blocked = taken()
+        return blocked.includes(day)
     }
 
     const handleSubmit = async (e) => {
@@ -112,6 +115,7 @@ export const ReservationForm = () => {
                         onFocusChange={(focusedInput) =>  setFocusedInput(focusedInput) }
                         small={true}
                         noBorder={true}
+                        isBlockedDay={blockedDays}
                     />
                     </div>
                 </div>
