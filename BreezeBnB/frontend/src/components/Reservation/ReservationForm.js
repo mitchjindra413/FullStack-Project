@@ -39,8 +39,11 @@ export const ReservationForm = () => {
     const modal = useSelector(state => state.ui.modal)
 
     const openMenu = () => {
-        if (showMenu) return
-        setShowMenu(true)
+        if (showMenu) {
+            return setShowMenu(false)
+        } else {
+            return setShowMenu(true)
+        }
     }
 
     useEffect(() => {
@@ -84,15 +87,17 @@ export const ReservationForm = () => {
         <form className="reservation-form" onSubmit={handleSubmit}>
             {modal === 'successfulReservation' &&(<SuccessfulReservationModal></SuccessfulReservationModal>)}
             
-            <div>
+            <div className="top-info">
                 <p><span id='price'>${listing.nightPrice}</span> night</p>
             </div>
             <div>
                 <div className="date-container">
                     <div className="date-picker-title">
                         <h3>CHECK-IN</h3>
-                        <h3>CHECKOUT</h3>
+                        <h3 className="checkout">CHECKOUT</h3>
                     </div>
+                    <div className="picker">
+
                     <DateRangePicker
                         startDate={startDate} 
                         startDateId="start-date" 
@@ -108,6 +113,7 @@ export const ReservationForm = () => {
                         small={true}
                         noBorder={true}
                     />
+                    </div>
                 </div>
                 <div className="guests-container" onClick={openMenu}>
                     <div>
@@ -125,7 +131,7 @@ export const ReservationForm = () => {
                 {startDate & endDate ? <p>${listing.nightPrice * endDate.diff(startDate, 'days')}</p> : <p>${listing.nightPrice}</p>}
     
             </div>
-            <div>
+            <div className="general-info">
                 <p>Cleaning Fee</p>
                 <p>{listing.cleaningFee}</p>
             </div>
