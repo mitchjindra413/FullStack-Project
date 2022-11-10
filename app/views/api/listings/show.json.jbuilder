@@ -57,6 +57,7 @@ json.reviews do
         json.set! review.id do 
             json.extract! review,
                 :id,
+                :user_id,
                 :listing_id, 
                 :description,
                 :cleanliness, 

@@ -9,3 +9,6 @@ json.extract! @review,
     :value, 
     :communication, 
     :check_in
+json.reviewerPic @review.user.photo.url
+json.reviewerName @review.user.first_name
+json.reviewerJoined @review.user.created_at

@@ -16,7 +16,6 @@ export const LoginForm = () => {
         e.preventDefault()
         setErrors([])
 
-
         return dispatch(login({ email, password }))
             .catch(async (res) => {
                 let data;
@@ -30,7 +29,25 @@ export const LoginForm = () => {
                 else setErrors([res.statusText])
                 
             })        
+    }
 
+    const handleDemo = (e) => {
+        e.preventDefault()
+        setErrors([])
+
+        return dispatch(login({ email: 'demo@user.io', password: 'password' }))
+            .catch(async (res) => {
+                let data;
+                try {
+                    data = await res.clone().json()
+                } catch {
+                    data = await res.text()
+                }
+                if (data?.errors) setErrors(data.errors)
+                else if (data) setErrors([data])
+                else setErrors([res.statusText])
+
+            })
     }
 
     return (
@@ -75,7 +92,7 @@ export const LoginForm = () => {
             </div>
         </form>
             <div id='other-buttons-div'>
-                <button className='other-buttons-login'><img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></img>Log in with demo</button>
+                <button onClick={handleDemo} className='other-buttons-login'><img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></img>Log in with demo</button>
                 <a href="https://github.com/mitchjindra413" target="_blank"><button className='other-buttons-login'><img src="https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/GitHub-Mark-64px.png"></img>Creator's github</button></a>
             </div>
         </div>

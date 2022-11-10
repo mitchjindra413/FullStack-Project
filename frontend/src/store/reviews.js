@@ -16,7 +16,8 @@ const receiveReview = (review) => ({
 })
 
 const removeReview = (reviewId) => ({
-    type: REMOVE_REVIEW
+    type: REMOVE_REVIEW,
+    reviewId
 })
 
 
@@ -61,7 +62,7 @@ export const createReview = (review) => async dispatch => {
 
 export const updateReview = (review) => async dispatch => {
     const res = await csrfFetch(`/api/reviews/${review.id}`, {
-        body: 'PUT',
+        method: 'PATCH',
         body: JSON.stringify(review)
     })
 
@@ -90,8 +91,7 @@ export const reviewsReducer = (state = {}, action) => {
         case RECEIVE_REVIEWS:
             return { ...action.reviews }
         case REMOVE_REVIEW:
-            const reviewId = action.review.id
-            delete newState[reviewId]
+            delete newState[action.reviewId]
             return newState
         case RECEIVE_LISTING_DETAILS:
             return {...action.payload.reviews}

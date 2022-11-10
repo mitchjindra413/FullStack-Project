@@ -47,7 +47,8 @@
     border: 1px solid #727272;
     border-radius: 0 0 10px 10px;
     padding: 10px 20px 10px 20px;
-    align-items: center; 
+    align-items: center;
+    cursor:pointer;
 }
 
 .reserve{
@@ -132,6 +133,7 @@
 .age-button button:disabled {
     color:#dddddd;
     border: 1px solid #dddddd;
+    cursor: default;
 }
 
 .close-button {

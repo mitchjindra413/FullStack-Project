@@ -9,12 +9,13 @@
 
 .review-container {
     padding-top: 20px;
+    border-bottom: 1px solid #ebebeb;
 }
 
 .review-container h3 {
     font-size: 23px;
-    padding-bottom: 30px;
 }
+
 .reviews-figure {
     display: grid;
     column-gap: 15%;
@@ -79,5 +80,14 @@ progress::-webkit-progress-value {
 .review-content {
     padding-top: 10px;
     font-weight: 300;
+}
+
+.edit-delete {
+    display: grid;
+    font-weight: 300;
+    min-height: 30px;
+    text-decoration: underline;
+    grid-template-columns: 1fr 1fr;
+    padding-bottom: 20px;
 }
 

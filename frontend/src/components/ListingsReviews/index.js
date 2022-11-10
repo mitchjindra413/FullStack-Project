@@ -2,7 +2,10 @@ import { useEffect, useState } from "react"
 import { useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
 import { ReviewsItem } from "./ReviewsItem"
+import { Link } from "react-router-dom"
 import './ListingsReviews.css'
+import { fetchListingReviews } from "../../store/reviews"
+import { useDispatch } from "react-redux"
 
 export const ListingsReviews = () => {
 
@@ -19,6 +22,8 @@ export const ListingsReviews = () => {
     const [acc, setAcc] = useState(0)
     const [loc, setLoc] = useState(0)
     const [val, setVal] = useState(0)
+    const user = useSelector(state => state.session.user)
+    
 
     const avgElements = () => {
         let tempClean = 0
@@ -53,6 +58,11 @@ export const ListingsReviews = () => {
         return string
     }
 
+    const noPreviousReviews = () => {
+        if(!user) return false
+        return reviews.every(review => (review.userId !== user.id))
+    } 
+
     useEffect(() => {
         avgElements()
     }, [reviews.length])
@@ -60,6 +70,7 @@ export const ListingsReviews = () => {
     return (
         <div className="review-container">
             <h3>★ {listing.totalReviews} • {reviews.length} {reviews.length === 1 ? 'review' : 'reviews'}</h3>
+            {noPreviousReviews() ? <Link to={`/listings/${listingId}/reviews/new`}><p className="edit-delete">Write a review</p></Link> : <p className="edit-delete"></p>}
             <div className="reviews-figure">
                 <div className="category">
                     <p>Cleanliness </p>
@@ -92,8 +103,8 @@ export const ListingsReviews = () => {
                 <div className="category">
                     <p>Check-in </p>
                     <div className="progress-div">
-                        <progress value={check} max='5'></progress>
-                        <p>{valueFormating(check)}</p>
+                        <progress value={loc} max='5'></progress>
+                        <p>{valueFormating(loc)}</p>
                     </div>
                 </div>
                 <div className="category">

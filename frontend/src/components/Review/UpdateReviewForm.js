@@ -1,21 +1,22 @@
 import { useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
-import { createReview } from "../../store/reviews"
+import { updateReview } from "../../store/reviews"
 import './ReviewForm.css'
 
 
-export const ReviewForm = () => {
+export const UpdateReviewForm = () => {
     const dispatch = useDispatch()
-    const {listingId} = useParams()
-    const userId = useSelector(state => state.session.user.id)
-    const [description, setDescription] = useState('')
-    const [cleanliness, setCleanliness] = useState(1)
-    const [accuracy, setAccuracy] = useState(1)
-    const [location, setLocation] = useState(1)
-    const [value, setValue] = useState(1)
-    const [communication, setCommunication] = useState(1)
-    const [checkIn, setCheckIn] = useState(1)
+    const {reviewId} = useParams()
+    const review = useSelector(state => state.entities.reviews[reviewId])
+    
+    const [description, setDescription] = useState(review.description)
+    const [cleanliness, setCleanliness] = useState(review.cleanliness)
+    const [accuracy, setAccuracy] = useState(review.accuracy)
+    const [location, setLocation] = useState(review.location)
+    const [value, setValue] = useState(review.value)
+    const [communication, setCommunication] = useState(review.communication)
+    const [checkIn, setCheckIn] = useState(review.checkIn)
     const [errors, setErrors] = useState([])
     const history = useHistory()
     
@@ -23,10 +24,20 @@ export const ReviewForm = () => {
     const handleSubmit = (e) => {
         e.preventDefault()
         setErrors([])
-        const intListingId = parseInt(listingId)
 
-        const totalReview = { listing_id: intListingId, user_id: userId, description, cleanliness, accuracy, location, value, communication, check_in: checkIn }
-        return dispatch(createReview(totalReview))
+        const newReview = {
+            id: review.id,
+            listing_id: review.listingId, 
+            user_id: review.userId, 
+            description, 
+            cleanliness, 
+            accuracy, 
+            location, 
+            value, 
+            communication, 
+            check_in: checkIn }
+
+        return dispatch(updateReview(newReview))
             .catch(async (res) => {
                 let data;
                 try {
@@ -39,7 +50,7 @@ export const ReviewForm = () => {
                 else setErrors([res.statusText])
             })
             .then(
-                history.push(`/listings/${listingId}`)
+                history.push(`/listings/${review.listingId}`)
             )
     }
 

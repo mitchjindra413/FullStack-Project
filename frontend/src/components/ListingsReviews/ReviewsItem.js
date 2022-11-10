@@ -1,8 +1,25 @@
-import { useSelector } from "react-redux"
+import { useState } from "react"
+import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom"
+import { deleteReview } from "../../store/reviews"
 
 export const ReviewsItem = ({review}) => {
     const user = useSelector(state => state.session.user)
+    const [errors, setErrors] = useState([])
+    const dispatch = useDispatch()
+
+    const handleDelete = (e) => {
+        e.preventDefault()
+        setErrors([])
+
+        dispatch(deleteReview(review.id))
+    }
+
+    const checkForEdit = () => {
+        if(!user) return false
+        return user.id === review.userId
+    }
+
 
     return (
         <div className="ind-review">
@@ -14,8 +31,11 @@ export const ReviewsItem = ({review}) => {
                 </div>
             </header>
             <p className="review-content">{review.description}</p>
-            {user.id === review.userId &&(
-                <Link to='/edit'>Edit</Link>
+            {checkForEdit() &&(
+                <div className="edit-delete">
+                    <Link to={`/listings/${review.listingId}/reviews/${review.id}/edit`}><button >Edit</button></Link>
+                    <button onClick={handleDelete}>Delete</button>
+                </div>
             )}
         </div>
     )

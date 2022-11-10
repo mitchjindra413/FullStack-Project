@@ -1,12 +1,8 @@
 @media (min-width: 0px) {
     #review-form-container{
-        padding-left: 80px;
+        padding-left: 40px;
         padding-right: 40px;
     }
-
-        #review-form-container img {
-            display: none;
-        }
 
 }
 
@@ -18,12 +14,10 @@
         }
 }
 
-@media (min-width: 900px){
-    #review-form-container img {
-            display: block;
-        }
+.review-form-wrapper {
+    display: flex;
+    justify-content: center;
 }
-
 
 #review-form-container {
     padding-top: 20px;
@@ -32,20 +26,11 @@
     align-items: center;
 
 }
+
 #review-form {
     display: flex;
     flex-direction: column;
     padding-right: 20px;
-}
-
-#review-form-container img{
-    height: 400px;
-    width: 700px;
-    border-radius: 10px;
-    aspect-ratio: 1/1;
-    object-fit: cover;
-    object-position: 50% 50%;
-    
 }
 
 
