@@ -86,7 +86,7 @@ export const ListingPage = () => {
                 <h3>Where you'll be</h3>
                 <p>{listing.city}, {listing.state}, {listing.country}</p>
                 <div className="listing-page-map">
-                    <ListingMapWrapper listings={[listing]} mapOptions={{ center: { lat: listing.lat, lng: listing.long } }}></ListingMapWrapper>
+                    <ListingMapWrapper listings={[listing]} mapOptions={{ center: { lat: listing.lat, lng: listing.long }, zoom: 16 }}></ListingMapWrapper>
                 </div>
             </div>
         </div>

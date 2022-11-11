@@ -12,6 +12,7 @@
     "dayjs": "^1.11.6",
     "moment": "^2.29.4",
     "react": "^16.14.0",
+    "react-date-picker": "^9.1.0",
     "react-dates": "^21.8.0",
     "react-dom": "^16.14.0",
     "react-redux": "^8.0.4",

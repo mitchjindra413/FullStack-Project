@@ -17,6 +17,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 10;
 }
 
 #modal-background {
@@ -37,5 +38,4 @@
     animation: slideIn 0.3s;
     animation-delay: 0s;
     animation-fill-mode: forwards;
-    
 }

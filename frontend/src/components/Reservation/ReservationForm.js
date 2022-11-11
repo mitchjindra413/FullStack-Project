@@ -131,6 +131,7 @@ export const ReservationForm = () => {
                         small={true}
                         noBorder={true}
                         isBlockedDay={(day) => isBlocked(day)}
+                        hideKeyboardShortcutsPanel
                     />
                     </div>
                 </div>
