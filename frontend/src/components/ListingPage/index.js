@@ -7,6 +7,7 @@ import { fetchListingsReservations } from "../../store/reservations"
 import './ListingPage.css'
 import { fetchListingReviews } from "../../store/reviews"
 import { ListingsReviews } from "../ListingsReviews"
+import ListingMapWrapper from "../ListingMap"
 
 export const ListingPage = () => {
     const { listingId } = useParams()
@@ -81,13 +82,12 @@ export const ListingPage = () => {
                 <ReservationForm />
             </div>
             <ListingsReviews></ListingsReviews>
-            <div>
+            <div className="location-component">
                 <h3>Where you'll be</h3>
                 <p>{listing.city}, {listing.state}, {listing.country}</p>
-            </div>
-            <div>
-                <h4>Hosted by {listing.firstName}</h4>
-                <p>{listing.bio ? listing.bio : ''}</p>
+                <div className="listing-page-map">
+                    <ListingMapWrapper listings={[listing]} mapOptions={{ center: { lat: listing.lat, lng: listing.long } }}></ListingMapWrapper>
+                </div>
             </div>
         </div>
     )

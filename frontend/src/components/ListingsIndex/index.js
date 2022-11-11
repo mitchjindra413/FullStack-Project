@@ -33,8 +33,7 @@ export const ListingsIndex = () => {
 
     return (
         <div >
-            <div>
-                Filter div
+            <div className="filter-div">
             </div>
             <div className="index-map-container">
                 <div className="switch-button-container">

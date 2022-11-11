@@ -88,6 +88,6 @@ progress::-webkit-progress-value {
     min-height: 30px;
     text-decoration: underline;
     grid-template-columns: 1fr 1fr;
-    padding-bottom: 20px;
+    padding-top: 10px;
 }
 

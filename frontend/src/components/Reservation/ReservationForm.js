@@ -55,7 +55,9 @@ export const ReservationForm = () => {
         const takenDates = []
         reservations.forEach(reservation => {
             if(reservation.listingId === listingId) {
-                takenDates.concat(reservation.invalidDates)
+                reservation.invalidDates.forEach(date => {
+                    takenDates.concat(moment(date, 'YYYY-MM-DD'))
+                })
             }
         })
         return takenDates
@@ -63,8 +65,21 @@ export const ReservationForm = () => {
 
     const blockedDays = (day) => {
         let blocked = taken()
+        debugger
         return blocked.includes(day)
     }
+
+    const isBlocked = date => {
+        let bookedRanges = [];
+        let blocked;
+        reservations.map(reservation => {
+            bookedRanges = [...bookedRanges,
+            moment.range(reservation.startDate, reservation.endDate)]
+        }
+        );
+        blocked = bookedRanges.find(range => range.contains(date));
+        return blocked;
+    };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -115,7 +130,7 @@ export const ReservationForm = () => {
                         onFocusChange={(focusedInput) =>  setFocusedInput(focusedInput) }
                         small={true}
                         noBorder={true}
-                        isBlockedDay={blockedDays}
+                        isBlockedDay={(day) => isBlocked(day)}
                     />
                     </div>
                 </div>

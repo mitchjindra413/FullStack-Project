@@ -4,13 +4,13 @@ import { useHistory } from "react-router-dom";
 import './ListingMap.css'
 
 
-function ListingMap({
+const ListingMap = ({
     listings,
     highlightedListing,
     mapOptions = {},
     mapEventHandlers = {},
     markerEventHandlers = {}
-}) {
+}) => {
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
     const markers = useRef({});
@@ -19,6 +19,7 @@ function ListingMap({
     useEffect(() => {
         if (!map) {
             setMap(new window.google.maps.Map(mapRef.current, {
+                mapId: 'a5603dc640688f92',
                 center: {
                     lat: 37.773972,
                     lng: -122.431297
@@ -30,7 +31,7 @@ function ListingMap({
         }
     }, [mapRef, map, mapOptions]);
 
-    // Add event handlers to map
+    
     useEffect(() => {
         if (map) {
             const listeners = Object.entries(mapEventHandlers).map(([event, handler]) =>
@@ -45,10 +46,10 @@ function ListingMap({
         }
     }, [map, mapEventHandlers]);
 
-    // Update map markers whenever `benches` changes
+    
     useEffect(() => {
         if (map) {
-            // Add markers for new benches
+            
             listings.forEach((listing) => {
                 if (markers.current[listing.id]) return;
 
@@ -87,7 +88,7 @@ function ListingMap({
                 markers.current[listing.id] = marker;
             })
 
-            // Remove markers for old benches
+            
             Object.entries(markers.current).forEach(([listingId, marker]) => {
                 if (listings.some(listing => listing.id.toString() === listingId)) return;
 
@@ -97,7 +98,7 @@ function ListingMap({
         }
     }, [listings, history, map, markerEventHandlers]);
 
-    // Change the style for bench marker on hover
+    
     useEffect(() => {
         Object.entries(markers.current).forEach(([listingId, marker]) => {
             const label = marker.getLabel();
@@ -120,7 +121,7 @@ function ListingMap({
     );
 }
 
-function ListingMapWrapper(props) {
+const ListingMapWrapper = (props) => {
     return (
         <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY}>
             <ListingMap {...props} />

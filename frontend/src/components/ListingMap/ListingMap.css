@@ -1,17 +1,18 @@
 .map {
     width: 100%;
-    height: 90vh;
+    height: 100%;
 }
 
 .map-container {
-
+    height: 90vh;
+    width: 100%;
 }
 
 .switch-button-container {
     z-index: 3;
     position: fixed;
     text-align: center;
-    transform: translate(45vw, 37vw);
+    transform: translate(45vw, 72vh);
     align-items:center;
 }
 
