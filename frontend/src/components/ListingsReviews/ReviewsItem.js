@@ -43,7 +43,7 @@ export const ReviewsItem = ({review}) => {
 
 export const joinedFormating = (stringTime) => {
     let splited = stringTime.split('-')
-    const month = ["January", "Feburary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
+    const month = ["January", "Februrary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]
 
     return month[parseInt(splited[1]) - 1] + ' ' + splited[0]
 }
