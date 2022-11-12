@@ -8,11 +8,16 @@
     width: 100%;
 }
 
+.switch-button-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
 .switch-button-container {
     z-index: 3;
     position: fixed;
     text-align: center;
-    transform: translate(45vw, 72vh);
+    transform: translateY(72vh);
     align-items:center;
 }
 

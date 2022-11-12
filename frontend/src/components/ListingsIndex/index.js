@@ -36,8 +36,10 @@ export const ListingsIndex = () => {
             <div className="filter-div">
             </div>
             <div className="index-map-container">
-                <div className="switch-button-container">
-                    <button onClick={switchView}>{showMap ? <p>Show menu<i class="fa-solid fa-list-ul fa-show"></i></p> : <p>Show map<i className="fa-solid fa-map fa-show"></i></p>}</button>
+                <div className="switch-button-wrapper">
+                    <div className="switch-button-container">
+                        <button onClick={switchView}>{showMap ? <p>Show menu<i class="fa-solid fa-list-ul fa-show"></i></p> : <p>Show map<i className="fa-solid fa-map fa-show"></i></p>}</button>
+                    </div>
                 </div>
                 <div id='index-page' style={!showMap ? { display: 'grid' } : { display: 'none' }}>
                     {listings.map(listing => <ListingsIndexItem key={listing.id} listing={listing} ></ListingsIndexItem>)}
