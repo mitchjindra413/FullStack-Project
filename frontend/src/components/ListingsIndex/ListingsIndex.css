@@ -30,7 +30,6 @@
     #index-page {
         grid-template-columns: 1fr 1fr;
     }
-
 }
 
 @media (min-width: 810px) {

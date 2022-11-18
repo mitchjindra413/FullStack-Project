@@ -14,7 +14,6 @@ function App() {
 
   return (
     <>
-      {/* <SuccessfulReservationModal></SuccessfulReservationModal> */}
       <Navigation />
       <Switch>
         <Route path={'/profile'}>
