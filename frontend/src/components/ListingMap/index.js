@@ -28,6 +28,7 @@ const ListingMap = ({
                 }, 
                 zoom: 12,
                 clickableIcons: false,
+                disableDefaultUI: true,
                 ...mapOptions,
             }));
         }
