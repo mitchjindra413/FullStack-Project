@@ -16,7 +16,7 @@ export const Navigation = () => {
                     <h2>breezebnb</h2>
                 </div>
             </Link>
-            <div>Search Bar</div>
+            {/* <div>Search Bar</div> */}
             <NavButton />
             {modal === 'login' && (<LoginFormModal />)}  
             {modal === 'signup' && (<SignupFormModal />)}

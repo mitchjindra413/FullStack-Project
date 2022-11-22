@@ -47,11 +47,11 @@ export const NavButton = () => {
         } else if (showMenu && user) {
             return (
             <ul className="profile-dropdown">
-                <li>
+                {/* <li>
                     <Link to='/profile'>
                         <button>Profile</button>
                     </Link>
-                </li>
+                </li> */}
                 <li>
                     <Link to='/trips'>
                         <button>Trips</button>
