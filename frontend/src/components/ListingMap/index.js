@@ -16,7 +16,6 @@ const ListingMap = ({
     const markers = useRef({});
     const history = useHistory();
     const {listingId} = useParams()
-    console.log(listingId)
 
     useEffect(() => {
         if (!map) {
@@ -134,7 +133,7 @@ const ListingMap = ({
 
 const ListingMapWrapper = (props) => {
     return (
-        <Wrapper apiKey={process.env.GOOGLE_MAPS_API}>
+        <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY}>
             <ListingMap {...props} />
         </Wrapper>
     );

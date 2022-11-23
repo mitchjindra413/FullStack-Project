@@ -142,7 +142,7 @@ ApplicationRecord.transaction do
   ])
 
   l2 = Listing.create!(
-  owner_id: 1,
+  owner_id: 2,
   street_address: Faker::Address.street_address,
   apt: '',
   city: 'San Francisco',
@@ -174,7 +174,7 @@ ApplicationRecord.transaction do
 
 
   l3 = Listing.create!(
-  owner_id: 2,
+  owner_id: 5,
   street_address: Faker::Address.street_address,
   apt: '',
   city: 'San Francisco',
@@ -205,7 +205,7 @@ ApplicationRecord.transaction do
   ])
 
   l4 = Listing.create!(
-  owner_id: 2,
+  owner_id: 7,
   street_address: Faker::Address.street_address,
   apt: '',
   city: 'San Francisco',
@@ -298,7 +298,7 @@ ApplicationRecord.transaction do
   ])
 
   l7 = Listing.create!(
-  owner_id: 6,
+  owner_id: 4,
   street_address: Faker::Address.street_address,
   apt: '',
   city: 'London',
@@ -366,7 +366,7 @@ Little Venice in Central London is a hidden gem famed for its canals and attract
   ])
 
 l9 = Listing.create!(
-  owner_id: 4,
+  owner_id: 9,
   street_address: Faker::Address.street_address,
   apt: '',
   city: 'London',
