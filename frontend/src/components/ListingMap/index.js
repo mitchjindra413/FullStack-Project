@@ -134,7 +134,7 @@ const ListingMap = ({
 
 const ListingMapWrapper = (props) => {
     return (
-        <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY}>
+        <Wrapper apiKey={process.env.GOOGLE_MAPS_API}>
             <ListingMap {...props} />
         </Wrapper>
     );
