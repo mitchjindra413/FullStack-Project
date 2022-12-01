@@ -1,0 +1,52 @@
+@media (min-width: 0px) {
+    .filter-bar {
+        margin: 0 40px;
+    }
+}
+
+@media (min-width: 1128px) {
+    .filter-bar {
+        margin: 0 80px;
+    }
+}
+.filter-bar {
+    display: flex;
+    gap: 45px;
+    height: 50px;
+    padding-top: 50px;
+    padding-bottom: 8px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    position: sticky;
+    top: 58px;
+    left: 0;
+    right: 0;
+    background-color: white;
+    justify-content: center;
+}
+
+.filter-button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid white;
+    cursor: pointer;
+    /* width: 85px; */
+}
+
+.filter-button:hover {
+    border-bottom: 2px solid #222222;
+}
+
+.filter-image {
+    height: 30px;
+    width: 30px;
+}
+
+.filter-button p {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-size: 14px;
+    overflow:visible;
+}

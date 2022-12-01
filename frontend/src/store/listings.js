@@ -29,6 +29,13 @@ export const fetchListings = () => async dispatch => {
     dispatch(receiveListings(data))
 }
 
+export const fetchListingsType = (tags) => async dispatch => {
+    const res = await csrfFetch(`/api/listings/tags/${tags}`)
+
+    let data = await res.json()
+    dispatch(receiveListings(data))
+}
+
 export const fetchTripsListings = (userId) => async dispatch => {
     const res = await csrfFetch(`/api/users/${userId}/listings`)
 

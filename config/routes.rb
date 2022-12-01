@@ -17,6 +17,8 @@ Rails.application.routes.draw do
     resources :reservations, only: [:show, :create, :update, :destroy]
     resource :session, only: [:create, :destroy, :show]
     resources :reviews, only: [:create, :destroy, :update, :show]
+
+    get '/listings/tags/:tags', to: 'listings#tags_index', as: 'tags_index'
   end
 
   get '*path', to: "static_pages#frontend_index"

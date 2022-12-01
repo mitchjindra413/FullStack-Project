@@ -11,7 +11,12 @@ class Api::ListingsController < ApplicationController
 
     def location_index
         @listings = Listing.where(city: params[:city], state: params[:state], country: params[:country])
-        render :location_index
+        render :index
+    end
+
+    def tags_index
+        @listings = Listing.where("tags LIKE ?","%" + Listing.sanitize_sql_like(params[:tags]) + "%" )
+        render :index
     end
 
     def show

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react"
 import './ListingsIndex.css'
 import ListingMapWrapper from "../ListingMap"
 import { useHistory } from "react-router-dom"
-import { useMemo } from "react"
+import { IndexFilter } from "../IndexFilter/IndexFilter"
 
 export const ListingsIndex = () => {
     const dispatch = useDispatch()
@@ -33,8 +33,7 @@ export const ListingsIndex = () => {
 
     return (
         <div >
-            <div className="filter-div">
-            </div>
+            <IndexFilter></IndexFilter>
             <div className="index-map-container">
                 <div className="switch-button-wrapper">
                     <div className="switch-button-container">
