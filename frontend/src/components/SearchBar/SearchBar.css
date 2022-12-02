@@ -3,6 +3,8 @@
     padding: 10px;
     border-radius: 20px;
     box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+    width: 50%;
+    
 }
 
 .searchbar-container:hover {
@@ -10,10 +12,16 @@
 }
 
 .combobox-input {
-    width: 300px;
+    width: 100%;
 }
 
 .combobox-popover {
+    /* transform: translateX(-11px); */
     margin-top: 10px;
     z-index: 100;
+    border-radius: 20px;
+}
+
+.combobox-popover li {
+    padding: 15px;
 }

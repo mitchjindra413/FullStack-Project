@@ -13,12 +13,12 @@
     display: flex;
     gap: 45px;
     height: 50px;
-    padding-top: 50px;
-    padding-bottom: 8px;
+    padding-top: 30px;
+    padding-bottom: 4px;
     overflow-x: scroll;
     overflow-y: hidden;
     position: sticky;
-    top: 58px;
+    top: 70px;
     left: 0;
     right: 0;
     background-color: white;
@@ -40,8 +40,8 @@
 }
 
 .filter-image {
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
 }
 
 .filter-button p {

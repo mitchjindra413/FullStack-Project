@@ -1,4 +1,5 @@
 import usePlacesAutocomplete, {
+    getDetails,
     getGeocode,
     getLatLng,
 } from "use-places-autocomplete";
@@ -29,10 +30,10 @@ export const SearchBar = () => {
     const handleSelect = async (address) => {
         setValue(address, false);
         clearSuggestions();
-
+        
         const results = await getGeocode({ address });
         const {lat, lng} = getLatLng(results[0])
-        
+        console.log(results)
         history.push(`/search/${lat}/${lng}/${address}`)
     
     };

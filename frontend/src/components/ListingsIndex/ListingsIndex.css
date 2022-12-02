@@ -6,12 +6,8 @@
         padding-right: 40px;
     }
 
-    #nav-button {
-        margin-right: 40px;
-    }
-
-    #logo-pic {
-        margin-left: 40px;
+    .nav-bar {
+        margin: 0 40px;
     }
 
     .profile-dropdown {
@@ -49,12 +45,8 @@
         padding-right: 80px;
     }
 
-    #nav-button {
-        margin-right: 80px;
-    }
-
-    #logo-pic {
-        margin-left: 80px;
+    .nav-bar {
+        margin: 0 80px;
     }
 
     .profile-dropdown {
@@ -64,7 +56,7 @@
 } 
 
 #index-page {
-    padding-top: 20px;
+    padding-top: 13px;
     display: grid;
     gap: 40px;
     padding-bottom: 20px;

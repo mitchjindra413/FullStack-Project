@@ -11,7 +11,7 @@ import SearchWrapper from '../SearchBar/SearchBar';
 export const Navigation = () => {
     const modal = useSelector(state => state.ui.modal)
     return (
-        <nav>
+        <nav className='nav-bar'>
             <Link to="/">
                 <div id='logo-name'>
                     <img id='logo-pic' src='https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/airbnb_logo_icon_170605.png' alt='logo'></img>
