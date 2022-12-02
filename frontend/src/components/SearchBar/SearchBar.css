@@ -1,0 +1,19 @@
+.searchbar-container {
+    border: 2px solid #ebebeb;
+    padding: 10px;
+    border-radius: 20px;
+    box-shadow: 0 1px 2px rgb(0 0 0 / 8%);
+}
+
+.searchbar-container:hover {
+    box-shadow: 0 4px 12px rgb(0 0 0 / 5%);
+}
+
+.combobox-input {
+    width: 300px;
+}
+
+.combobox-popover {
+    margin-top: 10px;
+    z-index: 100;
+}

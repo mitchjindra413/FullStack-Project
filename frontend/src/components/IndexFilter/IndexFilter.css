@@ -22,7 +22,7 @@
     left: 0;
     right: 0;
     background-color: white;
-    justify-content: center;
+    justify-content: space-evenly;
 }
 
 .filter-button {
