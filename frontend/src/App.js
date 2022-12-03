@@ -17,7 +17,7 @@ function App() {
     <>
       <Navigation />
       <Switch>
-        <Route path={'/search/:lat/:lng/:place'}>
+        <Route path={'/search/:lat/:lng/:place/:Ialo/:Iahi/:Walo/:Wahi'}>
           <SearchView></SearchView>
         </Route>
         <Route path={'/profile'}>

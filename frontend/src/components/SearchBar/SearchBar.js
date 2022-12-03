@@ -34,7 +34,12 @@ export const SearchBar = () => {
         const results = await getGeocode({ address });
         const {lat, lng} = getLatLng(results[0])
         console.log(results)
-        history.push(`/search/${lat}/${lng}/${address}`)
+        let Ialo = (results[0].geometry.bounds.Ia.lo)
+        let Iahi = (results[0].geometry.bounds.Ia.hi)
+        let Walo = (results[0].geometry.bounds.Wa.lo)
+        let Wahi = (results[0].geometry.bounds.Wa.hi)
+
+        history.push(`/search/${lat}/${lng}/${address}/${Ialo}/${Iahi}/${Walo}/${Wahi}`)
     
     };
 
