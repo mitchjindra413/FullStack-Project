@@ -1,35 +1,44 @@
 import { Wrapper } from "@googlemaps/react-wrapper"
 import { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 
-const SearchViewMap = () => {
-    let {Ialo, Iahi, Walo, Wahi, lat, lng} = useParams()
+const SearchViewMap = (mapOptions = {}) => {
+    let {lat, lng, about} = useParams()
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
     const markers = useRef({});
     const history = useHistory();
+    let parsed = JSON.parse(about)
+    
 
     useEffect(() => {
-        if (!map) {
+        let zoomVar
+        
+        console.log(zoomVar)
+        if(!map){
             setMap(new window.google.maps.Map(mapRef.current, {
                 mapId: 'a5603dc640688f92',
+                zoom: 0,
                 center: {
-                    lat: lat,
-                    lng: lng
+                    lat: parseFloat(lat),
+                    lng: parseFloat(lng)
                 },
                 clickableIcons: false,
                 disableDefaultUI: true,
                 ...mapOptions,
-            }));
+            }))
         }
+        
     }, [mapRef, map, mapOptions]);
 
-    useEffect(() => {
+    useEffect(() =>  {
         if(map){
-            map.fitBounds()
+            map.fitBounds(parsed[0].geometry.viewport)
         }
-    })
+    }, [map, mapRef, about])
+
 
     return (
         <div ref={mapRef} className="map">
@@ -40,7 +49,7 @@ const SearchViewMap = () => {
 
 export const SearchViewMapWrapper = () => {
     return (
-        <Wrapper>
+        <Wrapper apiKey={process.env.REACT_APP_MAPS_API_KEY} libraries={["places"]}>
             <SearchViewMap></SearchViewMap>
         </Wrapper>
     )
