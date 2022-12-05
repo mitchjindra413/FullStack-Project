@@ -48,6 +48,7 @@ export const ListingsIndex = () => {
                         listings = {listings}
                         markerEventHandlers={{
                             click: (listing) => history.push(`/listings/${listing.id}`)
+                            
                         }}
                     >
                     </ListingMapWrapper>

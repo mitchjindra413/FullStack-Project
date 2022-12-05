@@ -6,7 +6,6 @@ import house from './house.png'
 
 const ListingMap = ({
     listings,
-    highlightedListing,
     mapOptions = {},
     mapEventHandlers = {},
     markerEventHandlers = {}
@@ -107,22 +106,6 @@ const ListingMap = ({
             })
         }
     }, [listings, history, map, markerEventHandlers]);
-
-    
-    useEffect(() => {
-        Object.entries(markers.current).forEach(([listingId, marker]) => {
-            const label = marker.getLabel();
-            const icon = marker.getIcon();
-
-            if (parseInt(listingId) === highlightedListing) {
-                marker.setLabel({ ...label, color: 'white' });
-                marker.setIcon({ ...icon, fillColor: 'black' });
-            } else {
-                marker.setLabel({ ...label, color: 'black' });
-                marker.setIcon({ ...icon, fillColor: 'white' });
-            }
-        });
-    }, [markers, highlightedListing]);
 
     return (
         <div ref={mapRef} className="map">
