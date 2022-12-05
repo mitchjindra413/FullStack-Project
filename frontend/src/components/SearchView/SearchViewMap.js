@@ -8,15 +8,13 @@ const SearchViewMap = (mapOptions = {}) => {
     let {lat, lng, about} = useParams()
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
+    const [listings, setListings] = useState([])
     const markers = useRef({});
     const history = useHistory();
     let parsed = JSON.parse(about)
     
 
     useEffect(() => {
-        let zoomVar
-        
-        console.log(zoomVar)
         if(!map){
             setMap(new window.google.maps.Map(mapRef.current, {
                 mapId: 'a5603dc640688f92',
@@ -33,12 +31,13 @@ const SearchViewMap = (mapOptions = {}) => {
         
     }, [mapRef, map, mapOptions]);
 
-    useEffect(() =>  {
+    useEffect(() => {
         if(map){
             map.fitBounds(parsed[0].geometry.viewport)
         }
     }, [map, mapRef, about])
 
+    
 
     return (
         <div ref={mapRef} className="map">

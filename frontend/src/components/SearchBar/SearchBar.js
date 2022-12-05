@@ -32,10 +32,9 @@ export const SearchBar = () => {
         clearSuggestions();
         
         const results = await getGeocode({ address })
-        let about = await JSON.stringify(results)
+        let about = JSON.stringify(results)
         const {lat, lng} = getLatLng(results[0])
         
-
         history.push(`/search/${lat}/${lng}/${address}/${about}`)
     
     };

@@ -21,10 +21,9 @@ export const SearchView = () => {
 
     return (
         <>
-        <p>{place}</p>
-            <div className="listing-page-map">
-                <SearchViewMapWrapper></SearchViewMapWrapper>
-            </div>
+        <div className="search-page-map" style={{width: '100vw', height:'100vh'}}>
+            <SearchViewMapWrapper></SearchViewMapWrapper>
+        </div>
         </>
     )
 }
