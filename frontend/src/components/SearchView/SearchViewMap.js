@@ -11,24 +11,18 @@ const SearchViewMap = ({
     mapEventHandlers = {},
     markerEventHandlers = {}
 }) => {
-    let {lat, lng, about} = useParams()
+    let {about} = useParams()
     const [map, setMap] = useState(null);
     const mapRef = useRef(null);
     const markers = useRef({});
     const history = useHistory();
     let parsed = JSON.parse(about)
-
-    console.log(listings)
     
     useEffect(() => {
         if(!map){
             setMap(new window.google.maps.Map(mapRef.current, {
                 mapId: 'a5603dc640688f92',
                 zoom: 0,
-                center: {
-                    lat: parseFloat(lat),
-                    lng: parseFloat(lng)
-                },
                 clickableIcons: false,
                 disableDefaultUI: true,
                 ...mapOptions,

@@ -20,9 +20,7 @@ function App() {
         <Route path={'/listings/:listingId'}>
           <ListingPage />
         </Route>
-        <Route path={'/search/:lat/:lng/:place/:about'}>
-          <SearchView></SearchView>
-        </Route>
+        
         <Route path={'/profile'}>
           {!user ? <Redirect to='/'></Redirect> : <ProfilePage></ProfilePage>}
         </Route>
@@ -34,6 +32,9 @@ function App() {
         </Route>
         <Route exact path={'/listings/:listingId/reviews/new'}>
           {!user ? <Redirect to="/"></Redirect> : <ReviewForm></ReviewForm>}
+        </Route>
+        <Route exact path={'/:about'}>
+          <SearchView></SearchView>
         </Route>
         <Route path="/">
           <ListingsIndex />

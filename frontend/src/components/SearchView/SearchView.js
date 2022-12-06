@@ -10,7 +10,7 @@ export const SearchView = () => {
     const dispatch = useDispatch()
     const {about} = useParams()
     const parsed = JSON.parse(about)
-    console.log('about', parsed[0].geometry.bounds.south)
+    
     const [highlightedListing, setHighlightedListing] = useState(null)
     const [bounds, setBounds] = useState(`${parsed[0].geometry.bounds.south}, ${parsed[0].geometry.bounds.west}, ${parsed[0].geometry.bounds.north}, ${parsed[0].geometry.bounds.east}`)
     const history = useHistory()
@@ -31,12 +31,12 @@ export const SearchView = () => {
     }), [history])
 
     return (
-        <div className="search-page-container page-height">
+        <div className="search-page-container ">
             <div className="search-page-map" >
                 <SearchViewMapWrapper
                     listings = {listings}
                     markerEventHandlers= {{
-                        click: (listing) => history.push(`/`),
+                        click: (listing) => history.push(`/listings/${listing.id}`),
                         mouseover: (listing) => setHighlightedListing(listing.id),
                         mouseout: () => setHighlightedListing(null)
                     }}
@@ -44,7 +44,12 @@ export const SearchView = () => {
                 ></SearchViewMapWrapper>
             </div>
             <div className="search-page-listings">
-                {listings.map(listing => <ListingsIndexItem key={listing.id} listing={listing} ></ListingsIndexItem>)}
+                <div>
+                    <p className="listings-count">{listings.length} stays in map area</p>
+                </div>
+                <div className="search-page-listings-items">
+                    {listings.map(listing => <ListingsIndexItem key={listing.id} listing={listing} ></ListingsIndexItem>)}
+                </div>
             </div>
         </div>
     )

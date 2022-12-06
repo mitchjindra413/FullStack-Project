@@ -35,7 +35,7 @@ export const SearchBar = () => {
         let about = JSON.stringify(results)
         const {lat, lng} = getLatLng(results[0])
         
-        history.push(`/search/${lat}/${lng}/${address}/${about}`)
+        history.push(`/${about}`)
     
     };
 
