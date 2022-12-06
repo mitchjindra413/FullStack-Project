@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux"
 import { Link } from "react-router-dom"
 import { logout } from "../../store/session"
 import { showModal, showSignupModal } from "../../store/ui"
-
+import blank from './image.jpg'
 
 export const NavButton = () => {
     const dispatch = useDispatch()
@@ -66,7 +66,9 @@ export const NavButton = () => {
     }
 
     const profilePicLink = () => {
-        if (!user || !user.profilePic){
+        if (!user){
+            return blank
+        }else if(user && !user.profilePic){
             return "https://a0.muscache.com/defaults/user_pic-50x50.png?v=3"
         } else{
             return user.profilePic

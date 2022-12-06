@@ -104,3 +104,6 @@
     font-size: 15px;
 }
 
+.ellipsis {
+    text-overflow: ellipsis;
+}

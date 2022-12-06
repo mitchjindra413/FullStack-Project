@@ -24,7 +24,7 @@ export const ListingsIndexItem = ({listing}) => {
                         <p className="index-rating">★ {listing.totalReviews}</p>
                     </div>
                     <ul>
-                        <li className="index-details">{listing.tagLine.length < 35 ? listing.tagLine : `${listing.tagLine.slice(0, 30)}...`}</li>
+                        <li className="index-details">{listing.tagLine.length < 25 ? listing.tagLine : `${listing.tagLine.slice(0, 25)}...`}</li>
                         <li className="index-details">{`${listing.numBeds} beds`}</li>
                     </ul>
                     <p className="index-price"><span className="price-span-index">{`$${listing.nightPrice}`}</span> night</p>

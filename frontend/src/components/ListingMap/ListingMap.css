@@ -17,7 +17,7 @@
     z-index: 3;
     position: fixed;
     text-align: center;
-    transform: translateY(64vh);
+    transform: translateY(calc(100vh - 270px));
     align-items:center;
 }
 
