@@ -17,6 +17,9 @@ function App() {
     <>
       <Navigation />
       <Switch>
+        <Route path={'/listings/:listingId'}>
+          <ListingPage />
+        </Route>
         <Route path={'/search/:lat/:lng/:place/:about'}>
           <SearchView></SearchView>
         </Route>
@@ -31,9 +34,6 @@ function App() {
         </Route>
         <Route exact path={'/listings/:listingId/reviews/new'}>
           {!user ? <Redirect to="/"></Redirect> : <ReviewForm></ReviewForm>}
-        </Route>
-        <Route path={'/listings/:listingId'}>
-          <ListingPage />
         </Route>
         <Route path="/">
           <ListingsIndex />

@@ -16,3 +16,7 @@ body {
     min-width: 522px;
     margin: 20px;
 }
+
+.page-height {
+    height: calc(100vh - 81px);
+}

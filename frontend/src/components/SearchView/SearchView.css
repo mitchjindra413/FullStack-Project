@@ -1,0 +1,17 @@
+.search-page-container {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.search-page-map {
+    width: 50vw;
+}
+
+.search-page-listings {
+    width: 50vw;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding: 25px;
+    gap: 30px;
+    overflow: scroll;
+}

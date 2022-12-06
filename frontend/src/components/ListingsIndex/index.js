@@ -18,7 +18,7 @@ export const ListingsIndex = () => {
     const listings = useSelector(getListings)
 
     useEffect(() => {
-        dispatch(fetchListings(listings))
+        dispatch(fetchListings())
     }, [])
     
     const switchView = () => {

@@ -22,8 +22,9 @@ export const fetchListing = (listingId) => async dispatch => {
     dispatch(receiveListingDetails(data))
 }
 
-export const fetchListings = () => async dispatch => {
-    const res = await csrfFetch(`/api/listings`)
+export const fetchListings = (filters) => async dispatch => {
+    const filterParams = new URLSearchParams(filters)
+    const res = await csrfFetch(`/api/listings?${filterParams}`)
 
     let data = await res.json()
     dispatch(receiveListings(data))
