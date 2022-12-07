@@ -28,8 +28,8 @@ export const ReservationForm = () => {
         userId = null
     }
 
-    const [startDate, setStartDate] = useState()
-    const [endDate, setEndDate] = useState()
+    const [startDate, setStartDate] = useState(moment())
+    const [endDate, setEndDate] = useState(moment().add(1, 'day'))
     const [numGuests, setNumGuests] = useState()
     const [showMenu, setShowMenu] = useState(false)
     const [adults, setAdults] = useState(1)
@@ -97,7 +97,7 @@ export const ReservationForm = () => {
                     <div className="picker">
 
                     <DateRangePicker
-                        isBlockedDay = {isBlocked}
+                        isBlockedDay={isBlocked}
                         startDate={startDate} 
                         startDateId="start-date" 
                         startDatePlaceholderText="CHECK-IN"
