@@ -120,7 +120,7 @@ ApplicationRecord.transaction do
   country: 'United States',
   lat: 37.804720,
   long: -122.268390,
-  tags: 'iconic',
+  tags: '',
   property_type: 'Apartment',
   max_guests: 3,
   night_price: 70,
@@ -151,7 +151,7 @@ ApplicationRecord.transaction do
   country: 'United States',
   lat: 37.76748138995517,
   long: -122.41681589170459,
-  tags: 'OMG',
+  tags: 'OMG Iconic',
   property_type: 'Guest suite',
   max_guests: 3,
   night_price: 198,
@@ -183,7 +183,7 @@ ApplicationRecord.transaction do
   country: 'United States',
   lat: 37.781379315735464,
   long: -122.42801453104582,
-  tags: 'OMG Luxe',
+  tags: 'Luxe Iconic',
   property_type: 'Apartment',
   max_guests: 2,
   night_price: 294,
@@ -200,8 +200,8 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_1.png'), filename: 'l3_1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_2.png'), filename: 'l3_2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_3.png'), filename: 'l3_3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_4.png'), filename: 'l3_3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_5.png'), filename: 'l3_4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_4.png'), filename: 'l3_4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l3/l3_5.png'), filename: 'l3_5.png'}
   ])
 
   l4 = Listing.create!(
@@ -214,7 +214,7 @@ ApplicationRecord.transaction do
   country: 'United States',
   lat: 37.773656534370254,
   long: -122.45072450511404,
-  tags: 'OMG Luxe',
+  tags: 'OMG Iconic',
   property_type: 'Apartment',
   max_guests: 2,
   night_price: 260,
@@ -231,8 +231,8 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/1.webp'), filename: '1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/2.webp'), filename: '2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/3.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/4.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/5.webp'), filename: '4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l4/5.webp'), filename: '5.png'}
   ])
 
   l5 = Listing.create!(
@@ -245,7 +245,7 @@ ApplicationRecord.transaction do
   country: 'United Kingdom',
   lat: 51.50884977905996,
   long: -0.14822065953855157,
-  tags: 'OMG Luxe',
+  tags: 'Iconic',
   property_type: 'Apartment',
   max_guests: 5,
   night_price: 284,
@@ -262,8 +262,8 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/1.webp'), filename: '1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/2.webp'), filename: '2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/3.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/4.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/5.webp'), filename: '4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l7/5.webp'), filename: '5.png'}
   ])
 
   l6 = Listing.create!(
@@ -276,7 +276,7 @@ ApplicationRecord.transaction do
   country: 'United Kingdom',
   lat: 51.493889588100124,
   long: -0.17939376034382448,
-  tags: 'OMG Luxe',
+  tags: 'Luxe Iconic',
   property_type: 'Flat',
   max_guests: 6,
   night_price: 365,
@@ -293,8 +293,8 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/1.webp'), filename: '1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/2.webp'), filename: '2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/3.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/4.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/5.webp'), filename: '4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l6/5.webp'), filename: '5.png'}
   ])
 
   l7 = Listing.create!(
@@ -307,7 +307,7 @@ ApplicationRecord.transaction do
   country: 'United Kingdom',
   lat: 51.52193111774709,
   long: -0.18432146954481032,
-  tags: 'OMG Luxe',
+  tags: 'OMG Iconic',
   property_type: 'Apartment',
   max_guests: 2,
   night_price: 260,
@@ -325,8 +325,8 @@ ApplicationRecord.transaction do
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/1.webp'), filename: '1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/2.webp'), filename: '2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/3.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/4.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/5.webp'), filename: '4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l5/5.webp'), filename: '5.png'}
   ])
 
   l8 = Listing.create!(
@@ -339,7 +339,7 @@ ApplicationRecord.transaction do
   country: 'United Kingdom',
   lat: 51.5144881462307,
   long: -0.17211308642898882,
-  tags: 'OMG Luxe',
+  tags: 'Luxe Iconic',
   property_type: 'Flat',
   max_guests: 8,
   night_price: 521,
@@ -353,7 +353,7 @@ Little Venice in Central London is a hidden gem famed for its canals and attract
   num_bedrooms: 3,
   num_beds: 3,
   num_baths: 2,
-  amenities: 'Wifi Kitchen Washer Pets TV Dryer Washer Workspace',
+  amenities: 'Wifi Kitchen TV Dryer Washer Workspace',
   tag_line: 'Paddington Garden Flat'
   )
 
@@ -361,8 +361,8 @@ Little Venice in Central London is a hidden gem famed for its canals and attract
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/1.webp'), filename: '1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/2.webp'), filename: '2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/3.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/4.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/5.webp'), filename: '4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l8/5.webp'), filename: '5.png'}
   ])
 
 l9 = Listing.create!(
@@ -375,7 +375,7 @@ l9 = Listing.create!(
   country: 'United Kingdom',
   lat: 51.511682154641,
   long: -0.13730676519168705,
-  tags: 'OMG Luxe',
+  tags: 'Iconic',
   property_type: 'Flat',
   max_guests: 6,
   night_price: 452,
@@ -384,7 +384,7 @@ l9 = Listing.create!(
   num_bedrooms: 2,
   num_beds: 3,
   num_baths: 2,
-  amenities: 'Wifi Kitchen Washer TV Washer',
+  amenities: 'Wifi Kitchen Dryer TV Washer',
   tag_line: 'CLEAN OXFORD CIRCUS APARTMENT - MAYFAIR'
   )
 
@@ -392,18 +392,71 @@ l9 = Listing.create!(
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/1.webp'), filename: '1.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/2.webp'), filename: '2.png'},
     {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/3.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/4.webp'), filename: '3.png'},
-    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/5.webp'), filename: '4.png'}
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l9/5.webp'), filename: '5.png'}
   ])
 
-  puts "Creating reservations..."
-  Reservation.create!(
-    listing_id: 1,
-    user_id: 1,
-    num_guests: 1,
-    start_date: '2023-01-01',
-    end_date: '2023-01-10'
+l10 = Listing.create!(
+  owner_id: 3,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'Solidaridad',
+  zip_code: Faker::Address.postcode,
+  state: 'Quintana Roo',
+  country: 'Mexico',
+  lat: 20.7732147634582, 
+  long: -86.94892873895682,
+  tags: 'Beach Tropical Luxe',
+  property_type: 'House',
+  max_guests: 10,
+  night_price: 1600,
+  cleaning_fee: 200,
+  description: "Situated along the Mayan Riviera on the white sandy beachfront of Playa del Secreto, the Gran Tortuga luxury estate is one of the most sought-after destinations in the country. A favorite destination among elite vacationers, as well as giant sea turtles, Villa La Gran Tortuga is an incredibly private oasis, sure to make your secluded beach vacation dreams come true. Nearby, you will find golf, historical sites, natural wonders, and vibrant cities along the Mayan Riviera.",
+  num_bedrooms: 5,
+  num_beds: 7,
+  num_baths: 5,
+  amenities: 'Wifi Kitchen Washer TV Washer Hottub',
+  tag_line: 'Villa La Gran Tortuga - 5Br - Sleeps 10'
   )
+
+  l10.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l10/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l10/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l10/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l10/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l10/5.webp'), filename: '5.png'}
+  ])
+
+l11 = Listing.create!(
+  owner_id: 6,
+  street_address: Faker::Address.street_address,
+  apt: '',
+  city: 'Ko Tao',
+  zip_code: Faker::Address.postcode,
+  state: 'Surat Thani',
+  country: 'Thailand',
+  lat: 10.064880633215429, 
+  long: 99.83802702812763,
+  tags: 'Beach Tropical OMG Island',
+  property_type: 'House',
+  max_guests: 10,
+  night_price: 761,
+  cleaning_fee: 220,
+  description: "Passambhati Villa is our exclusive villa at Cape Shark. The spacious villa of about 3000 sqft built in contemporary Thai style, is located at the very cape on a hillside about 35 metres above sea level. The villa has a 270° panoramic view over the ocean and the two closest bays. The villa has an outstanding infinity pool of 25 meters as well as outdoor salas and terraces of 5000 sqft. Passambhati Villa is the perfect hide-away, if you want an extraordinary and relaxing stay on Koh Tao.",
+  num_bedrooms: 5,
+  num_beds: 5,
+  num_baths: 5,
+  amenities: 'Wifi Kitchen TV Washer Pool',
+  tag_line: 'PASSAMBHATI VILLA /Cape Shark Villas, 4-10 pers.'
+  )
+
+  l11.photos.attach([
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l11/1.webp'), filename: '1.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l11/2.webp'), filename: '2.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l11/3.webp'), filename: '3.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l11/4.webp'), filename: '4.png'},
+    {io:URI.open('https://breezebnb-seed.s3.us-west-1.amazonaws.com/l11/5.webp'), filename: '5.png'}
+  ])
 
   puts "Creating reviews..."
     Review.create!(

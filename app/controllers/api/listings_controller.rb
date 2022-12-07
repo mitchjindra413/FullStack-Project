@@ -1,17 +1,9 @@
 class Api::ListingsController < ApplicationController
     def index
-        if params[:user_id]
-            @listings = User.find_by(id: params[:user_id]).trips
-            render :index
-        else
-            @listings = Listing.all
-            render :index
-        end
-    end
-
-    def location_index
-        @listings = Listing.where(city: params[:city], state: params[:state], country: params[:country])
+        @listings = Listing.all
+        @listings = @listings.in_bounds(bounds) if bounds
         render :index
+        
     end
 
     def tags_index
@@ -54,5 +46,11 @@ class Api::ListingsController < ApplicationController
             :tag_line,
             :user_id
         )
+    end
+
+    def bounds
+        if params[:bounds]
+            params[:bounds].split(',').map(&:to_f)
+        end
     end
 end
