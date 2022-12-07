@@ -1,4 +1,7 @@
 # Breezebnb
+A fullstack clone of popular vacation rental site Airbnb. Make and manage reservations across the Bay and Greater London areas. (Psst we're looking to expand) Key technologies used include: React.js, Ruby on Rails, GoogleMaps, Amazon Web Services, PostgreSQL.
+
+https://breezebnb.onrender.com/
 
 ## Functionality and MVPS
 In breezebnb, users can:
