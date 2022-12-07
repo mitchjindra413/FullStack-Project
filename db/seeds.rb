@@ -415,7 +415,7 @@ l10 = Listing.create!(
   num_bedrooms: 5,
   num_beds: 7,
   num_baths: 5,
-  amenities: 'Wifi Kitchen Washer TV Washer Hottub',
+  amenities: 'Wifi Kitchen Washer TV Dryer Hot-tub',
   tag_line: 'Villa La Gran Tortuga - 5Br - Sleeps 10'
   )
 

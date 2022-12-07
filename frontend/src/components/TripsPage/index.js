@@ -23,9 +23,10 @@ export const TripsPage = () => {
     const sort = () => {
         const future = []
         const past = []
+
         reservations.forEach(reservation => {
 
-            if (moment(reservation.startDate).isAfter(moment(), 'days')) {
+            if (moment(reservation.endDate).isAfter(moment(), 'days')) {
                 future.push(<FutureInfo key={reservation.id} reservation={reservation}></FutureInfo>)
             } 
             

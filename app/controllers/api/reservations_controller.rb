@@ -5,7 +5,7 @@ class Api::ReservationsController < ApplicationController
             @reservations = Reservation.where(listing_id: params[:listing_id])
             render :index
         end
-
+        
         if params[:user_id]
             @reservations = Reservation.where(user_id: params[:user_id]).order(start_date: :desc)
             render :index

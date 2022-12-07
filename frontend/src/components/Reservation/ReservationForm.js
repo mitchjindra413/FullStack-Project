@@ -28,8 +28,8 @@ export const ReservationForm = () => {
         userId = null
     }
 
-    const [startDate, setStartDate] = useState(moment())
-    const [endDate, setEndDate] = useState(moment().add(1, 'days'))
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
     const [numGuests, setNumGuests] = useState()
     const [showMenu, setShowMenu] = useState(false)
     const [adults, setAdults] = useState(1)
@@ -50,36 +50,16 @@ export const ReservationForm = () => {
         setNumGuests(adults + children)
     }, [adults, children])
 
-
-    const taken = () => {
-        const takenDates = []
+    const isBlocked = (day) => {
+        debugger
+        let blockedDates = []
         reservations.forEach(reservation => {
-            if(reservation.listingId === listingId) {
-                reservation.invalidDates.forEach(date => {
-                    takenDates.concat(moment(date, 'YYYY-MM-DD'))
-                })
+            if(reservation.listingId == listingId){
+                blockedDates = blockedDates.concat(reservation.invalidDates)
             }
         })
-        return takenDates
+        return blockedDates.some(date => day.isSame(date, 'day'))
     }
-
-    const blockedDays = (day) => {
-        let blocked = taken()
-        debugger
-        return blocked.includes(day)
-    }
-
-    const isBlocked = date => {
-        let bookedRanges = [];
-        let blocked;
-        reservations.map(reservation => {
-            bookedRanges = [...bookedRanges,
-            moment.range(reservation.startDate, reservation.endDate)]
-        }
-        );
-        blocked = bookedRanges.find(range => range.contains(date));
-        return blocked;
-    };
 
     const handleSubmit = async (e) => {
         e.preventDefault()
@@ -109,7 +89,7 @@ export const ReservationForm = () => {
                 <p><span id='price'>${listing.nightPrice}</span> night</p>
             </div>
             <div>
-                <div className="date-container">
+                <div className="date-container" style={errors.includes('Start date timeframe already taken') ? { border: '2px solid red' } : {}}>
                     <div className="date-picker-title">
                         <h3>CHECK-IN</h3>
                         <h3 className="checkout">CHECKOUT</h3>
@@ -117,6 +97,7 @@ export const ReservationForm = () => {
                     <div className="picker">
 
                     <DateRangePicker
+                        isBlockedDay = {isBlocked}
                         startDate={startDate} 
                         startDateId="start-date" 
                         startDatePlaceholderText="CHECK-IN"
@@ -130,7 +111,6 @@ export const ReservationForm = () => {
                         onFocusChange={(focusedInput) =>  setFocusedInput(focusedInput) }
                         small={true}
                         noBorder={true}
-                        isBlockedDay={(day) => isBlocked(day)}
                         hideKeyboardShortcutsPanel
                     />
                     </div>
@@ -145,7 +125,7 @@ export const ReservationForm = () => {
                 
             </div>
             <ul className="error-list">
-                {errors.map(error => <li key={error}>{error}</li>)}
+                {errors.map(error => <li key={error} style={{color: 'red'}}>{error}</li>)}
             </ul>
             <button className='reserve'type="submit" disabled={userId === null}>Reserve</button>
             <p className="no-charge">You wont be charged yet</p>
