@@ -12,7 +12,7 @@ export const IndexFilter = () => {
         <div className="filter-bar">
             <div className="filter-button" onClick={() => {dispatch(fetchListings()); setSelected('all')}} style={selected === 'all' ? { borderBottom: '2px solid #222222'} : {}}>
                 <img className="filter-image" src='https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/cabin.jpg'></img>
-                <p>New</p>
+                <p>All</p>
             </div>
             <div className="filter-button" onClick={() => {dispatch(fetchListingsType('OMG')); setSelected('OMG')}} style={selected === 'OMG' ? { borderBottom: '2px solid #222222' } : {}}>
                 <img className="filter-image" src='https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/omg.jpg'></img>
@@ -28,7 +28,11 @@ export const IndexFilter = () => {
             </div>
             <div className="filter-button" onClick={() => { dispatch(fetchListingsType('Beach')); setSelected('Beach') }} style={selected === 'Beach' ? { borderBottom: '2px solid #222222' } : {}}>
                 <img className="filter-image" src='https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/beach.jpg'></img>
-                <p>Beach</p>
+                <p>Beachfront</p>
+            </div>
+            <div className="filter-button" onClick={() => { dispatch(fetchListingsType('Beach')); setSelected('Tropical') }} style={selected === 'Tropical' ? { borderBottom: '2px solid #222222' } : {}}>
+                <img className="filter-image" src='https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/tropical.jpg'></img>
+                <p>Tropical</p>
             </div>
         </div>
     )

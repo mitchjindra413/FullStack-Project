@@ -1,6 +1,13 @@
 @media (min-width: 0px) {
     .filter-bar {
         margin: 0 40px;
+        gap: 45px;
+    }
+}
+
+@media (min-width: 600px){
+    .filter-bar {
+        justify-content: space-between;
     }
 }
 
@@ -11,7 +18,7 @@
 }
 .filter-bar {
     display: flex;
-    gap: 45px;
+    
     height: 50px;
     padding-top: 30px;
     padding-bottom: 4px;
@@ -22,7 +29,6 @@
     left: 0;
     right: 0;
     background-color: white;
-    justify-content: space-evenly;
 }
 
 .filter-button {
@@ -32,7 +38,7 @@
     justify-content: center;
     border-bottom: 2px solid white;
     cursor: pointer;
-    /* width: 85px; */
+    
 }
 
 .filter-button:hover {
@@ -47,6 +53,8 @@
 .filter-button p {
     padding-top: 3px;
     padding-bottom: 20px;
-    font-size: 14px;
-    overflow:visible;
+    font-size: 13px;
+    overflow: visible;
+    width: 77px;
+    text-align: center;
 }

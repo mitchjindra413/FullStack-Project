@@ -22,7 +22,6 @@ export const SearchView = () => {
     const listings = useSelector(getListings)
 
     useEffect(() => {
-        console.log(bounds)
         dispatch(fetchListings({bounds}))
     }, [bounds])
 
