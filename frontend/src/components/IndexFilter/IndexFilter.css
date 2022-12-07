@@ -16,14 +16,19 @@
         margin: 0 80px;
     }
 }
+
+@media (max-width: 783px){
+    .filter-bar {
+        overflow-x: scroll;
+        overflow-y: hidden;
+    }
+}
+
 .filter-bar {
     display: flex;
-    
     height: 50px;
     padding-top: 30px;
     padding-bottom: 4px;
-    overflow-x: scroll;
-    overflow-y: hidden;
     position: sticky;
     top: 70px;
     left: 0;
