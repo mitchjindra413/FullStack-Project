@@ -42,6 +42,10 @@ export const NavButton = () => {
                 <ul className = "profile-dropdown" >
                     <li><button onClick={handleLoginButton}>Log in</button></li>
                     <li><button onClick={handleSignupButton}>Sign up</button></li>
+                    <hr style={{color: '#ebebeb'}}></hr>
+                    <a href="https://www.linkedin.com/in/mitchell-jindra/" target="_blank"><li>LinkedIn</li></a>
+                    <a href="https://mitchjindra413.github.io/Portfolio-Website/" target="_blank"><li>Portfolio</li></a>
+                    <a href="https://github.com/mitchjindra413/FullStack-Project" target="_blank"><li>Github</li></a>
                 </ul >
             )
         } else if (showMenu && user) {
@@ -60,6 +64,10 @@ export const NavButton = () => {
                 <li>
                     <button onClick={() => dispatch(logout())}>Log Out</button>
                 </li>
+                <hr style={{ color: '#ebebeb' }}></hr>
+                <a href="https://www.linkedin.com/in/mitchell-jindra/" target="_blank"><li>LinkedIn</li></a>
+                <a href="https://mitchjindra413.github.io/Portfolio-Website/" target="_blank"><li>Portfolio</li></a>
+                <a href="https://github.com/mitchjindra413/FullStack-Project" target="_blank"><li>Github</li></a>
             </ul>
             )
         }

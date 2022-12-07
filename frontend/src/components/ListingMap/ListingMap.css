@@ -4,7 +4,7 @@
 }
 
 .map-container {
-    height: 79vh;
+    height: calc(100vh - 165px);
     width: 100%;
 }
 
