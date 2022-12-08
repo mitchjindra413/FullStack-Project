@@ -105,3 +105,13 @@
     color: red;
     min-height: 40px;
 }
+
+.input-container {
+    height: fit-content;
+    border: 2px solid white;
+    border-radius: 20px;
+}
+
+.input-container input {
+    margin-top: 10px;
+}

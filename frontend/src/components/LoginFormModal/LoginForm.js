@@ -61,26 +61,29 @@ export const LoginForm = () => {
             </header>
                 <hr></hr>
             <h1 id="login-title">Welcome to Breezebnb</h1>
-            <div>
+            <div
+                className="input-container"
+                style={errors.length > 0 ? {border: '2px solid red'} : {}}
+            >
                 <input
                     type="email"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="Email"
+                    onFocus={() => setErrors([])}
                 />
-            </div>
-            <div>
                 <input
                     type="password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
                     placeholder="Password"
+                    onFocus={() => setErrors([])}
                 />
             </div>
             <ul className="error-list">
-                {errors.map(error => <li key={error}>{error}</li>)}
+                {errors.map(error => <li key={error} style={{color: 'red'}}>{error}</li>)}
             </ul>
             <div className='submit-div'>
                 <button type="submit">Log in</button>

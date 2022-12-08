@@ -65,12 +65,13 @@ export const SignupForm = () => {
             </div>
             <div>
                 <input 
-                placeholder="Birthdate" 
-                type="text" 
-                onFocus={(e) => (e.target.type = 'date')}
-                onBlur={(e) => (e.target.type = 'text')}
-                value={birthdate}
-                onChange={(e) => setBirthdate(e.target.value)}
+                    placeholder="Birthdate" 
+                    type="text" 
+                    onFocus={(e) => {(e.target.type = 'date'); setErrors([])}}
+                    onBlur={(e) => (e.target.type = 'text')}
+                    value={birthdate}
+                    onChange={(e) => setBirthdate(e.target.value)}
+                    style={errors.includes('Birthdate must be at least 18 years to sign-up') ? { border: '2px solid red' } : {}}
                 />
             </div>
             <div>
@@ -80,6 +81,8 @@ export const SignupForm = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     required
                     placeholder="Email"
+                    style={errors.includes('Email has already been taken') ? {border: '2px solid red'} : {}}
+                    onFocus={() => setErrors([])}
                 />
             </div>
             <div>
@@ -92,7 +95,7 @@ export const SignupForm = () => {
                 />
             </div>
             <ul className="error-list">
-                {errors.map(error => <li key={error}>{error}</li>)}
+                {errors.map(error => <li key={error} style={{color: 'red'}}>{error}</li>)}
             </ul>
             <div id='terms'>
                 <p >By selecting Agree and continue, I agree to Breezebnb's Terms of service and to checkout the creator's socials.</p>
