@@ -17,21 +17,20 @@ function App() {
     <>
       <Navigation />
       <Switch>
-        <Route path={'/listings/:listingId'}>
-          <ListingPage />
-        </Route>
-        
-        <Route path={'/profile'}>
-          {!user ? <Redirect to='/'></Redirect> : <ProfilePage></ProfilePage>}
-        </Route>
-        <Route path={'/trips'}>
-          {!user ? <Redirect to="/"></Redirect> : <TripsPage></TripsPage>}
-        </Route>
         <Route path={'/listings/:listingId/reviews/:reviewId/edit'}>
           {!user ? <Redirect to="/"></Redirect> : <UpdateReviewForm></UpdateReviewForm>}
         </Route>
         <Route exact path={'/listings/:listingId/reviews/new'}>
           {!user ? <Redirect to="/"></Redirect> : <ReviewForm></ReviewForm>}
+        </Route>
+        <Route path={'/listings/:listingId'}>
+          <ListingPage />
+        </Route>
+        <Route path={'/profile'}>
+          {!user ? <Redirect to='/'></Redirect> : <ProfilePage></ProfilePage>}
+        </Route>
+        <Route path={'/trips'}>
+          {!user ? <Redirect to="/"></Redirect> : <TripsPage></TripsPage>}
         </Route>
         <Route exact path={'/:about'}>
           <SearchView></SearchView>
