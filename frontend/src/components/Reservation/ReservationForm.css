@@ -60,7 +60,7 @@
     width: 300px;
 }
 
-.reserve:disabled {
+.disabled {
     background-image: radial-gradient(circle,
         rgba(184, 184, 184, 1) 0%,
         rgba(191, 191, 191, 1) 35%,

@@ -9,6 +9,7 @@ import { SuccessfulReservationModal } from "./ReservationModal"
 import moment from 'moment'
 import 'react-dates/lib/css/_datepicker.css'
 import './ReservationForm.css'
+import { showModal } from "../../store/ui"
 
 export const ReservationForm = () => {
     const dispatch = useDispatch()
@@ -124,7 +125,7 @@ export const ReservationForm = () => {
             <ul className="error-list">
                 {errors.map(error => <li key={error} style={{color: 'red'}}>{error}</li>)}
             </ul>
-            <button className='reserve'type="submit" disabled={userId === null}>Reserve</button>
+            {userId === null ? <button onClick={() => dispatch(showModal())} className='reserve disabled' type="button">Reserve</button> : <button  className='reserve' type="submit">Reserve</button>}
             <p className="no-charge">You wont be charged yet</p>
             <div className="general-info">
                 <p className="underline">${listing.nightPrice} x {startDate & endDate ? endDate.diff(startDate, 'days'): '1'} nights</p>
