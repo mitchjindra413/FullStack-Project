@@ -24,7 +24,7 @@ export const ReviewsItem = ({review}) => {
     return (
         <div className="ind-review">
             <header className="review-header">
-                <img className="profile-pic pic-bigger" src={ review.reviewerPic ? review.reviewerPic : 'https://a0.muscache.com/defaults/user_pic-50x50.png?v=3'}></img>
+                <img alt="profile" className="profile-pic pic-bigger" src={ review.reviewerPic ? review.reviewerPic : 'https://a0.muscache.com/defaults/user_pic-50x50.png?v=3'}></img>
                 <div>
                     <h4>{review.reviewerName}</h4>
                     <p>{joinedFormating(review.reviewerJoined)}</p>

@@ -40,12 +40,12 @@ export const NavButton = () => {
         if(showMenu && !user) {
             return (
                 <ul className = "profile-dropdown" >
-                    <li><button onClick={handleLoginButton}>Log in</button></li>
-                    <li><button onClick={handleSignupButton}>Sign up</button></li>
+                    <li onClick={handleLoginButton} style={{cursor: 'pointer'}}>Log in</li>
+                    <li onClick={handleSignupButton} style={{ cursor: 'pointer' }}>Sign up</li>
                     <hr style={{color: '#ebebeb'}}></hr>
-                    <a href="https://www.linkedin.com/in/mitchell-jindra/" target="_blank"><li>LinkedIn</li></a>
-                    <a href="https://mitchjindra413.github.io/Portfolio-Website/" target="_blank"><li>Portfolio</li></a>
-                    <a href="https://github.com/mitchjindra413/FullStack-Project" target="_blank"><li>Github</li></a>
+                    <a href="https://www.linkedin.com/in/mitchell-jindra/" target="_blank" rel="noreferrer"><li>LinkedIn</li></a>
+                    <a href="https://mitchjindra413.github.io/Portfolio-Website/" target="_blank" rel="noreferrer"><li>Portfolio</li></a>
+                    <a href="https://github.com/mitchjindra413/FullStack-Project" target="_blank" rel="noreferrer"><li>Github</li></a>
                 </ul >
             )
         } else if (showMenu && user) {
@@ -56,18 +56,14 @@ export const NavButton = () => {
                         <button>Profile</button>
                     </Link>
                 </li> */}
-                <li>
                     <Link to='/trips'>
-                        <button>Trips</button>
+                        <li>Trips</li>
                     </Link>
-                </li>
-                <li>
-                    <button onClick={() => dispatch(logout())}>Log Out</button>
-                </li>
+                    <li onClick={() => dispatch(logout())} style={{ cursor: 'pointer' }}>Log Out</li>
                 <hr style={{ color: '#ebebeb' }}></hr>
-                <a href="https://www.linkedin.com/in/mitchell-jindra/" target="_blank"><li>LinkedIn</li></a>
-                <a href="https://mitchjindra413.github.io/Portfolio-Website/" target="_blank"><li>Portfolio</li></a>
-                <a href="https://github.com/mitchjindra413/FullStack-Project" target="_blank"><li>Github</li></a>
+                    <a href="https://www.linkedin.com/in/mitchell-jindra/" target="_blank" rel="noreferrer"><li>LinkedIn</li></a>
+                    <a href="https://mitchjindra413.github.io/Portfolio-Website/" target="_blank" rel="noreferrer"><li>Portfolio</li></a>
+                    <a href="https://github.com/mitchjindra413/FullStack-Project" target="_blank" rel="noreferrer"><li>Github</li></a>
             </ul>
             )
         }

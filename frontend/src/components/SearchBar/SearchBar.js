@@ -1,7 +1,5 @@
 import usePlacesAutocomplete, {
-    getDetails,
-    getGeocode,
-    getLatLng,
+    getGeocode
 } from "use-places-autocomplete";
 import {
     Combobox,
@@ -33,10 +31,8 @@ export const SearchBar = () => {
         
         const results = await getGeocode({ address })
         let about = JSON.stringify(results)
-        const {lat, lng} = getLatLng(results[0])
         
         history.push(`/${about}`)
-    
     };
 
 

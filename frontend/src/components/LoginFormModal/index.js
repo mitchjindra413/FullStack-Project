@@ -1,7 +1,7 @@
 import { LoginForm } from "./LoginForm";
 import { Modal } from "../../context/Modal";
 import { hideModal } from "../../store/ui";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 export const LoginFormModal = () => {
     // const [showModal, toggleShowModal] = useState(false)

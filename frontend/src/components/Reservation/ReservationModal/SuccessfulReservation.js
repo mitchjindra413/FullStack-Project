@@ -2,7 +2,6 @@ import { useDispatch, useSelector } from "react-redux"
 import { useHistory, useParams } from "react-router-dom"
 import { hideModal } from "../../../store/ui"
 import './SuccessfulReservation.css'
-import { FutureInfo } from "../../TripsPage/FutureInfo"
 
 export const SuccessfulReservation = () => {
     const history = useHistory()

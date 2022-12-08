@@ -1,11 +1,9 @@
 import { useEffect } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import { useParams } from "react-router-dom"
-import { fetchListing, fetchListings } from "../../store/listings"
+import { fetchListing } from "../../store/listings"
 import { ReservationForm } from "../Reservation/ReservationForm"
-import { fetchListingsReservations } from "../../store/reservations"
 import './ListingPage.css'
-import { fetchListingReviews } from "../../store/reviews"
 import { ListingsReviews } from "../ListingsReviews"
 import ListingMapWrapper from "../ListingMap"
 
@@ -17,7 +15,7 @@ export const ListingPage = () => {
 
     useEffect(() => {
         dispatch(fetchListing(listingId))
-    }, [])
+    }, [listingId, dispatch])
 
     function detailsFormating() {
         let string = ''
@@ -45,19 +43,19 @@ export const ListingPage = () => {
             <div id="figure-container">
                 <figure>
                     <div className="image-grid-col-2 image-grid-row-2" id="photo-1" >
-                        <img src={listing.imgUrls[0]} />
+                        <img alt="1" src={listing.imgUrls[0]} />
                     </div>
                     <div>
-                        <img id="photo-2" src={listing.imgUrls[1]} />
+                        <img alt="2" id="photo-2" src={listing.imgUrls[1]} />
                     </div>
                     <div>
-                        <img id="photo-3" src={listing.imgUrls[2]} />
+                        <img alt="3" id="photo-3" src={listing.imgUrls[2]} />
                     </div>
                     <div>
-                        <img id="photo-4" src={listing.imgUrls[3]} />
+                        <img alt="4" id="photo-4" src={listing.imgUrls[3]} />
                     </div>
                     <div>
-                        <img id="photo-5" src={listing.imgUrls[4]} />
+                        <img alt="5" id="photo-5" src={listing.imgUrls[4]} />
                     </div>
                 </figure>
             </div>
@@ -69,7 +67,7 @@ export const ListingPage = () => {
                             <h3>{`${listing.propertyType} hosted by ${listing.firstName}`}</h3>
                             <p>{detailsFormating()} </p>
                         </div>
-                        <img className="profile-pic pic-bigger" src={listing.ownerPic}></img>
+                        <img alt="owner" className="profile-pic pic-bigger" src={listing.ownerPic}></img>
                     </div>
                     <div className="description">
                         <p>{listing.description}</p>

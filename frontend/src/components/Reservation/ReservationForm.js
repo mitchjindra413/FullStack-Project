@@ -51,14 +51,11 @@ export const ReservationForm = () => {
     }, [adults, children])
 
     const isBlocked = (day) => {
-        debugger
-        let blockedDates = []
-        reservations.forEach(reservation => {
-            if(reservation.listingId == listingId){
-                blockedDates = blockedDates.concat(reservation.invalidDates)
-            }
-        })
-        return blockedDates.some(date => day.isSame(date, 'day'))
+        let mock = moment().add(6, 'days').startOf('day')
+        if (day.isSame(mock)) {
+            return true;
+        }
+        return false;
     }
 
     const handleSubmit = async (e) => {
@@ -97,7 +94,7 @@ export const ReservationForm = () => {
                     <div className="picker">
 
                     <DateRangePicker
-                        isBlockedDay={isBlocked}
+                        // isBlockedDay={(day) => isBlocked(day)}
                         startDate={startDate} 
                         startDateId="start-date" 
                         startDatePlaceholderText="CHECK-IN"

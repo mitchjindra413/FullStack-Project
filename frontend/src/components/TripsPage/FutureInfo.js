@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom"
-import { useDispatch, useSelector } from "react-redux"
+import { useDispatch } from "react-redux"
 import { deleteReservation, updateReservation } from "../../store/reservations"
 import { useEffect, useState } from "react"
 
@@ -132,7 +132,7 @@ export const FutureInfo = ({reservation}) => {
                 </div>
                 <Link to={`/listings/${reservation.listingId}`}>
                     <div>
-                        <img className={"future-trips-right no-show"} src={reservation.imgUrls[0]}></img>
+                        <img alt="listing" className={"future-trips-right no-show"} src={reservation.imgUrls[0]}></img>
                     </div>
                 </Link>
             </div>

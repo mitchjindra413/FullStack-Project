@@ -93,7 +93,7 @@ export const LoginForm = () => {
         </form>
             <div id='other-buttons-div'>
                 <button onClick={handleDemo} className='other-buttons-login'><img src="https://a0.muscache.com/defaults/user_pic-50x50.png?v=3" alt=""></img>Log in with demo</button>
-                <a href="https://github.com/mitchjindra413" target="_blank"><button className='other-buttons-login'><img src="https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/GitHub-Mark-64px.png"></img>Creator's github</button></a>
+                <a href="https://github.com/mitchjindra413" target="_blank" rel="noreferrer"><button className='other-buttons-login'><img alt="github" src="https://breezebnb-seed.s3.us-west-1.amazonaws.com/assets/GitHub-Mark-64px.png"></img>Creator's github</button></a>
             </div>
         </div>
     )

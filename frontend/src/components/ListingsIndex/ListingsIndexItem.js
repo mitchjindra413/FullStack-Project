@@ -16,7 +16,7 @@ export const ListingsIndexItem = ({listing}) => {
         <Link to={`listings/${listing.id}`}>
             <div className="info-container" onClick={handleClick}>
                 <div >
-                    <img className="index-pics" src={listing.imgUrls[0]}></img>
+                    <img alt="" className="index-pics" src={listing.imgUrls[0]}></img>
                 </div>
                 <div>
                     <div className="index-details-top">

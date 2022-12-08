@@ -46,7 +46,6 @@ export const fetchTripsListings = (userId) => async dispatch => {
 
 export const listingsReducer = (state = {}, action) => {
     Object.freeze(state)
-    const newState = { ...state }
     
     switch(action.type){
         case RECEIVE_LISTINGS:

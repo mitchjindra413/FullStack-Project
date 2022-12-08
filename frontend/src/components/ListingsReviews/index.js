@@ -4,8 +4,6 @@ import { useParams } from "react-router-dom"
 import { ReviewsItem } from "./ReviewsItem"
 import { Link } from "react-router-dom"
 import './ListingsReviews.css'
-import { fetchListingReviews } from "../../store/reviews"
-import { useDispatch } from "react-redux"
 
 export const ListingsReviews = () => {
 
@@ -96,15 +94,15 @@ export const ListingsReviews = () => {
                 <div className="category">
                     <p>Location </p>
                     <div className="progress-div">
-                        <progress value={clean} max='5'></progress>
-                        <p>{valueFormating(clean)}</p>
+                        <progress value={loc} max='5'></progress>
+                        <p>{valueFormating(loc)}</p>
                     </div>
                 </div>
                 <div className="category">
                     <p>Check-in </p>
                     <div className="progress-div">
-                        <progress value={loc} max='5'></progress>
-                        <p>{valueFormating(loc)}</p>
+                        <progress value={check} max='5'></progress>
+                        <p>{valueFormating(check)}</p>
                     </div>
                 </div>
                 <div className="category">

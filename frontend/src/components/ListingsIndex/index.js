@@ -19,7 +19,7 @@ export const ListingsIndex = () => {
 
     useEffect(() => {
         dispatch(fetchListings())
-    }, [])
+    }, [dispatch])
     
     const switchView = () => {
         if(showMap === true) {
