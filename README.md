@@ -62,7 +62,7 @@ json.reviews do
     end
 end
 ```
-jBuilder is the tool I used to construct JSON responses on the backend that could be sent and stored within my frontend state. Although jBuilder is slower than some other JSON constructor gems, it was choosen due to its ease of maintenance, and as a solid introduction to JSON constructors.  
+jBuilder is the tool I used to construct JSON responses on the backend that could be sent and stored within my frontend state. Although jBuilder is slower than some other JSON constructor gems, it was chosen for its ease of maintenance and as a solid introduction to JSON constructors.  
 ### Redux Action
 ```
 export const fetchListings = (filters) => async dispatch => {
@@ -73,7 +73,7 @@ export const fetchListings = (filters) => async dispatch => {
     dispatch(receiveListings(data))
 }
 ```
-Because each page of my application is interdependent, a state variable was crucial. Redux was chosen to handle this task due to being update the state from a single location, and the optomization performances it provides such as only re-rendering objects when needed.
+Redux was chosen to handle the need for a state due to its ability to update the state from a single location and its optimization performances, such as only re-rendering objects when needed. Because the backend requires a validation token to protect against CSRF attacks, csrfFetch is a custom fetch function to get the X-CSRF-TOKEN from session storage and format a valid API request.
 ### Searchbar React Element
 ```
 return (
@@ -100,4 +100,4 @@ return (
         </div>
     )
  ```
-Utilizing a predictive place search that was flexible was a key priority for me at the start of the project. Through reserach, I found the npm package Combobox which extends Google's Place API.
+Utilizing a predictive place search that was flexible was a key priority for me at the start of the project. Through reserach, I found the npm package Combobox which extends Google's Place API. Combined with the Google Maps react wrapper, this package allowed me to seperate the search bar from the map.
