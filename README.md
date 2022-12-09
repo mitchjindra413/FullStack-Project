@@ -24,4 +24,80 @@ In breezebnb, users can:
 - jBuilder
 - AWS S3
 
-##
+## Features Demo
+### Search
+![Screen_Recording_2022-12-09_at_10_20_30_AM_AdobeExpress](https://user-images.githubusercontent.com/65314998/206772305-95c0c7ae-2398-4457-94a5-cb7601cb95ba.gif)
+
+### Reservations
+![Screen_Recording_2022-12-09_at_10_23_23_AM_AdobeExpress](https://user-images.githubusercontent.com/65314998/206770884-61f18788-3123-483f-a343-19d978b6be42.gif)
+
+### Reviews
+![Screen_Recording_2022-12-09_at_10_24_58_AM_AdobeExpress](https://user-images.githubusercontent.com/65314998/206770750-de4bb6f1-74b9-43b5-8557-c0f49aa14323.gif)
+
+### Responsive Design
+![Screen_Recording_2022-12-09_at_10_26_23_AM_AdobeExpress](https://user-images.githubusercontent.com/65314998/206769425-e6876d73-802e-49dc-ab93-8e3ee1b7e62c.gif)
+
+## Code Examples
+### jBuilder View
+```
+listing_reviews = @listing.reviews
+json.reviews do 
+    listing_reviews.each do |review|
+        json.set! review.id do 
+            json.extract! review,
+                :id,
+                :user_id,
+                :listing_id, 
+                :description,
+                :cleanliness, 
+                :accuracy, 
+                :location, 
+                :value, 
+                :communication, 
+                :check_in
+            json.reviewerPic review.user.photo.url
+            json.reviewerName review.user.first_name
+            json.reviewerJoined review.user.created_at
+        end
+    end
+end
+```
+jBuilder is the tool I used to construct JSON responses on the backend that could be sent and stored within my frontend state. Although jBuilder is slower than some other JSON constructor gems, it was choosen due to its ease of maintenance, and as a solid introduction to JSON constructors.  
+### Redux Action
+```
+export const fetchListings = (filters) => async dispatch => {
+    const filterParams = new URLSearchParams(filters)
+    const res = await csrfFetch(`/api/listings?${filterParams}`)
+
+    let data = await res.json()
+    dispatch(receiveListings(data))
+}
+```
+Because each page of my application is interdependent, a state variable was crucial. Redux was chosen to handle this task due to being update the state from a single location, and the optomization performances it provides such as only re-rendering objects when needed.
+### Searchbar React Element
+```
+return (
+        <div className="searchbar-container">
+            <Combobox onSelect={handleSelect}>
+                <ComboboxInput
+                    value={value}
+                    onChange={(e) => setValue(e.target.value)}
+                    disabled={!ready}
+                    className="combobox-input"
+                    placeholder="Search destinations"  
+                />
+                <ComboboxPopover
+                    className="combobox-popover"
+                >
+                    <ComboboxList>
+                        {status === "OK" &&
+                            data.map(({ place_id, description }) => (
+                                <ComboboxOption key={place_id} value={description} />
+                            ))}
+                    </ComboboxList>
+                </ComboboxPopover>
+            </Combobox>
+        </div>
+    )
+ ```
+Utilizing a predictive place search that was flexible was a key priority for me at the start of the project. Through reserach, I found the npm package Combobox which extends Google's Place API.
