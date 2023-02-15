@@ -11,7 +11,7 @@ export const SearchView = () => {
     const {about} = useParams()
     const parsed = JSON.parse(about)
     
-    const [highlightedListing, setHighlightedListing] = useState(null)
+    
     const [bounds, setBounds] = useState(`${parsed[0].geometry.bounds.south}, ${parsed[0].geometry.bounds.west}, ${parsed[0].geometry.bounds.north}, ${parsed[0].geometry.bounds.east}`)
     const history = useHistory()
     
@@ -36,8 +36,6 @@ export const SearchView = () => {
                     listings = {listings}
                     markerEventHandlers= {{
                         click: (listing) => history.push(`/listings/${listing.id}`),
-                        mouseover: (listing) => setHighlightedListing(listing.id),
-                        mouseout: () => setHighlightedListing(null)
                     }}
                     mapEventHandlers = {mapEventHandlers}
                 ></SearchViewMapWrapper>
