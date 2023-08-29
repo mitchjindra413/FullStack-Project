@@ -18,7 +18,6 @@ In breezebnb, users can:
 - React.js
 - React/Redux
 - Node.js
-- jQuery
 - Ruby on Rails
 - PostgreSQL
 - jBuilder
